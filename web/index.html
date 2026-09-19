@@ -111,9 +111,6 @@
     </label>
     <div class="actions">
       <button class="link" id="sample-btn">Or try the sample agreement</button>
-      <label class="sub" style="color: var(--muted); font-size: 14px; margin-left: 16px; cursor: pointer;">
-        <input type="checkbox" id="fresh"> Re-run without cache (live model calls; slow)
-      </label>
     </div>
   </section>
 
@@ -160,7 +157,10 @@
     <section class="panel">
       <div class="section-head">
         <h2>What it will cost you</h2>
-        <button class="link" id="toggle-all"></button>
+        <span>
+          <button class="link" id="rerun-btn" title="Ignore cached model responses and analyze this document again with live model calls">Re-run live</button>
+          <button class="link" id="toggle-all"></button>
+        </span>
       </div>
       <p class="sub" style="color: var(--muted); font-size: 14px; margin: 0 0 8px;">Ranked by dollar impact. Click a row to see the exact wording it came from.</p>
       <div id="clauses"></div>
@@ -199,9 +199,10 @@
     personal_guarantee: "Personal guarantee", insurance: "Insurance", venue: "Venue / arbitration",
     blanket_lien: "Blanket lien", payment_terms: "Payment terms", standard: "Standard",
   };
-  let currentPdfUrl = null;
+  let currentPdfUrl = null, currentFile = null;
 
   function usePdf(file) {
+    currentFile = file;
     if (currentPdfUrl) URL.revokeObjectURL(currentPdfUrl);
     currentPdfUrl = file ? URL.createObjectURL(file) : null;
   }
@@ -218,14 +219,14 @@
   function show(id, on) { $(id).classList.toggle("hidden", !on); }
   function fail(msg) { $("#error").textContent = msg; show("#error", true); show("#progress", false); }
 
-  async function analyze(file) {
+  async function analyze(file, { fresh = false } = {}) {
     usePdf(file);
     show("#results", false); show("#error", false); show("#progress", true);
     $("#fname").textContent = file.name;
     document.querySelectorAll("#progress li").forEach(li => { li.className = ""; $(".t", li).textContent = ""; });
 
     const body = new FormData(); body.append("file", file);
-    if ($("#fresh").checked) body.append("fresh", "true");
+    if (fresh) body.append("fresh", "true");   // server skips cache reads, still writes
     let res;
     try { res = await fetch(API + "/analyze/stream", { method: "POST", body }); }
     catch (e) { return fail(`Could not reach the API at ${API || location.origin}. Is uvicorn running?`); }
@@ -312,6 +313,9 @@
     // clauses
     renderClauses();
     $("#toggle-all").onclick = () => { showAll = !showAll; renderClauses(); };
+    const rerun = $("#rerun-btn");
+    rerun.style.display = currentFile ? "" : "none";
+    rerun.onclick = () => { if (currentFile) analyze(currentFile, { fresh: true }); };
 
     // questions
     const q = $("#questions ol"); q.innerHTML = a.questions_to_ask.map(x => `<li>${esc(x)}</li>`).join("");

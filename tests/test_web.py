@@ -118,6 +118,8 @@ def test_default_clause_list_flags_only_high_and_medium(script):
     assert 'c.risk !== "standard"' not in script
 
 
-def test_fresh_checkbox_sends_the_fresh_field(html, script):
-    assert 'id="fresh"' in html
+def test_rerun_button_resends_current_file_with_fresh_field(html, script):
+    assert 'id="rerun-btn"' in html
+    assert 'analyze(currentFile, { fresh: true })' in script
     assert 'body.append("fresh", "true")' in script
+    assert 'rerun.style.display = currentFile ? "" : "none"' in script  # no File behind the embedded sample
