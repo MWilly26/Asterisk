@@ -112,3 +112,27 @@ def test_index_serves_frontend_or_404(client, tmp_path, monkeypatch):
     (tmp_path / "index.html").write_text("<html><body>Clause</body></html>")
     r = client.get("/")
     assert r.status_code == 200 and "Clause" in r.text
+
+
+def test_fresh_form_field_selects_a_cache_bypassing_client(tmp_path, monkeypatch):
+    """`fresh=true` builds a second client with cache_read=False and keeps it on app.state;
+    the default path keeps using the normal cached client."""
+    import api.main as m
+    built = []
+
+    def fake_get_client(**kw):
+        c = ScriptedClient(log_path=tmp_path / "l.jsonl", **kw)
+        built.append(c)
+        return c
+
+    monkeypatch.setattr(m, "get_client", fake_get_client)
+    app.dependency_overrides.clear()
+    with TestClient(app) as tc:
+        for k in ("client", "fresh_client"):
+            if hasattr(app.state, k):
+                delattr(app.state, k)
+        assert tc.post("/analyze", files=upload()).status_code == 200
+        assert tc.post("/analyze", files=upload(), data={"fresh": "true"}).status_code == 200
+        assert tc.post("/analyze", files=upload(), data={"fresh": "true"}).status_code == 200
+        assert tc.post("/analyze", files=upload()).status_code == 200
+    assert [c.cache_read for c in built] == [True, False]   # one client each, reused

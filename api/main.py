@@ -24,7 +24,7 @@ import threading
 from pathlib import Path
 
 import anyio
-from fastapi import Depends, FastAPI, HTTPException, Request, UploadFile
+from fastapi import Depends, FastAPI, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from starlette.concurrency import run_in_threadpool
 
@@ -46,12 +46,16 @@ app = FastAPI(title="Clause", version="0.1.0")
 # ---------------------------------------------------------------------------
 
 
-def model_client(request: Request) -> ModelClient:
+def model_client(request: Request, fresh: bool = Form(False)) -> ModelClient:
     """One client per process, created on first use so importing the app needs no API key.
+    `fresh=true` in the form selects a second client that skips cache reads (but still
+    writes), so the document is re-analyzed live and the new result replaces the cached one.
     Tests override this dependency with a MockClient."""
-    client = getattr(request.app.state, "client", None)
+    attr = "fresh_client" if fresh else "client"
+    client = getattr(request.app.state, attr, None)
     if client is None:
-        client = request.app.state.client = get_client()
+        client = get_client(cache_read=not fresh)
+        setattr(request.app.state, attr, client)
     return client
 
 

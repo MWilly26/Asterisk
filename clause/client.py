@@ -52,10 +52,14 @@ class ModelClient:
     provider: str = "base"
 
     def __init__(self, *, cache_dir: Path | None = None, log_path: Path | None = None,
-                 use_cache: bool = True, sleep: Callable[[float], None] = time.sleep):
+                 use_cache: bool = True, cache_read: bool = True,
+                 sleep: Callable[[float], None] = time.sleep):
         self.cache_dir = Path(cache_dir) if cache_dir else config.CACHE_DIR
         self.log_path = Path(log_path) if log_path else config.CALL_LOG
         self.use_cache = use_cache
+        # cache_read=False forces a fresh provider call but still writes the result,
+        # so a "re-run without cache" replaces the cached response instead of ignoring it.
+        self.cache_read = cache_read
         self._sleep = sleep
 
     # ---- public API ---------------------------------------------------------
@@ -106,7 +110,7 @@ class ModelClient:
                      *, stage: str | None = None) -> str:
         key = self.request_key(request)
         cache_file = self.cache_dir / f"{key}.json"
-        if self.use_cache and cache_file.exists():
+        if self.use_cache and self.cache_read and cache_file.exists():
             text = json.loads(cache_file.read_text())["response"]
             self._log(request, latency=0.0, in_tok=None, out_tok=None, cached=True, attempts=0, stage=stage)
             return text

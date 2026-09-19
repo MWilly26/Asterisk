@@ -116,3 +116,8 @@ def test_default_clause_list_flags_only_high_and_medium(script):
     `!= standard`, or a clean document opens with dozens of "flagged" rows."""
     assert 'c.risk === "high" || c.risk === "medium"' in script
     assert 'c.risk !== "standard"' not in script
+
+
+def test_fresh_checkbox_sends_the_fresh_field(html, script):
+    assert 'id="fresh"' in html
+    assert 'body.append("fresh", "true")' in script

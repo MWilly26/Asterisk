@@ -228,3 +228,14 @@ def test_nvidia_transport_errors_and_503_are_retryable():
 
     with pytest.raises(httpx.HTTPStatusError):  # not retried
         NvidiaClient._post(Http400(), {})
+
+
+def test_cache_read_false_bypasses_hits_but_still_writes(tmp_path):
+    c = MockClient(responses=["old", "new", "unused"], cache_dir=tmp_path / "cache",
+                   log_path=tmp_path / "l.jsonl", use_cache=True)
+    assert c.complete(model="m", messages=MSG) == "old"
+    c.cache_read = False                       # "re-run without cache"
+    assert c.complete(model="m", messages=MSG) == "new"
+    c.cache_read = True
+    assert c.complete(model="m", messages=MSG) == "new"   # the refreshed answer replaced the cached one
+    assert [r["cached"] for r in _log_rows(c)] == [False, False, True]

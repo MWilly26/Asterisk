@@ -33,7 +33,7 @@ If step 1 fails, do **not** re-run online at the venue hoping it warms up — th
 hosted endpoint returns `503 ResourceExhausted` under load and a document takes
 3–4 minutes when it works. Use fallback A below.
 
-Do not delete `.cache/`. Do not change `CLASSIFY_*`/`NVIDIA_*` settings in
+Leave the "Re-run without cache" box unchecked on stage — it forces live calls. Do not delete `.cache/`. Do not change `CLASSIFY_*`/`NVIDIA_*` settings in
 `clause/config.py` or `.env` before the demo — the cache key includes the model,
 batch composition, `max_tokens`, and `enable_thinking`, so any change is a cache
 miss.
