@@ -44,6 +44,20 @@ def test_cache_key_differs_by_provider_and_model():
     assert len({k1, k2, k3}) == 3
 
 
+def test_provider_options_participate_in_cache_key(tmp_path):
+    class OptionsClient(MockClient):
+        def complete_options(self, model):
+            return {"thinking": False}
+
+    c = OptionsClient(responses=["first"], cache_dir=tmp_path / "cache",
+                      log_path=tmp_path / "calls.jsonl", use_cache=True)
+    assert c.complete(model="m", messages=MSG) == "first"
+    request = c.calls[0]
+    assert request["provider_options"] == {"thinking": False}
+    assert c.complete(model="m", messages=MSG) == "first"
+    assert [r["cached"] for r in _log_rows(c)] == [False, True]
+
+
 def test_cache_disabled_always_calls(client):
     client.use_cache = False
     client.responses = ["a", "b"]
@@ -73,6 +87,22 @@ def test_backoff_is_exponential(tmp_path):
     c.complete(model="m", messages=MSG)
     assert len(delays) == 2
     assert 1.0 <= delays[0] < 1.3 and 2.0 <= delays[1] < 2.3
+
+
+def test_retryable_error_can_request_longer_backoff(tmp_path):
+    delays = []
+    c = MockClient(cache_dir=tmp_path, log_path=tmp_path / "l.jsonl", sleep=delays.append)
+    calls = 0
+
+    def fn():
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            raise RetryableError("busy", retry_after_s=10.0)
+        return "ok", 1, 1
+
+    assert c._with_retry(fn)[:3] == ("ok", 1, 1)
+    assert delays == [10.0]
 
 
 def test_log_row_shape(client):

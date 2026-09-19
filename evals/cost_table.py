@@ -15,7 +15,7 @@ Writes evals/results/cost_latency.json and evals/results/cost_latency.md.
 
 CLI:
     python evals/cost_table.py
-    python evals/cost_table.py --since 2026-09-19T13:00 --eval nvidia/nemotron-3-nano-30b-a3b=evals/results/eval_nano.json
+    python evals/cost_table.py --since 2026-09-19T13:00 --eval nvidia/nemotron-3-nano-omni-30b-a3b-reasoning=evals/results/eval_nano.json
 """
 
 from __future__ import annotations

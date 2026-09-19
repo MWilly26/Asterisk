@@ -4,7 +4,7 @@ Clause turns a digital equipment-financing agreement into a plain-language verdi
 
 It is built for a contractor deciding whether the advertised terms on a mower, van, camera kit, or other work equipment match the agreement they are being asked to sign. There is no chat interface. The model locates and explains terms; deterministic Python performs every calculation shown to the user.
 
-> **Hackathon status:** the full development benchmark uses Claude Opus 5 downstream. The NVIDIA/Nemotron integration is implemented behind `CLAUSE_PROVIDER=nvidia`, but a live Nano/Parse run is still blocked on an NVIDIA API key. Results below do not imply an unrun Nemotron score.
+> **Hackathon status:** the full development benchmark uses Claude Opus 5 downstream. The NVIDIA/Nemotron path (`CLAUSE_PROVIDER=nvidia`) is verified live against `nemotron-parse` and `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`, but the Nano corpus run is **partial: 3 of 23 documents**. It was stopped at the user's request because NVIDIA API usage is limited and the hosted endpoint rejected concurrent requests. The partial figures below are labelled as such and are not a corpus benchmark.
 
 ## What it does
 
@@ -31,6 +31,8 @@ flowchart LR
 ```
 
 The production provider path uses `nemotron-parse` for structured ingestion and Nemotron 3 Nano for classification and typed extraction. The development path substitutes Claude document input and Claude Opus 5 behind the same `ModelClient` interface.
+
+The Nano model ID originally planned, `nvidia/nemotron-3-nano-30b-a3b`, now returns HTTP 410 from the hosted endpoint and is absent from the authenticated `/v1/models` listing; its catalog page marks the free endpoint deprecated. The configured successor is `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning` (still Nemotron 3 Nano, 30B total / 3B active, multimodal reasoning variant), called with `chat_template_kwargs.enable_thinking=false` so it returns the JSON answer only.
 
 The boundary is deliberate:
 
@@ -85,7 +87,28 @@ The recorded Opus snapshot covers 46 document-runs across both parser columns:
 | Classification + extraction cost per document | **$0.3442** |
 | VLM parse cost per document | $0.3196 |
 
-Costs use the configured $5/$25 per million input/output token rates and exclude cache hits. The saved table is [`cost_latency.md`](evals/results/cost_latency.md), with raw aggregates in [`cost_latency.json`](evals/results/cost_latency.json). There is no Nano column yet; no cost ratio is claimed.
+Costs use the configured $5/$25 per million input/output token rates and exclude cache hits. The saved table is [`cost_latency.md`](evals/results/cost_latency.md), with raw aggregates in [`cost_latency.json`](evals/results/cost_latency.json). There is no Nano column and **no cost ratio is claimed**: NVIDIA publishes prototyping access and per-GPU production NIM licensing, not a hosted per-token price for this endpoint, so the Nano price in `config.PRICING` stays `None`. The Nano call log also mixes exploratory probes, repeated smoke runs, and several batch/token configurations, so it is not regenerated into a per-document cost.
+
+### Nemotron Nano: partial result (3 of 23 documents)
+
+Source of truth: [`eval_nano_partial.md`](evals/results/eval_nano_partial.md) / [`eval_nano_partial.json`](evals/results/eval_nano_partial.json), re-scored offline from the three saved analyses in `evals/results/analyses/nano/`. The other 20 documents are listed there as *not run*; nothing is inferred for them.
+
+| Measure | Nano, 3/23 docs (eq_001–eq_003) |
+|---|---:|
+| Planted-trap recall | 8/8 across 8 trap types |
+| Clean-document false positives | not measured (no clean doc in the sample) |
+| Core fields exact | 100% (15/15 present fields) |
+| Fee recall / precision | 7/8 / 7/8 |
+| Total cost and effective APR | 2/3 exact, **1/3 wrong** |
+| Clauses left unclassified | 25 of 240 (eq_001: 1, eq_002: 8, eq_003: 16) |
+
+What this does and does not show:
+
+- The pipeline works end to end on the hosted successor model with `nemotron-parse` ingestion, and every planted trap in the sample was surfaced with the right category. Three documents are far too few to compare with the Opus 58/58, and this is **not** a corpus benchmark.
+- **Negative result, eq_002:** Nano labelled the $150 documentation fee as an `origination` fee with value `0.15`. The validator correctly dropped it to confidence 0.3 and the analysis carries a warning, but `compute.py` still used the mistyped fee, so the total cost is $149.85 low and the effective APR is 12.00% instead of 12.79%. The arithmetic is honest; the input was wrong. Nothing was tuned to hide this.
+- 25 clauses ended with no category or risk (`risk: null` in the saved analyses). The classifier degrades per clause (PLAN T09) when a batch's JSON omits that clause's id or is unusable after one retry; no planted trap fell in those clauses, but a trap that did would have been missed.
+- Throughput was poor. The hosted endpoint returned `503 ResourceExhausted` for four-wide, then two-wide, then even sequential eight-clause batches, so the NVIDIA path runs sequentially with 16-clause batches and a 30 s minimum retry after that error. The only uncached wall time in the saved analyses is eq_003 at 277.5 s (classify 262.5 s), most of it capacity back-off; eq_001 and eq_002 were re-saved from cache, so their timings are not measurements. Nano is not claimed to be faster or cheaper here.
+- Configuration caveat: eq_001 and eq_002 were classified with the earlier, smaller batch grouping; eq_003 with the final 16-clause sequential setting. All three use the same model with reasoning disabled.
 
 ### Adversarial documents
 
@@ -108,7 +131,7 @@ Edit `.env` for one provider:
 CLAUSE_PROVIDER=anthropic
 ANTHROPIC_API_KEY=your-key
 
-# Or the implemented NVIDIA path (still needs live verification)
+# Or the NVIDIA path (verified live; hosted capacity is tight — see Results)
 # CLAUSE_PROVIDER=nvidia
 # NVIDIA_API_KEY=your-key
 ```
@@ -182,8 +205,9 @@ The FastAPI service has no authentication and is intended for a local hackathon 
 ## Known limitations
 
 - Digital PDFs only; scanned or photographed documents are out of scope.
-- The NVIDIA model IDs and request format were implemented from NIM documentation but have not been verified with a live NVIDIA key.
-- The Nano recall, latency, and cost column is blocked, so the project makes no Nano-vs-frontier efficiency claim yet.
+- The Nano evaluation covers 3 of 23 documents. The full corpus was stopped because NVIDIA API usage is limited and the hosted endpoint rejects concurrent requests; the project makes no Nano-vs-frontier recall or efficiency claim.
+- Hosted Nano/Parse per-token pricing is unavailable, so there is no Nano cost column and no cost ratio.
+- In the Nano sample, one document's total cost and APR are wrong because a documentation fee was mistyped as an origination fee (flagged low-confidence, but still computed), and 25 of 240 clauses were left unclassified.
 - Two biweekly documents omit a literal month term; totals are withheld instead of deriving months from payment count.
 - The Opus benchmark has one high and ten medium false positives on clean documents.
 - The adversarial comparison is incomplete at 4/5 attack documents because provider credit expired.

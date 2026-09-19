@@ -22,7 +22,7 @@ CHANGE BEFORE STARTING WORK. This is how parallel agents avoid collisions.
 | T15 | Confidence UI          | DONE        | codex       | <0.5 values marked Verify; missing values/total never default to zero |
 | T16 | Eval harness           | DONE        | claude-code | VLM run: recall 58/58, clean FP 1 high; results + per-doc analyses in evals/results/ |
 | T17 | Parse comparison       | DONE        | claude-code | negative result with Opus: pdfplumber 58/58 too; VLM keeps 5 spans pdfplumber loses (2-col docs) |
-| T18 | Cost/latency table     | IN_PROGRESS | codex       | NVIDIA key now available; live model/endpoint verification and Nano evaluation underway |
+| T18 | Cost/latency table     | BLOCKED     | codex       | Live integration verified and 3/23 documents saved; full corpus stopped at user request because NVIDIA API usage is limited. Partial: eval_nano_partial.* (8/8 traps, 1/3 totals wrong); no Nano cost column |
 | T19 | Adversarial docs       | BLOCKED     | codex       | 5 pairs generated; control 10/10, attack 8/8 on 4/5; adv_005 blocked by exhausted Anthropic credit |
 | T20 | README                 | DONE        | codex       | run/setup, architecture, evidence links, honest negative/blocked results; example keys blanked |
 | T21 | Demo script            | TODO        |             |       |

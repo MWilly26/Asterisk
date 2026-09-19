@@ -17,7 +17,7 @@ ANTHROPIC_MODEL = "claude-opus-5"
 # --- NVIDIA ------------------------------------------------------------------
 # Verify against build.nvidia.com before the final swap (PLAN §3.3).
 NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
-NVIDIA_NANO_MODEL = "nvidia/nemotron-3-nano-30b-a3b"
+NVIDIA_NANO_MODEL = "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
 NVIDIA_PARSE_MODEL = "nvidia/nemotron-parse"
 
 
@@ -43,7 +43,10 @@ CALL_LOG = REPO_ROOT / "runs" / "calls.jsonl"
 
 # --- Pipeline thresholds -----------------------------------------------------
 CLASSIFY_BATCH_SIZE = 8
+CLASSIFY_MAX_TOKENS = 1536 # observed Nano batches use <=584; lower reservation avoids hosted worker exhaustion
 CLASSIFY_WORKERS = 4        # concurrent classify batches in the pipeline (retry absorbs 429s)
+NVIDIA_CLASSIFY_BATCH_SIZE = 16 # fewer hosted requests; output remains within CLASSIFY_MAX_TOKENS
+NVIDIA_CLASSIFY_WORKERS = 1 # hosted reasoning NIM rejects concurrent batches with ResourceExhausted
 LOW_CONFIDENCE = 0.5        # below this the UI shows "verify this"
 UNVERIFIED_CONFIDENCE = 0.3 # extracted value not found in source text
 

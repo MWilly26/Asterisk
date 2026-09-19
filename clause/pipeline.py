@@ -73,6 +73,14 @@ def classify_parallel(clauses: list[Clause], client: ModelClient, *,
     return [c for batch in results for c in batch]
 
 
+def _classification_workers(client: ModelClient) -> int:
+    return config.NVIDIA_CLASSIFY_WORKERS if client.provider == "nvidia" else config.CLASSIFY_WORKERS
+
+
+def _classification_batch_size(client: ModelClient) -> int:
+    return config.NVIDIA_CLASSIFY_BATCH_SIZE if client.provider == "nvidia" else config.CLASSIFY_BATCH_SIZE
+
+
 def analyze(path: Path, client: ModelClient | None = None, *,
             parser: Parser | None = None, progress: ProgressFn | None = None) -> Analysis:
     """PDF -> Analysis. `parser` defaults to the VLM parse; pass
@@ -86,7 +94,9 @@ def analyze(path: Path, client: ModelClient | None = None, *,
 
     blocks = t.run("parse", lambda: parser(path, client))
     clauses = t.run("segment", lambda: segment(blocks))
-    classified = t.run("classify", lambda: classify_parallel(clauses, client))
+    classified = t.run("classify", lambda: classify_parallel(
+        clauses, client, workers=_classification_workers(client),
+        batch_size=_classification_batch_size(client)))
     terms = t.run("extract", lambda: extract_terms(blocks, client))
     analysis: Analysis = t.run("compute", lambda: compute(terms, classified))
 

@@ -280,3 +280,31 @@ def test_cli_end_to_end_then_rescore(mini_corpus, tmp_path, monkeypatch, capsys)
     assert res2["meta"]["rescored"] and res2["docs"][0]["traps"] == res["docs"][0]["traps"]
     md = (out_dir / "eval_t.md").read_text()
     assert "| `T_BALLOON` | 1 | 1 | 100%" in md
+
+
+def test_rescore_partial_corpus_under_distinct_name(mini_corpus, tmp_path, monkeypatch):
+    """A partial run can be re-scored under its own name (--analyses-dir) and the
+    unsaved documents are reported as "not run" without any machine-specific path."""
+    monkeypatch.setattr(ev, "REPO", tmp_path)
+    client = FlaggingClient(log_path=tmp_path / "l.jsonl")
+    monkeypatch.setattr(ev, "get_client", lambda **kw: client)
+    out_dir = tmp_path / "results"
+    assert ev.main(["--golden", str(mini_corpus), "--out-dir", str(out_dir), "--name", "t"]) == 0
+    n_calls = len(client.calls)
+
+    # a second golden doc that was never analyzed
+    golden = json.loads(mini_corpus.read_text())
+    golden.append({**golden[0], "doc_id": "eq_t02"})
+    bigger = tmp_path / "golden2.json"
+    bigger.write_text(json.dumps(golden))
+
+    assert ev.main(["--golden", str(bigger), "--out-dir", str(out_dir), "--name", "t_partial",
+                    "--analyses-dir", str(out_dir / "analyses" / "t"), "--rescore"]) == 0
+    assert len(client.calls) == n_calls
+    res = json.loads((out_dir / "eval_t_partial.json").read_text())
+    agg = res["aggregate"]
+    assert agg["n_docs"] == 2 and agg["n_scored"] == 1 and agg["errors"] == ["eq_t02"]
+    err = res["docs"][1]["error"]
+    assert "not run" in err and str(tmp_path) not in err
+    md = (out_dir / "eval_t_partial.md").read_text()
+    assert "1/2 documents scored" in md and "**Errors:** eq_t02" in md

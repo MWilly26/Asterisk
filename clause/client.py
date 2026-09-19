@@ -26,6 +26,10 @@ from clause.types import TextBlock
 class RetryableError(Exception):
     """Raised by a backend for 429 / 5xx so the shared retry loop can catch it."""
 
+    def __init__(self, message: str, *, retry_after_s: float | None = None):
+        super().__init__(message)
+        self.retry_after_s = retry_after_s
+
 
 @dataclass
 class CallRecord:
@@ -62,8 +66,15 @@ class ModelClient:
         """`stage` only labels the call-log row; it is not part of the cache key."""
         request = {"kind": "complete", "provider": self.provider, "model": model,
                    "messages": messages, "json_schema": json_schema, "max_tokens": max_tokens}
+        options = self.complete_options(model)
+        if options:
+            request["provider_options"] = options
         return self._cached_call(request, lambda: self._complete_raw(
             model=model, messages=messages, json_schema=json_schema, max_tokens=max_tokens), stage=stage)
+
+    def complete_options(self, model: str) -> dict:
+        """Provider request options that must also participate in the cache key."""
+        return {}
 
     def parse_document(self, path: Path) -> list[TextBlock]:
         path = Path(path)
@@ -120,6 +131,8 @@ class ModelClient:
                 last = e
                 if attempt < config.MAX_ATTEMPTS:
                     delay = config.BACKOFF_BASE_S * (2 ** (attempt - 1)) + random.uniform(0, 0.25)
+                    if e.retry_after_s is not None:
+                        delay = max(delay, e.retry_after_s)
                     self._sleep(delay)
         assert last is not None
         raise last
@@ -246,14 +259,21 @@ class NvidiaClient(ModelClient):
     def parse_model(self) -> str:
         return config.NVIDIA_PARSE_MODEL
 
+    def complete_options(self, model: str) -> dict:
+        if model == config.NVIDIA_NANO_MODEL:
+            return {"chat_template_kwargs": {"enable_thinking": False}}
+        return {}
+
     def _complete_raw(self, *, model, messages, json_schema, max_tokens):
         body: dict[str, Any] = {"model": model, "messages": messages, "max_tokens": max_tokens}
+        body.update(self.complete_options(model))
         if json_schema is not None:
             body["response_format"] = {"type": "json_schema",
                                        "json_schema": {"name": "out", "schema": json_schema}}
         r = self._http.post("/chat/completions", json=body)
         if r.status_code == 429 or r.status_code >= 500:
-            raise RetryableError(f"{r.status_code}: {r.text[:200]}")
+            delay = 30.0 if r.status_code == 503 and "ResourceExhausted" in r.text else None
+            raise RetryableError(f"{r.status_code}: {r.text[:200]}", retry_after_s=delay)
         r.raise_for_status()
         d = r.json()
         usage = d.get("usage") or {}
@@ -282,7 +302,8 @@ class NvidiaClient(ModelClient):
             def call(body=body):
                 r = self._http.post("/chat/completions", json=body)
                 if r.status_code == 429 or r.status_code >= 500:
-                    raise RetryableError(f"{r.status_code}: {r.text[:200]}")
+                    delay = 30.0 if r.status_code == 503 and "ResourceExhausted" in r.text else None
+                    raise RetryableError(f"{r.status_code}: {r.text[:200]}", retry_after_s=delay)
                 r.raise_for_status()
                 d = r.json()
                 msg = d["choices"][0]["message"]

@@ -12,6 +12,8 @@ CLI:
     python evals/run_eval.py --baseline            # pdfplumber parser (§6.3 second column)
     python evals/run_eval.py --docs eq_007,eq_015  # subset
     python evals/run_eval.py --rescore             # score saved analyses, no model calls
+    python evals/run_eval.py --rescore --name nano_partial --analyses-dir evals/results/analyses/nano
+                                                   # partial corpus: unsaved docs are reported as "not run"
 
 Scoring rules (see DECISIONS.md, T16):
   * A trap is CAUGHT when the clause containing its golden span is flagged
@@ -465,7 +467,10 @@ def load_analyses(golden: list[dict], analyses_dir: Path) -> dict[str, Analysis 
     out: dict[str, Analysis | Exception] = {}
     for g in golden:
         p = analyses_dir / f"{g['doc_id']}.json"
-        out[g["doc_id"]] = Analysis.from_json(p.read_text()) if p.exists() else FileNotFoundError(str(p))
+        if p.exists():
+            out[g["doc_id"]] = Analysis.from_json(p.read_text())
+        else:  # no path in the message: results files are committed and must not carry a machine path
+            out[g["doc_id"]] = FileNotFoundError("not run: no saved analysis")
     return out
 
 
@@ -496,12 +501,15 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--golden", type=Path, default=GOLDEN_PATH)
     ap.add_argument("--out-dir", type=Path, default=RESULTS_DIR)
     ap.add_argument("--name", help="results file suffix (default: vlm | baseline)")
+    ap.add_argument("--analyses-dir", type=Path,
+                    help="where per-doc Analysis JSON is saved/read (default: <out-dir>/analyses/<name>); "
+                         "lets a partial rescore be written under a distinct name")
     ap.add_argument("--no-cache", action="store_true")
     args = ap.parse_args(argv)
 
     name = args.name or ("baseline" if args.baseline else "vlm")
     golden = load_golden(args.golden, args.docs.split(",") if args.docs else None)
-    analyses_dir = args.out_dir / "analyses" / name
+    analyses_dir = args.analyses_dir or args.out_dir / "analyses" / name
     meta = {
         "parser": "pdfplumber" if args.baseline else "vlm",
         "provider": config.PROVIDER, "model": config.default_model(),

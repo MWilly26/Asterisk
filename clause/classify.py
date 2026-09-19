@@ -95,7 +95,8 @@ def classify(clauses: list[Clause], client: ModelClient, *, model: str | None = 
                     {"role": "user", "content": _batch_message(batch)}]
         results = None
         for attempt in (1, 2):
-            raw = client.complete(model=model, messages=messages, json_schema=SCHEMA, max_tokens=4096, stage="classify")
+            raw = client.complete(model=model, messages=messages, json_schema=SCHEMA,
+                                  max_tokens=config.CLASSIFY_MAX_TOKENS, stage="classify")
             results = _parse(raw, batch)
             if results is not None:
                 break

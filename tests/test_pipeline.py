@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from clause import pipeline
+from clause import config, pipeline
 from clause.client import MockClient
 from clause.pipeline import STAGES, analyze, main
 from clause.types import Analysis, TextBlock
@@ -166,3 +166,12 @@ def test_classify_parallel_single_worker_matches(client):
     from clause.types import Clause, SourceSpan
     cl = [Clause(id=f"c{i:03d}", text=f"Clause {i}.", span=SourceSpan(page=1, text=f"Clause {i}.")) for i in range(1, 11)]
     assert classify_parallel(cl, client, workers=1) == classify_parallel(cl, client, workers=4)
+
+
+def test_nvidia_uses_provider_specific_worker_limit(client):
+    client.provider = "nvidia"
+    assert pipeline._classification_workers(client) == config.NVIDIA_CLASSIFY_WORKERS
+    assert pipeline._classification_batch_size(client) == config.NVIDIA_CLASSIFY_BATCH_SIZE
+    client.provider = "mock"
+    assert pipeline._classification_workers(client) == config.CLASSIFY_WORKERS
+    assert pipeline._classification_batch_size(client) == config.CLASSIFY_BATCH_SIZE
