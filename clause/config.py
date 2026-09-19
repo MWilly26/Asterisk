@@ -16,8 +16,16 @@ ANTHROPIC_MODEL = "claude-opus-5"
 
 # --- NVIDIA ------------------------------------------------------------------
 # Verify against build.nvidia.com before the final swap (PLAN §3.3).
-NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
-NVIDIA_NANO_MODEL = "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
+NVIDIA_HOSTED_URL = "https://integrate.api.nvidia.com/v1"
+# Nano (classify/extract) endpoint. Point NVIDIA_BASE_URL at a self-hosted NIM
+# (e.g. a Brev GPU) to escape the hosted endpoint's shared worker limit.
+NVIDIA_BASE_URL = os.environ.get("NVIDIA_BASE_URL") or NVIDIA_HOSTED_URL
+# nemotron-parse endpoint. Defaults to the hosted catalog, NOT to NVIDIA_BASE_URL:
+# a self-hosted box usually serves only Nano, and parse is cached per document.
+NVIDIA_PARSE_BASE_URL = os.environ.get("NVIDIA_PARSE_BASE_URL") or NVIDIA_HOSTED_URL
+# A self-hosted NIM may register the model under a different name; the model ID
+# is part of the cache key, so an override also isolates its cached responses.
+NVIDIA_NANO_MODEL = os.environ.get("NVIDIA_NANO_MODEL") or "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
 NVIDIA_PARSE_MODEL = "nvidia/nemotron-parse"
 
 

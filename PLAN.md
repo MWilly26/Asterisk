@@ -265,7 +265,7 @@ class MockClient(ModelClient):
 
 Implementation notes:
 
-- NVIDIA's hosted endpoint is OpenAI-compatible. Base URL is `https://integrate.api.nvidia.com/v1`, auth via `NVIDIA_API_KEY` in the environment.
+- NVIDIA's hosted endpoint is OpenAI-compatible. Base URL is `https://integrate.api.nvidia.com/v1`, auth via `NVIDIA_API_KEY` in the environment. `NVIDIA_BASE_URL` (Nano) and `NVIDIA_PARSE_BASE_URL` (parse) may be overridden in the environment to route either model to a self-hosted NIM; blank means the hosted default.
 - **Verify the exact model IDs against build.nvidia.com before hardcoding them.** The live NVIDIA catalog currently exposes the Nemotron 3 Nano successor `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning` and `nvidia/nemotron-parse`. Put the IDs in `clause/config.py` as constants, never inline, so a single edit fixes a rename.
 - Retry with exponential backoff on 429/5xx, three attempts, then raise. Hackathon APIs rate-limit under demo load.
 - Cache every response to `.cache/` keyed by a hash of the request. This makes reruns free and makes the demo instant if you pre-warm it. **Pre-warming the cache before you present is not cheating and it will save you if the venue wifi dies.**

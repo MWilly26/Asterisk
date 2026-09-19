@@ -134,7 +134,12 @@ ANTHROPIC_API_KEY=your-key
 # Or the NVIDIA path (verified live; hosted capacity is tight — see Results)
 # CLAUSE_PROVIDER=nvidia
 # NVIDIA_API_KEY=your-key
+# Optional: route Nano to a self-hosted NIM (e.g. a Brev GPU) and keep
+# nemotron-parse on the hosted catalog endpoint
+# NVIDIA_BASE_URL=http://<your-instance>:8000/v1
 ```
+
+The hosted catalog endpoint is free but shares a small worker pool, so interactive uploads can stall on `503 ResourceExhausted`. For a live demo, run the Nano NIM on your own GPU and point `NVIDIA_BASE_URL` at it; the model ID is unchanged, so responses cached from the hosted endpoint are reused.
 
 Generate the synthetic PDFs, load the environment, and start the app:
 

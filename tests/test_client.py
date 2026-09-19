@@ -151,3 +151,42 @@ def test_missing_fixture_raises_with_key(tmp_path):
     c = MockClient(fixture_dir=tmp_path, log_path=tmp_path / "l.jsonl")
     with pytest.raises(KeyError, match="no mock response"):
         c.complete(model="m", messages=MSG)
+
+
+# --- NVIDIA endpoint routing (offline: no request is sent) --------------------
+
+def _nvidia_client(monkeypatch, tmp_path, **cfg):
+    from clause.client import NvidiaClient
+    monkeypatch.setenv("NVIDIA_API_KEY", "test-key-not-real")
+    for k, v in cfg.items():
+        monkeypatch.setattr(config, k, v)
+    return NvidiaClient(cache_dir=tmp_path / "cache", log_path=tmp_path / "l.jsonl", use_cache=False)
+
+
+def test_nvidia_defaults_share_one_http_client(monkeypatch, tmp_path):
+    c = _nvidia_client(monkeypatch, tmp_path, NVIDIA_BASE_URL=config.NVIDIA_HOSTED_URL,
+                       NVIDIA_PARSE_BASE_URL=config.NVIDIA_HOSTED_URL)
+    assert c._parse_http is c._http
+    assert str(c._http.base_url).rstrip("/") == config.NVIDIA_HOSTED_URL
+
+
+def test_nvidia_self_hosted_nano_keeps_parse_on_hosted_endpoint(monkeypatch, tmp_path):
+    c = _nvidia_client(monkeypatch, tmp_path, NVIDIA_BASE_URL="http://10.0.0.5:8000/v1",
+                       NVIDIA_PARSE_BASE_URL=config.NVIDIA_HOSTED_URL)
+    assert c._parse_http is not c._http
+    assert str(c._http.base_url).rstrip("/") == "http://10.0.0.5:8000/v1"
+    assert str(c._parse_http.base_url).rstrip("/") == config.NVIDIA_HOSTED_URL
+    assert c._http.headers["authorization"] == c._parse_http.headers["authorization"]
+
+
+def test_nvidia_urls_and_model_come_from_env(tmp_path):
+    """A blank value (as a sourced .env with `NVIDIA_BASE_URL=` produces) keeps the default."""
+    import os
+    import subprocess
+    import sys
+    code = ("from clause import config; "
+            "print(config.NVIDIA_BASE_URL, config.NVIDIA_PARSE_BASE_URL, config.NVIDIA_NANO_MODEL)")
+    env = {**os.environ, "NVIDIA_BASE_URL": "http://brev.example:8000/v1", "NVIDIA_PARSE_BASE_URL": "",
+           "NVIDIA_NANO_MODEL": "local/nano"}
+    out = subprocess.run([sys.executable, "-c", code], env=env, capture_output=True, text=True, check=True).stdout.split()
+    assert out == ["http://brev.example:8000/v1", config.NVIDIA_HOSTED_URL, "local/nano"]

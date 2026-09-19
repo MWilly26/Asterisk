@@ -251,10 +251,14 @@ class NvidiaClient(ModelClient):
         key = os.environ.get("NVIDIA_API_KEY")
         if not key:
             raise RuntimeError("NVIDIA_API_KEY is not set")
-        self._http = httpx.Client(
-            base_url=config.NVIDIA_BASE_URL, timeout=config.REQUEST_TIMEOUT_S,
-            headers={"Authorization": f"Bearer {key}", "Accept": "application/json"},
-        )
+        headers = {"Authorization": f"Bearer {key}", "Accept": "application/json"}
+        # Nano and parse may live on different hosts (self-hosted Nano NIM +
+        # hosted parse); share one connection pool when they don't.
+        self._http = httpx.Client(base_url=config.NVIDIA_BASE_URL,
+                                  timeout=config.REQUEST_TIMEOUT_S, headers=headers)
+        self._parse_http = self._http if config.NVIDIA_PARSE_BASE_URL == config.NVIDIA_BASE_URL else \
+            httpx.Client(base_url=config.NVIDIA_PARSE_BASE_URL,
+                         timeout=config.REQUEST_TIMEOUT_S, headers=headers)
 
     def parse_model(self) -> str:
         return config.NVIDIA_PARSE_MODEL
@@ -300,7 +304,7 @@ class NvidiaClient(ModelClient):
             }
 
             def call(body=body):
-                r = self._http.post("/chat/completions", json=body)
+                r = self._parse_http.post("/chat/completions", json=body)
                 if r.status_code == 429 or r.status_code >= 500:
                     delay = 30.0 if r.status_code == 503 and "ResourceExhausted" in r.text else None
                     raise RetryableError(f"{r.status_code}: {r.text[:200]}", retry_after_s=delay)
