@@ -1,0 +1,5695 @@
+{
+ "meta": {
+  "parser": "vlm",
+  "provider": "nvidia",
+  "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "timestamp": "2026-09-19 21:45 UTC",
+  "docs": [
+   "eq_001",
+   "eq_002",
+   "eq_003",
+   "eq_004",
+   "eq_005",
+   "eq_006",
+   "eq_007",
+   "eq_008",
+   "eq_009",
+   "eq_010",
+   "eq_011",
+   "eq_012",
+   "eq_013",
+   "eq_014",
+   "eq_015",
+   "eq_016",
+   "eq_017",
+   "eq_018",
+   "eq_019",
+   "eq_020",
+   "eq_021",
+   "eq_022",
+   "eq_023"
+  ],
+  "rescored": true
+ },
+ "aggregate": {
+  "n_docs": 23,
+  "n_scored": 23,
+  "errors": [],
+  "trap_detection": {
+   "planted": 58,
+   "caught": 56,
+   "recall": 0.9655,
+   "by_type": {
+    "T_APR_GAP": {
+     "planted": 6,
+     "caught": 6,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_AUTO_RENEW": {
+     "planted": 5,
+     "caught": 5,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_BALLOON": {
+     "planted": 4,
+     "caught": 4,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_CONFESSION": {
+     "planted": 5,
+     "caught": 5,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_CROSS_DEFAULT": {
+     "planted": 6,
+     "caught": 4,
+     "flagged_wrong_category": 0,
+     "not_flagged": 2,
+     "span_not_found": 0,
+     "recall": 0.6667
+    },
+    "T_INSURANCE": {
+     "planted": 5,
+     "caught": 5,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_LATE_CASCADE": {
+     "planted": 5,
+     "caught": 5,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_ORIG_FEE": {
+     "planted": 4,
+     "caught": 4,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_PREPAY": {
+     "planted": 7,
+     "caught": 7,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_UCC": {
+     "planted": 6,
+     "caught": 6,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    },
+    "T_VENUE": {
+     "planted": 5,
+     "caught": 5,
+     "flagged_wrong_category": 0,
+     "not_flagged": 0,
+     "span_not_found": 0,
+     "recall": 1.0
+    }
+   },
+   "misses": [
+    {
+     "doc_id": "eq_007",
+     "trap": "T_CROSS_DEFAULT",
+     "clause_id": "c055",
+     "span_match": "substring",
+     "risk": "low",
+     "category": "standard",
+     "category_flagged_elsewhere": true
+    },
+    {
+     "doc_id": "eq_015",
+     "trap": "T_CROSS_DEFAULT",
+     "clause_id": "c047",
+     "span_match": "substring",
+     "risk": "low",
+     "category": "standard",
+     "category_flagged_elsewhere": false
+    }
+   ],
+   "clean_docs": {
+    "eq_004": {
+     "high": 3,
+     "medium": 8,
+     "n_clauses": 83
+    },
+    "eq_010": {
+     "high": 4,
+     "medium": 6,
+     "n_clauses": 92
+    },
+    "eq_016": {
+     "high": 0,
+     "medium": 6,
+     "n_clauses": 66
+    }
+   },
+   "clean_high_total": 7,
+   "clean_medium_total": 20,
+   "trap_docs_flagged_mean": 12.2,
+   "trap_docs_off_trap_total": 129
+  },
+  "fields": {
+   "principal": {
+    "correct": 23,
+    "wrong": 0,
+    "missing": 0,
+    "spurious": 0,
+    "correct_absent": 0,
+    "wrong_confident": 0,
+    "wrong_flagged": 0,
+    "n": 23,
+    "exact_rate": 1.0,
+    "exact_rate_when_present": 1.0
+   },
+   "stated_apr": {
+    "correct": 23,
+    "wrong": 0,
+    "missing": 0,
+    "spurious": 0,
+    "correct_absent": 0,
+    "wrong_confident": 0,
+    "wrong_flagged": 0,
+    "n": 23,
+    "exact_rate": 1.0,
+    "exact_rate_when_present": 1.0
+   },
+   "term_months": {
+    "correct": 21,
+    "wrong": 2,
+    "missing": 0,
+    "spurious": 0,
+    "correct_absent": 0,
+    "wrong_confident": 1,
+    "wrong_flagged": 1,
+    "n": 23,
+    "exact_rate": 0.913,
+    "exact_rate_when_present": 0.913
+   },
+   "payment_amount": {
+    "correct": 23,
+    "wrong": 0,
+    "missing": 0,
+    "spurious": 0,
+    "correct_absent": 0,
+    "wrong_confident": 0,
+    "wrong_flagged": 0,
+    "n": 23,
+    "exact_rate": 1.0,
+    "exact_rate_when_present": 1.0
+   },
+   "payment_frequency": {
+    "correct": 23,
+    "wrong": 0,
+    "missing": 0,
+    "spurious": 0,
+    "correct_absent": 0,
+    "wrong_confident": 0,
+    "wrong_flagged": 0,
+    "n": 23,
+    "exact_rate": 1.0,
+    "exact_rate_when_present": 1.0
+   },
+   "balloon_amount": {
+    "correct": 4,
+    "wrong": 0,
+    "missing": 0,
+    "spurious": 0,
+    "correct_absent": 19,
+    "wrong_confident": 0,
+    "wrong_flagged": 0,
+    "n": 23,
+    "exact_rate": 1.0,
+    "exact_rate_when_present": 1.0
+   }
+  },
+  "fees": {
+   "gold": 56,
+   "extracted": 55,
+   "matched": 43,
+   "precision": 0.7818,
+   "recall": 0.7679,
+   "value_accuracy": 1.0,
+   "financed_accuracy": 0.907,
+   "by_kind": {
+    "doc": {
+     "missed": 10,
+     "matched": 6,
+     "value_correct": 6,
+     "financed_correct": 6
+    },
+    "late": {
+     "matched": 20,
+     "value_correct": 20,
+     "financed_correct": 20,
+     "missed": 3
+    },
+    "origination": {
+     "matched": 10,
+     "value_correct": 10,
+     "financed_correct": 6,
+     "spurious": 9
+    },
+    "other": {
+     "spurious": 3
+    },
+    "prepayment": {
+     "matched": 7,
+     "value_correct": 7,
+     "financed_correct": 7
+    }
+   }
+  },
+  "computed": {
+   "total_cost": {
+    "correct": 8,
+    "wrong": 15,
+    "missing": 0,
+    "exact_rate": 0.3478
+   },
+   "effective_apr": {
+    "correct": 8,
+    "wrong": 15,
+    "missing": 0,
+    "exact_rate": 0.3478
+   }
+  },
+  "timing": {
+   "mean_total_s": 170.4173,
+   "mean_by_stage": {
+    "parse": 16.4876,
+    "segment": 0.0038,
+    "classify": 133.5239,
+    "extract": 20.4003,
+    "compute": 0.0017
+   }
+  }
+ },
+ "docs": [
+  {
+   "doc_id": "eq_001",
+   "ugly": "rotated_table",
+   "clean": false,
+   "n_clauses": 71,
+   "traps": [
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c032",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "cross_default",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_APR_GAP",
+     "expected_category": "origination_fee",
+     "clause_id": "c008",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 2,
+    "medium": 8,
+    "off_trap": 6,
+    "flagged": [
+     {
+      "id": "c008",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "The Annual Percentage Rate of 11.60% stated in this Agreement reflects the contract interest rate only and does not incl"
+     },
+     {
+      "id": "c024",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 5.90% of the principal amount ($3,071.84) is due and payable at closing and shall be deducte"
+     },
+     {
+      "id": "c069",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 5.90% of principal ($3,071.84) & At closing\\\\"
+     },
+     {
+      "id": "c031",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c025",
+      "risk": "high",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Pennsylvania, without rega"
+     },
+     {
+      "id": "c026",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c027",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Any insurance proceeds received by Lender shall be applied, at Lender\u2019s option, to the repair or replacement of the Equi"
+     },
+     {
+      "id": "c032",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Any default by Borrower under any other agreement for borrowed money or the lease of equipment, with Lender or with any "
+     },
+     {
+      "id": "c037",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c040",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 52065.0,
+     "got": 52065.0,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.116,
+     "got": 0.116,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 36,
+     "got": 36,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 1719.37,
+     "got": 1719.37,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.059,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.059,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 64969.16,
+     "got": 64969.16,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.158724,
+     "got": 0.158724,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 0.007,
+    "segment": 0.004,
+    "classify": 0.002,
+    "extract": 0.002,
+    "compute": 0.001,
+    "total": 0.015
+   }
+  },
+  {
+   "doc_id": "eq_002",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 77,
+   "traps": [
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c057",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c056",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c023",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 3,
+    "medium": 14,
+    "off_trap": 11,
+    "flagged": [
+     {
+      "id": "c022",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c056",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days' prior written notice, provided that"
+     },
+     {
+      "id": "c076",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & $500.00 & Upon prepayment\\\\"
+     },
+     {
+      "id": "c031",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c032",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $50.00 to c"
+     },
+     {
+      "id": "c075",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $50.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c047",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $150.00 is due at closing to cover the preparation and filing of this Agreement and related docum"
+     },
+     {
+      "id": "c074",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $150.00 & At closing\\\\"
+     },
+     {
+      "id": "c017",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c023",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "The undersigned principal of Borrower hereby personally, absolutely, and unconditionally guarantees the full and punctua"
+     },
+     {
+      "id": "c010",
+      "risk": "medium",
+      "category": "payment_terms",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c013",
+      "risk": "medium",
+      "category": "personal_guarantee",
+      "text": "Borrower shall not assign, transfer, pledge, or otherwise dispose of this Agreement or any interest herein, or sublet or"
+     },
+     {
+      "id": "c018",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c020",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     },
+     {
+      "id": "c024",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     },
+     {
+      "id": "c027",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c057",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall obtain physical damage and liability insurance on the Equipment through the insurance program administere"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 8502.5,
+     "got": 8502.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.12,
+     "got": 0.12,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 60,
+     "got": 60,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 189.13,
+     "got": 189.13,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "flat",
+       "value": 500.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 500.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.15
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 11497.8,
+     "got": 11347.95,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.127857,
+     "got": 0.12,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 0.006,
+    "segment": 0.004,
+    "classify": 0.002,
+    "extract": 0.004,
+    "compute": 0.002,
+    "total": 0.018
+   }
+  },
+  {
+   "doc_id": "eq_003",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 92,
+   "traps": [
+    {
+     "trap": "T_VENUE",
+     "expected_category": "venue",
+     "clause_id": "c036",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "venue",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c013",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_ORIG_FEE",
+     "expected_category": "origination_fee",
+     "clause_id": "c041",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 5,
+    "medium": 13,
+    "off_trap": 9,
+    "flagged": [
+     {
+      "id": "c030",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c005",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Amount Financed. The principal amount financed under this Agreement is $53,650.00, representing the purchase price of th"
+     },
+     {
+      "id": "c041",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall pay an Origination Fee of 3.70% of the principal amount, which the parties agree shall be capitalized int"
+     },
+     {
+      "id": "c066",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $75.00 & At closing\\\\"
+     },
+     {
+      "id": "c067",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 3.70% of principal ($1,985.05) & Financed into Amount Financed\\\\"
+     },
+     {
+      "id": "c017",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c068",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $25.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c011",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c013",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and descrip"
+     },
+     {
+      "id": "c036",
+      "risk": "high",
+      "category": "venue",
+      "text": "This Agreement shall be governed by the laws of the State of Nevada. Borrower irrevocably submits to the exclusive juris"
+     },
+     {
+      "id": "c038",
+      "risk": "high",
+      "category": "prepayment_penalty",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c014",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c016",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c020",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c022",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c023",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c037",
+      "risk": "medium",
+      "category": "payment_terms",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 53650.0,
+     "got": 53650.0,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.095,
+     "got": 0.095,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 60,
+     "got": 60,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 1168.44,
+     "got": 1168.44,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "doc",
+      "gold": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false,
+       "confidence": 0.98
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.037,
+       "financed": true
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.037,
+       "financed": true,
+       "confidence": 0.98
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 0.98
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 70181.4,
+     "got": 70181.4,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.111342,
+     "got": 0.111342,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 0.008,
+    "segment": 0.004,
+    "classify": 262.531,
+    "extract": 14.972,
+    "compute": 0.001,
+    "total": 277.515
+   }
+  },
+  {
+   "doc_id": "eq_004",
+   "ugly": null,
+   "clean": true,
+   "n_clauses": 83,
+   "traps": [],
+   "false_positives": {
+    "high": 3,
+    "medium": 8,
+    "off_trap": 11,
+    "flagged": [
+     {
+      "id": "c027",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c012",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c013",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $25.00 to c"
+     },
+     {
+      "id": "c063",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $25.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c024",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c031",
+      "risk": "high",
+      "category": "payment_terms",
+      "text": "The obligations of Borrower under this Agreement are absolute and unconditional and shall not be subject to any abatemen"
+     },
+     {
+      "id": "c010",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without regard t"
+     },
+     {
+      "id": "c011",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c021",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c023",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c028",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 12730.0,
+     "got": 12730.0,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.069,
+     "got": 0.069,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 304.25,
+     "got": 304.25,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 1,
+    "extracted_count": 1,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 14604.0,
+     "got": 14604.0,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.069008,
+     "got": 0.069008,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 0.007,
+    "segment": 0.003,
+    "classify": 111.852,
+    "extract": 8.346,
+    "compute": 0.002,
+    "total": 120.209
+   }
+  },
+  {
+   "doc_id": "eq_005",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 88,
+   "traps": [
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c043",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c041",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 4,
+    "medium": 10,
+    "off_trap": 9,
+    "flagged": [
+     {
+      "id": "c027",
+      "risk": "high",
+      "category": "venue",
+      "text": "Lender and its designees shall have the right, at any reasonable time and upon reasonable notice, to enter upon the prem"
+     },
+     {
+      "id": "c038",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c041",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFE"
+     },
+     {
+      "id": "c045",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c018",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     },
+     {
+      "id": "c025",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c028",
+      "risk": "medium",
+      "category": "venue",
+      "text": "All notices, requests, demands, and other communications required or permitted under this Agreement shall be in writing "
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c032",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Virginia, without regard t"
+     },
+     {
+      "id": "c040",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c042",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     },
+     {
+      "id": "c043",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall obtain physical damage and liability insurance on the Equipment through the insurance program administere"
+     },
+     {
+      "id": "c047",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 17450.0,
+     "got": 17450.0,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.103,
+     "got": 0.103,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 24,
+     "got": 52,
+     "confidence": 1.0,
+     "outcome": "wrong",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 371.99,
+     "got": 371.99,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "biweekly",
+     "got": "biweekly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 195.0
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 19538.48,
+     "got": 42229.87,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.114481,
+     "got": 0.493578,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "stated installment 371.99 does not match the stated rate (expected ~191.86); there may be undisclosed financed charges"
+   ],
+   "timings": {
+    "parse": 23.34,
+    "segment": 0.003,
+    "classify": 141.57,
+    "extract": 42.307,
+    "compute": 0.002,
+    "total": 207.223
+   }
+  },
+  {
+   "doc_id": "eq_006",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 87,
+   "traps": [
+    {
+     "trap": "T_VENUE",
+     "expected_category": "venue",
+     "clause_id": "c051",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "venue",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c009",
+     "span_match": "overlap",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c032",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 4,
+    "medium": 6,
+    "off_trap": 5,
+    "flagged": [
+     {
+      "id": "c009",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days\u2019 prior written notice, provided that"
+     },
+     {
+      "id": "c075",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & 5.00% of outstanding principal & Upon prepayment\\\\"
+     },
+     {
+      "id": "c047",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c019",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $125.00 is due at closing to cover the preparation and filing of this Agreement and related docum"
+     },
+     {
+      "id": "c032",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFE"
+     },
+     {
+      "id": "c051",
+      "risk": "high",
+      "category": "venue",
+      "text": "Any claim or controversy arising out of this Agreement shall be resolved exclusively by binding arbitration administered"
+     },
+     {
+      "id": "c056",
+      "risk": "high",
+      "category": "venue",
+      "text": "Lender and its designees shall have the right, at any reasonable time and upon reasonable notice, to enter upon the prem"
+     },
+     {
+      "id": "c057",
+      "risk": "high",
+      "category": "balloon",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c049",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c052",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 26300.0,
+     "got": 26300.0,
+     "confidence": 0.5,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.063,
+     "got": 0.063,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 24,
+     "got": 24,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 1169.19,
+     "got": 1169.19,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.05,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.05,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.125
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 28185.56,
+     "got": 28060.68,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.067696,
+     "got": 0.063004,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 24.821,
+    "segment": 0.004,
+    "classify": 171.151,
+    "extract": 10.55,
+    "compute": 0.001,
+    "total": 206.527
+   }
+  },
+  {
+   "doc_id": "eq_007",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 94,
+   "traps": [
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c055",
+     "span_match": "substring",
+     "risk": "low",
+     "category": "standard",
+     "caught": false,
+     "flagged_wrong_category": false,
+     "not_flagged": true,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_APR_GAP",
+     "expected_category": "origination_fee",
+     "clause_id": "c008",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_VENUE",
+     "expected_category": "venue",
+     "clause_id": "c031",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "venue",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 5,
+    "medium": 8,
+    "off_trap": 7,
+    "flagged": [
+     {
+      "id": "c033",
+      "risk": "high",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 5.60% of the principal amount ($2,088.80) is due and payable at closing and shall be deducte"
+     },
+     {
+      "id": "c008",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower acknowledges that the stated rate of 12.60% is exclusive of the Origination Fee and the other Fees set forth in"
+     },
+     {
+      "id": "c076",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $125.00 & At closing\\\\"
+     },
+     {
+      "id": "c077",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 5.60% of principal ($2,088.80) & At closing\\\\"
+     },
+     {
+      "id": "c017",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c048",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c078",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $50.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c019",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c031",
+      "risk": "high",
+      "category": "venue",
+      "text": "This Agreement shall be governed by the laws of the State of Arizona. Borrower irrevocably submits to the exclusive juri"
+     },
+     {
+      "id": "c047",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c014",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c035",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c058",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 37300.0,
+     "got": 37300.0,
+     "confidence": 0.5,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.126,
+     "got": 0.126,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 36,
+     "got": 36,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 1249.61,
+     "got": 1249.61,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "doc",
+      "gold": {
+       "basis": "flat",
+       "value": 125.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 125.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.056,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.056,
+       "financed": true,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": false,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 47199.76,
+     "got": 45110.96,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.16925,
+     "got": 0.128344,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "stated installment 1,249.61 does not match the stated rate (expected ~1,319.59); there may be undisclosed financed charges"
+   ],
+   "timings": {
+    "parse": 0.014,
+    "segment": 0.007,
+    "classify": 43.69,
+    "extract": 0.006,
+    "compute": 0.001,
+    "total": 43.719
+   }
+  },
+  {
+   "doc_id": "eq_008",
+   "ugly": "two_column",
+   "clean": false,
+   "n_clauses": 90,
+   "traps": [
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c041",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_APR_GAP",
+     "expected_category": "origination_fee",
+     "clause_id": "c008",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c024",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "cross_default",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 1,
+    "medium": 9,
+    "off_trap": 4,
+    "flagged": [
+     {
+      "id": "c008",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower acknowledges that the stated rate of 14.50% is exclusive of the Origination Fee and the other Fees set forth in"
+     },
+     {
+      "id": "c021",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 6.70% of the principal amount ($744.71) is due and payable at closing and shall be deducted "
+     },
+     {
+      "id": "c071",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 6.70% of principal ($744.71) & At closing\\\\"
+     },
+     {
+      "id": "c019",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c023",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c041",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and descrip"
+     },
+     {
+      "id": "c011",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c024",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease"
+     },
+     {
+      "id": "c028",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Virginia, without regard t"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 11115.0,
+     "got": 11115.0,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.145,
+     "got": 0.145,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 306.53,
+     "got": 306.53,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "doc",
+      "gold": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.067,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.067,
+       "financed": true,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": false,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 15533.15,
+     "got": 14788.44,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.187604,
+     "got": 0.14871,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [
+    "stated installment 306.53 does not match the stated rate (expected ~327.07); there may be undisclosed financed charges"
+   ],
+   "timings": {
+    "parse": 0.008,
+    "segment": 0.004,
+    "classify": 122.078,
+    "extract": 10.969,
+    "compute": 0.002,
+    "total": 133.061
+   }
+  },
+  {
+   "doc_id": "eq_009",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 79,
+   "traps": [
+    {
+     "trap": "T_APR_GAP",
+     "expected_category": "origination_fee",
+     "clause_id": "c008",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c018",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "cross_default",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c019",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 5,
+    "medium": 10,
+    "off_trap": 8,
+    "flagged": [
+     {
+      "id": "c008",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "The Annual Percentage Rate of 7.40% stated in this Agreement reflects the contract interest rate only and does not inclu"
+     },
+     {
+      "id": "c032",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall pay the Fees set forth in the Schedule of Fees attached to this Agreement as Schedule B. Fees not stated "
+     },
+     {
+      "id": "c033",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 7.50% of the principal amount ($1,737.19) is due and payable at closing and shall be deducte"
+     },
+     {
+      "id": "c017",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c019",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 5.00%"
+     },
+     {
+      "id": "c022",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c026",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c031",
+      "risk": "high",
+      "category": "insurance",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c035",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c018",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease"
+     },
+     {
+      "id": "c020",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c021",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     },
+     {
+      "id": "c027",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c038",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Ohio, without regard to it"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 23162.5,
+     "got": 23162.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.074,
+     "got": 0.074,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 558.96,
+     "got": 558.96,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "doc",
+      "gold": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.075,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.075,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "percent_of_payment",
+       "value": 0.05,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_payment",
+       "value": 0.05,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 28642.27,
+     "got": 28642.27,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.11687,
+     "got": 0.11687,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 24.147,
+    "segment": 0.003,
+    "classify": 188.795,
+    "extract": 12.047,
+    "compute": 0.001,
+    "total": 224.994
+   }
+  },
+  {
+   "doc_id": "eq_010",
+   "ugly": null,
+   "clean": true,
+   "n_clauses": 92,
+   "traps": [],
+   "false_positives": {
+    "high": 4,
+    "medium": 6,
+    "off_trap": 10,
+    "flagged": [
+     {
+      "id": "c052",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $150.00 is due at closing to cover the preparation and filing of this Agreement and related docum"
+     },
+     {
+      "id": "c070",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $150.00 & At closing\\\\"
+     },
+     {
+      "id": "c019",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c020",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $50.00 to c"
+     },
+     {
+      "id": "c041",
+      "risk": "high",
+      "category": "standard",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c047",
+      "risk": "high",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Maryland, without regard t"
+     },
+     {
+      "id": "c018",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c035",
+      "risk": "medium",
+      "category": "standard",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c042",
+      "risk": "medium",
+      "category": "standard",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     },
+     {
+      "id": "c053",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 55052.5,
+     "got": 55052.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.122,
+     "got": 0.122,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 1455.16,
+     "got": 1455.16,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "percent_of_principal",
+      "value": 0.02593
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 69997.68,
+     "got": 71275.19,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.123468,
+     "got": 0.136192,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 22.261,
+    "segment": 0.005,
+    "classify": 175.9,
+    "extract": 8.208,
+    "compute": 0.001,
+    "total": 206.375
+   }
+  },
+  {
+   "doc_id": "eq_011",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 98,
+   "traps": [
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c059",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c017",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c032",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 4,
+    "medium": 7,
+    "off_trap": 5,
+    "flagged": [
+     {
+      "id": "c017",
+      "risk": "high",
+      "category": "prepayment_penalty",
+      "text": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days\u2019 prior written notice, provided that"
+     },
+     {
+      "id": "c078",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & 2.00% of outstanding principal & Upon prepayment\\\\"
+     },
+     {
+      "id": "c077",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $25.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c020",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall pay the Fees set forth in the Schedule of Fees attached to this Agreement as Schedule B. Fees not stated "
+     },
+     {
+      "id": "c019",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c030",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c032",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and descrip"
+     },
+     {
+      "id": "c018",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c026",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Virginia, without regard t"
+     },
+     {
+      "id": "c059",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall obtain physical damage and liability insurance on the Equipment through the insurance program administere"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 7125.0,
+     "got": 7125.0,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.117,
+     "got": 0.117,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 186.58,
+     "got": 186.58,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.02,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.02,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.195
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 9150.84,
+     "got": 8956.04,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.131933,
+     "got": 0.117013,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 25.192,
+    "segment": 0.003,
+    "classify": 131.148,
+    "extract": 70.68,
+    "compute": 0.002,
+    "total": 227.026
+   }
+  },
+  {
+   "doc_id": "eq_012",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 73,
+   "traps": [
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c016",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_ORIG_FEE",
+     "expected_category": "origination_fee",
+     "clause_id": "c015",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_BALLOON",
+     "expected_category": "balloon",
+     "clause_id": "c009",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "balloon",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c052",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 3,
+    "medium": 9,
+    "off_trap": 4,
+    "flagged": [
+     {
+      "id": "c052",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Unless Borrower delivers written notice of termination to Lender not less than ninety (90) nor more than one hundred twe"
+     },
+     {
+      "id": "c009",
+      "risk": "high",
+      "category": "balloon",
+      "text": "<sup>1</sup> In addition to the final regular installment, Borrower shall pay a balloon payment in the amount of $2,288."
+     },
+     {
+      "id": "c005",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Amount Financed. The principal amount financed under this Agreement is $11,602.50, representing the purchase price of th"
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 4.70% of the principal amount ($545.32) shall be charged and shall be added to and financed "
+     },
+     {
+      "id": "c050",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c071",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 4.70% of principal ($545.32) & Financed into Amount Financed\\\\"
+     },
+     {
+      "id": "c016",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and descrip"
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c034",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c049",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c054",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c055",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 11602.5,
+     "got": 11602.5,
+     "confidence": 0.5,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.069,
+     "got": 0.069,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 60,
+     "got": 60,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 207.92,
+     "got": 207.92,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": 2288.84,
+     "got": 2288.84,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.047,
+       "financed": true
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.047,
+       "financed": true,
+       "confidence": 0.98
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 0.98
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 14764.04,
+     "got": 14764.04,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.085974,
+     "got": 0.085974,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 27.028,
+    "segment": 0.003,
+    "classify": 99.217,
+    "extract": 13.331,
+    "compute": 0.001,
+    "total": 139.581
+   }
+  },
+  {
+   "doc_id": "eq_013",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 66,
+   "traps": [
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c028",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_VENUE",
+     "expected_category": "venue",
+     "clause_id": "c047",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "venue",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c049",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 11,
+    "medium": 6,
+    "off_trap": 12,
+    "flagged": [
+     {
+      "id": "c028",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Unless Borrower delivers written notice of termination to Lender not less than ninety (90) nor more than one hundred twe"
+     },
+     {
+      "id": "c017",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c029",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c030",
+      "risk": "high",
+      "category": "payment_terms",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c031",
+      "risk": "high",
+      "category": "payment_terms",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     },
+     {
+      "id": "c033",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     },
+     {
+      "id": "c037",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c039",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     },
+     {
+      "id": "c045",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c047",
+      "risk": "high",
+      "category": "venue",
+      "text": "This Agreement shall be governed by the laws of the State of Florida. Borrower irrevocably submits to the exclusive juri"
+     },
+     {
+      "id": "c065",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Late Charge & 10.00% of overdue installment & Upon late payment\\\\"
+     },
+     {
+      "id": "c023",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c032",
+      "risk": "medium",
+      "category": "payment_terms",
+      "text": "Lender and its designees shall have the right, at any reasonable time and upon reasonable notice, to enter upon the prem"
+     },
+     {
+      "id": "c035",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall pay the Fees set forth in the Schedule of Fees attached to this Agreement as Schedule B. Fees not stated "
+     },
+     {
+      "id": "c040",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c048",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c049",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 10.00"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 20900.0,
+     "got": 20900.0,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.076,
+     "got": 0.076,
+     "confidence": 0.99,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 506.31,
+     "got": 506.31,
+     "confidence": 0.99,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.98,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 1,
+    "extracted_count": 1,
+    "matched": [],
+    "missed_kinds": [
+     "late"
+    ],
+    "spurious": [
+     {
+      "kind": "other",
+      "basis": "percent_of_payment",
+      "value": 0.1
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 24302.88,
+     "got": 24302.88,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.075995,
+     "got": 0.075995,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 21.284,
+    "segment": 0.003,
+    "classify": 154.309,
+    "extract": 7.562,
+    "compute": 0.001,
+    "total": 183.159
+   }
+  },
+  {
+   "doc_id": "eq_014",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 77,
+   "traps": [
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c016",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_BALLOON",
+     "expected_category": "balloon",
+     "clause_id": "c010",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "balloon",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 4,
+    "medium": 9,
+    "off_trap": 10,
+    "flagged": [
+     {
+      "id": "c056",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c057",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "take possession of the Equipment wherever located; sell, lease, or otherwise dispose of the Equipment and apply the net "
+     },
+     {
+      "id": "c010",
+      "risk": "high",
+      "category": "balloon",
+      "text": "<sup>1</sup> A final balloon payment of $872.86, in addition to the regular installment, shall be due and payable togeth"
+     },
+     {
+      "id": "c016",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "In the event Borrower elects to pay the Amount Financed prior to the final Payment Date for any reason, including refina"
+     },
+     {
+      "id": "c075",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & 2.00% of outstanding principal & Upon prepayment\\\\"
+     },
+     {
+      "id": "c047",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c012",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c034",
+      "risk": "medium",
+      "category": "standard",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c050",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c053",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c054",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Any insurance proceeds received by Lender shall be applied, at Lender\u2019s option, to the repair or replacement of the Equi"
+     },
+     {
+      "id": "c055",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Ohio, without regard to it"
+     },
+     {
+      "id": "c058",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 5185.0,
+     "got": 5185.0,
+     "confidence": 0.5,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.06,
+     "got": 0.06,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 60,
+     "got": 60,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 87.73,
+     "got": 87.73,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": 872.86,
+     "got": 872.86,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.02,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.02,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 6136.66,
+     "got": 6136.66,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.06,
+     "got": 0.06,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 22.52,
+    "segment": 0.004,
+    "classify": 108.365,
+    "extract": 41.159,
+    "compute": 0.001,
+    "total": 172.049
+   }
+  },
+  {
+   "doc_id": "eq_015",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 85,
+   "traps": [
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c026",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c051",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c047",
+     "span_match": "substring",
+     "risk": "low",
+     "category": "standard",
+     "caught": false,
+     "flagged_wrong_category": false,
+     "not_flagged": true,
+     "category_flagged_elsewhere": false
+    }
+   ],
+   "false_positives": {
+    "high": 1,
+    "medium": 5,
+    "off_trap": 4,
+    "flagged": [
+     {
+      "id": "c048",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $35.00 to c"
+     },
+     {
+      "id": "c069",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $35.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c050",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $250.00 is due at closing to cover the preparation and filing of this Agreement and related docum"
+     },
+     {
+      "id": "c068",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $250.00 & At closing\\\\"
+     },
+     {
+      "id": "c026",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFE"
+     },
+     {
+      "id": "c051",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Lender shall procure insurance covering the Equipment on Borrower's behalf and shall bill Borrower for the cost of such "
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 5822.5,
+     "got": 5822.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.111,
+     "got": 0.111,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 36,
+     "got": 36,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 190.9,
+     "got": 190.9,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 35.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.25
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 7122.4,
+     "got": 6872.4,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.141644,
+     "got": 0.111011,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "C"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 22.781,
+    "segment": 0.004,
+    "classify": 216.726,
+    "extract": 12.507,
+    "compute": 0.001,
+    "total": 252.02
+   }
+  },
+  {
+   "doc_id": "eq_016",
+   "ugly": null,
+   "clean": true,
+   "n_clauses": 66,
+   "traps": [],
+   "false_positives": {
+    "high": 0,
+    "medium": 6,
+    "off_trap": 6,
+    "flagged": [
+     {
+      "id": "c065",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $50.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c047",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $75.00 is due at closing to cover the preparation and filing of this Agreement and related docume"
+     },
+     {
+      "id": "c030",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Maryland, without regard t"
+     },
+     {
+      "id": "c031",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c032",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "The obligations of Borrower under this Agreement are absolute and unconditional and shall not be subject to any abatemen"
+     },
+     {
+      "id": "c044",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 10752.5,
+     "got": 10752.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.065,
+     "got": 0.065,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 60,
+     "got": 60,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 210.39,
+     "got": 210.39,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 50.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.075
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 12698.4,
+     "got": 12623.47,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.067938,
+     "got": 0.065013,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "C"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 0.015,
+    "segment": 0.005,
+    "classify": 64.089,
+    "extract": 12.167,
+    "compute": 0.003,
+    "total": 76.279
+   }
+  },
+  {
+   "doc_id": "eq_017",
+   "ugly": "tiny_footnotes",
+   "clean": false,
+   "n_clauses": 109,
+   "traps": [
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c015",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c044",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_ORIG_FEE",
+     "expected_category": "origination_fee",
+     "clause_id": "c034",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 4,
+    "medium": 10,
+    "off_trap": 5,
+    "flagged": [
+     {
+      "id": "c069",
+      "risk": "high",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & $750.00 & Upon prepayment\\\\"
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "In the event Borrower elects to pay the Amount Financed prior to the final Payment Date for any reason, including refina"
+     },
+     {
+      "id": "c006",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Amount Financed. The principal amount financed under this Agreement is $7,742.50, representing the purchase price of the"
+     },
+     {
+      "id": "c034",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 3.30% of the principal amount ($255.50) shall be charged and shall be added to and financed "
+     },
+     {
+      "id": "c066",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $75.00 & At closing\\\\"
+     },
+     {
+      "id": "c067",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 3.30% of principal ($255.50) & Financed into Amount Financed\\\\"
+     },
+     {
+      "id": "c025",
+      "risk": "high",
+      "category": "balloon",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c044",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Borrower shall pay a late charge of 8.00% of any installment not paid when due, which late charge shall be added to the "
+     },
+     {
+      "id": "c068",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Late Charge & 8.00% of overdue installment & Upon late payment\\\\"
+     },
+     {
+      "id": "c022",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c023",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court cos"
+     },
+     {
+      "id": "c028",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c030",
+      "risk": "medium",
+      "category": "venue",
+      "text": "All notices, requests, demands, and other communications required or permitted under this Agreement shall be in writing "
+     },
+     {
+      "id": "c031",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 7742.5,
+     "got": 7742.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.128,
+     "got": 0.128,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 208,
+     "confidence": 0.3,
+     "outcome": "wrong",
+     "low_confidence": true,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 98.45,
+     "got": 98.45,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "biweekly",
+     "got": "biweekly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 4,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "doc",
+      "gold": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 75.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.033,
+       "financed": true
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.033,
+       "financed": true,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "flat",
+       "value": 750.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 750.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "late"
+    ],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 10313.8,
+     "got": 44475.95,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.151132,
+     "got": 0.33276,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "term_months is low confidence (0.30); verify against the source quote",
+    "stated installment 98.45 does not match the stated rate (expected ~44.20); there may be undisclosed financed charges"
+   ],
+   "timings": {
+    "parse": 27.087,
+    "segment": 0.004,
+    "classify": 142.532,
+    "extract": 8.701,
+    "compute": 0.008,
+    "total": 178.331
+   }
+  },
+  {
+   "doc_id": "eq_018",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 88,
+   "traps": [
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c046",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c016",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_APR_GAP",
+     "expected_category": "origination_fee",
+     "clause_id": "c008",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 2,
+    "medium": 6,
+    "off_trap": 1,
+    "flagged": [
+     {
+      "id": "c008",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "The Annual Percentage Rate of 14.20% stated in this Agreement reflects the contract interest rate only and does not incl"
+     },
+     {
+      "id": "c048",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 7.30% of the principal amount ($673.42) is due and payable at closing and shall be deducted "
+     },
+     {
+      "id": "c067",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 7.30% of principal ($673.42) & At closing\\\\"
+     },
+     {
+      "id": "c016",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 5.00%"
+     },
+     {
+      "id": "c068",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & 5.00% of overdue installment & Upon late payment\\\\"
+     },
+     {
+      "id": "c046",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a continuing security interest in the Equipment and in"
+     },
+     {
+      "id": "c013",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c051",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Le"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 9225.0,
+     "got": 9225.0,
+     "confidence": 0.5,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.142,
+     "got": 0.142,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 253.01,
+     "got": 253.01,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.073,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.073,
+       "financed": true,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": false,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "percent_of_payment",
+       "value": 0.05,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_payment",
+       "value": 0.05,
+       "financed": false,
+       "confidence": 0.5
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 12817.9,
+     "got": 12144.48,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.184037,
+     "got": 0.141993,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [
+    "stated installment 253.01 does not match the stated rate (expected ~271.48); there may be undisclosed financed charges"
+   ],
+   "timings": {
+    "parse": 26.173,
+    "segment": 0.003,
+    "classify": 144.824,
+    "extract": 40.428,
+    "compute": 0.001,
+    "total": 211.429
+   }
+  },
+  {
+   "doc_id": "eq_019",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 82,
+   "traps": [
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c043",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c014",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c021",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 4,
+    "medium": 9,
+    "off_trap": 8,
+    "flagged": [
+     {
+      "id": "c014",
+      "risk": "medium",
+      "category": "auto_renewal",
+      "text": "This Agreement shall renew automatically for successive terms of 36 months each unless either party gives written notice"
+     },
+     {
+      "id": "c021",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "In the event Borrower elects to pay the Amount Financed prior to the final Payment Date for any reason, including refina"
+     },
+     {
+      "id": "c066",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & 5.00% of outstanding principal & Upon prepayment\\\\"
+     },
+     {
+      "id": "c043",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 10.00"
+     },
+     {
+      "id": "c065",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Late Charge & 10.00% of overdue installment & Upon late payment\\\\"
+     },
+     {
+      "id": "c031",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $250.00 is due at closing to cover the preparation and filing of this Agreement and related docum"
+     },
+     {
+      "id": "c064",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $250.00 & At closing\\\\"
+     },
+     {
+      "id": "c016",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     },
+     {
+      "id": "c025",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c012",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "venue",
+      "text": "Lender and its designees shall have the right, at any reasonable time and upon reasonable notice, to enter upon the prem"
+     },
+     {
+      "id": "c019",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower's expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 9150.0,
+     "got": 9150.0,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.092,
+     "got": 0.092,
+     "confidence": 0.9,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 36,
+     "got": 36,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 291.82,
+     "got": 291.82,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "percent_of_payment",
+       "value": 0.1,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_payment",
+       "value": 0.1,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.05,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.05,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.25
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 10755.52,
+     "got": 10505.77,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.111056,
+     "got": 0.092019,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 21.531,
+    "segment": 0.003,
+    "classify": 167.023,
+    "extract": 75.798,
+    "compute": 0.001,
+    "total": 264.357
+   }
+  },
+  {
+   "doc_id": "eq_020",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 98,
+   "traps": [
+    {
+     "trap": "T_VENUE",
+     "expected_category": "venue",
+     "clause_id": "c013",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "venue",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c049",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c026",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c048",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 6,
+    "medium": 12,
+    "off_trap": 10,
+    "flagged": [
+     {
+      "id": "c040",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writi"
+     },
+     {
+      "id": "c048",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "This Agreement shall renew automatically for successive terms of 48 months each unless either party gives written notice"
+     },
+     {
+      "id": "c049",
+      "risk": "high",
+      "category": "prepayment_penalty",
+      "text": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days\u2019 prior written notice, provided that"
+     },
+     {
+      "id": "c044",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the"
+     },
+     {
+      "id": "c078",
+      "risk": "medium",
+      "category": "prepayment_penalty",
+      "text": "Prepayment Premium & 5.00% of outstanding principal & Upon prepayment\\\\"
+     },
+     {
+      "id": "c028",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c029",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $25.00 to c"
+     },
+     {
+      "id": "c077",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "Late Charge & $25.00 & Upon late payment\\\\"
+     },
+     {
+      "id": "c046",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall pay the Fees set forth in the Schedule of Fees attached to this Agreement as Schedule B. Fees not stated "
+     },
+     {
+      "id": "c013",
+      "risk": "high",
+      "category": "venue",
+      "text": "Any claim or controversy arising out of this Agreement shall be resolved exclusively by binding arbitration administered"
+     },
+     {
+      "id": "c026",
+      "risk": "high",
+      "category": "personal_guarantee",
+      "text": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFE"
+     },
+     {
+      "id": "c043",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall f"
+     },
+     {
+      "id": "c010",
+      "risk": "medium",
+      "category": "blanket_lien",
+      "text": "As security for the Obligations, Borrower hereby grants to Lender a security interest in the Equipment and all proceeds "
+     },
+     {
+      "id": "c011",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever fr"
+     },
+     {
+      "id": "c033",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     },
+     {
+      "id": "c037",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, a"
+     },
+     {
+      "id": "c045",
+      "risk": "medium",
+      "category": "personal_guarantee",
+      "text": "Borrower acknowledges that Borrower has selected the Equipment and the supplier thereof based upon Borrower\u2019s own judgme"
+     },
+     {
+      "id": "c059",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 11162.5,
+     "got": 11162.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.102,
+     "got": 0.102,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 48,
+     "got": 48,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 284.18,
+     "got": 284.18,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "prepayment",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.05,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.05,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [
+     "doc"
+    ],
+    "spurious": [
+     {
+      "kind": "origination",
+      "basis": "flat",
+      "value": 0.095
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 13735.64,
+     "got": 13640.74,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.106523,
+     "got": 0.101999,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "F"
+   },
+   "warnings": [
+    "origination fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 25.771,
+    "segment": 0.005,
+    "classify": 136.013,
+    "extract": 9.203,
+    "compute": 0.001,
+    "total": 170.992
+   }
+  },
+  {
+   "doc_id": "eq_021",
+   "ugly": null,
+   "clean": false,
+   "n_clauses": 75,
+   "traps": [
+    {
+     "trap": "T_ORIG_FEE",
+     "expected_category": "origination_fee",
+     "clause_id": "c050",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c014",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "cross_default",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_BALLOON",
+     "expected_category": "balloon",
+     "clause_id": "c010",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "balloon",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 1,
+    "medium": 7,
+    "off_trap": 2,
+    "flagged": [
+     {
+      "id": "c010",
+      "risk": "high",
+      "category": "balloon",
+      "text": "<sup>1</sup> A final balloon payment of $2,678.94, in addition to the regular installment, shall be due and payable toge"
+     },
+     {
+      "id": "c006",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Amount Financed. The principal amount financed under this Agreement is $6,900.00, representing the purchase price of the"
+     },
+     {
+      "id": "c050",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Borrower shall pay an Origination Fee of 3.80% of the principal amount, which the parties agree shall be capitalized int"
+     },
+     {
+      "id": "c072",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Documentation Fee & $125.00 & At closing\\\\"
+     },
+     {
+      "id": "c073",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 3.80% of principal ($262.20) & Financed into Amount Financed\\\\"
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $25.00 to c"
+     },
+     {
+      "id": "c014",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease"
+     },
+     {
+      "id": "c052",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 6900.0,
+     "got": 6900.0,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.133,
+     "got": 0.133,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 36,
+     "got": 36,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 181.4,
+     "got": 181.4,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": 2678.94,
+     "got": 2678.94,
+     "confidence": 0.95,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    }
+   },
+   "fees": {
+    "gold_count": 3,
+    "extracted_count": 3,
+    "matched": [
+     {
+      "kind": "doc",
+      "gold": {
+       "basis": "flat",
+       "value": 125.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 125.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.038,
+       "financed": true
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.038,
+       "financed": true,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 0.95
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 9334.34,
+     "got": 9334.34,
+     "outcome": "correct"
+    },
+    "effective_apr": {
+     "gold": 0.163935,
+     "got": 0.163935,
+     "outcome": "correct"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [],
+   "timings": {
+    "parse": 23.532,
+    "segment": 0.003,
+    "classify": 147.244,
+    "extract": 15.87,
+    "compute": 0.001,
+    "total": 186.65
+   }
+  },
+  {
+   "doc_id": "eq_022",
+   "ugly": "rotated_table",
+   "clean": false,
+   "n_clauses": 67,
+   "traps": [
+    {
+     "trap": "T_BALLOON",
+     "expected_category": "balloon",
+     "clause_id": "c010",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "balloon",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c022",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c014",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 3,
+    "medium": 8,
+    "off_trap": 7,
+    "flagged": [
+     {
+      "id": "c010",
+      "risk": "high",
+      "category": "balloon",
+      "text": "<sup>1</sup> In addition to the final regular installment, Borrower shall pay a balloon payment in the amount of $12,715"
+     },
+     {
+      "id": "c022",
+      "risk": "high",
+      "category": "blanket_lien",
+      "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and descrip"
+     },
+     {
+      "id": "c033",
+      "risk": "high",
+      "category": "late_fee",
+      "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount wi"
+     },
+     {
+      "id": "c011",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without regard t"
+     },
+     {
+      "id": "c012",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or "
+     },
+     {
+      "id": "c013",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cum"
+     },
+     {
+      "id": "c014",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Lender shall procure insurance covering the Equipment on Borrower\u2019s behalf and shall bill Borrower for the cost of such "
+     },
+     {
+      "id": "c015",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Any insurance proceeds received by Lender shall be applied, at Lender\u2019s option, to the repair or replacement of the Equi"
+     },
+     {
+      "id": "c034",
+      "risk": "medium",
+      "category": "late_fee",
+      "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $25.00 to c"
+     },
+     {
+      "id": "c041",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "A Documentation Fee of $125.00 is due at closing to cover the preparation and filing of this Agreement and related docum"
+     },
+     {
+      "id": "c046",
+      "risk": "medium",
+      "category": "cross_default",
+      "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without not"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 42457.5,
+     "got": 42457.5,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.089,
+     "got": 0.089,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 24,
+     "got": 24,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 1451.71,
+     "got": 1451.71,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": 12715.24,
+     "got": 12715.24,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [],
+    "missed_kinds": [
+     "doc",
+     "late"
+    ],
+    "spurious": [
+     {
+      "kind": "other",
+      "basis": "flat",
+      "value": 0.125
+     },
+     {
+      "kind": "other",
+      "basis": "flat",
+      "value": 25.0
+     }
+    ]
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 47681.28,
+     "got": 47556.28,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.09136,
+     "got": 0.089001,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "D"
+   },
+   "warnings": [
+    "other fee is low confidence (0.30); verify against the source quote"
+   ],
+   "timings": {
+    "parse": 19.971,
+    "segment": 0.003,
+    "classify": 151.4,
+    "extract": 39.743,
+    "compute": 0.001,
+    "total": 211.117
+   }
+  },
+  {
+   "doc_id": "eq_023",
+   "ugly": "two_column",
+   "clean": false,
+   "n_clauses": 93,
+   "traps": [
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c019",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_APR_GAP",
+     "expected_category": "origination_fee",
+     "clause_id": "c007",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ],
+   "false_positives": {
+    "high": 1,
+    "medium": 5,
+    "off_trap": 2,
+    "flagged": [
+     {
+      "id": "c019",
+      "risk": "high",
+      "category": "auto_renewal",
+      "text": "Unless Borrower delivers written notice of termination to Lender not less than ninety (90) nor more than one hundred twe"
+     },
+     {
+      "id": "c007",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "The Annual Percentage Rate of 12.00% stated in this Agreement reflects the contract interest rate only and does not incl"
+     },
+     {
+      "id": "c055",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "An Origination Fee equal to 8.90% of the principal amount ($696.87) is due and payable at closing and shall be deducted "
+     },
+     {
+      "id": "c070",
+      "risk": "medium",
+      "category": "origination_fee",
+      "text": "Origination Fee & 8.90% of principal ($696.87) & At closing\\\\"
+     },
+     {
+      "id": "c010",
+      "risk": "medium",
+      "category": "venue",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Pennsylvania, without rega"
+     },
+     {
+      "id": "c031",
+      "risk": "medium",
+      "category": "insurance",
+      "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacemen"
+     }
+    ]
+   },
+   "fields": {
+    "principal": {
+     "gold": 7830.0,
+     "got": 7830.0,
+     "confidence": 0.5,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "stated_apr": {
+     "gold": 0.12,
+     "got": 0.12,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "term_months": {
+     "gold": 60,
+     "got": 60,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_amount": {
+     "gold": 174.17,
+     "got": 174.17,
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "payment_frequency": {
+     "gold": "monthly",
+     "got": "monthly",
+     "confidence": 1.0,
+     "outcome": "correct",
+     "low_confidence": false,
+     "in_missing_fields": false
+    },
+    "balloon_amount": {
+     "gold": null,
+     "got": null,
+     "confidence": null,
+     "outcome": "correct_absent",
+     "low_confidence": false,
+     "in_missing_fields": true
+    }
+   },
+   "fees": {
+    "gold_count": 2,
+    "extracted_count": 2,
+    "matched": [
+     {
+      "kind": "origination",
+      "gold": {
+       "basis": "percent_of_principal",
+       "value": 0.089,
+       "financed": false
+      },
+      "got": {
+       "basis": "percent_of_principal",
+       "value": 0.089,
+       "financed": true,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": false,
+      "low_confidence": false
+     },
+     {
+      "kind": "late",
+      "gold": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false
+      },
+      "got": {
+       "basis": "flat",
+       "value": 25.0,
+       "financed": false,
+       "confidence": 1.0
+      },
+      "value_correct": true,
+      "financed_correct": true,
+      "low_confidence": false
+     }
+    ],
+    "missed_kinds": [],
+    "spurious": []
+   },
+   "computed": {
+    "total_cost": {
+     "gold": 11147.07,
+     "got": 10450.2,
+     "outcome": "wrong"
+    },
+    "effective_apr": {
+     "gold": 0.161861,
+     "got": 0.11999,
+     "outcome": "wrong"
+    },
+    "incomplete": false,
+    "grade": "C"
+   },
+   "warnings": [
+    "stated installment 174.17 does not match the stated rate (expected ~189.68); there may be undisclosed financed charges"
+   ],
+   "timings": {
+    "parse": 21.71,
+    "segment": 0.004,
+    "classify": 190.589,
+    "extract": 14.646,
+    "compute": 0.002,
+    "total": 226.951
+   }
+  }
+ ]
+}

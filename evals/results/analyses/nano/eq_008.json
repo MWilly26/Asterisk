@@ -1,0 +1,1846 @@
+{
+ "terms": {
+  "principal": 11115.0,
+  "stated_apr": 0.145,
+  "term_months": 48,
+  "payment_amount": 306.53,
+  "payment_frequency": "monthly",
+  "balloon_amount": null,
+  "fees": [
+   {
+    "kind": "origination",
+    "basis": "percent_of_principal",
+    "value": 0.067,
+    "span": {
+     "page": 2,
+     "text": "6.70% of the principal amount ($744.71) is due and payable at closing and shall be deducted from the proceeds disbursed to or on behalf of Borrower.",
+     "bbox": [
+      0.5268894117647058,
+      0.37625681405208966,
+      0.8841499607843138,
+      0.43927219866747425
+     ]
+    },
+    "confidence": 0.95,
+    "financed": true
+   },
+   {
+    "kind": "doc",
+    "basis": "flat",
+    "value": 75.0,
+    "span": {
+     "page": 2,
+     "text": "A Documentation Fee of $75.00 is due at closing to cover the preparation and filing of this Agreement and related documents.",
+     "bbox": [
+      0.5268894117647058,
+      0.4547779527559055,
+      0.8828574117647059,
+      0.5022875832828589
+     ]
+    },
+    "confidence": 0.95,
+    "financed": false
+   },
+   {
+    "kind": "late",
+    "basis": "flat",
+    "value": 50.0,
+    "span": {
+     "page": 3,
+     "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $50.00 to compensate Lender for its administrative costs.",
+     "bbox": [
+      0.11534180392156865,
+      0.09132307692307694,
+      0.47130980392156857,
+      0.17368964264082373
+     ]
+    },
+    "confidence": 0.95,
+    "financed": false
+   }
+  ],
+  "spans": {
+   "principal": {
+    "page": 1,
+    "text": "$11,115.00, representing the purchase price of the Equipment of $12,350.00 less Borrower\u2019s down payment of $1,235.00.",
+    "bbox": [
+     0.5268894117647058,
+     0.09231544518473653,
+     0.8841499607843138,
+     0.17468201090248334
+    ]
+   },
+   "stated_apr": {
+    "page": 1,
+    "text": "14.50%",
+    "bbox": [
+     0.5268894117647058,
+     0.1882030284675954,
+     0.8841499607843138,
+     0.23472029073288914
+    ]
+   },
+   "term_months": {
+    "page": 1,
+    "text": "48 consecutive monthly installments",
+    "bbox": [
+     0.5268894117647058,
+     0.36273579648697757,
+     0.8841499607843138,
+     0.48095166565717745
+    ]
+   },
+   "payment_amount": {
+    "page": 1,
+    "text": "$306.53 each",
+    "bbox": [
+     0.5268894117647058,
+     0.36273579648697757,
+     0.8841499607843138,
+     0.48095166565717745
+    ]
+   },
+   "payment_frequency": {
+    "page": 1,
+    "text": "monthly installments",
+    "bbox": [
+     0.5268894117647058,
+     0.36273579648697757,
+     0.8841499607843138,
+     0.48095166565717745
+    ]
+   }
+  },
+  "confidences": {
+   "principal": 0.95,
+   "stated_apr": 0.95,
+   "term_months": 0.95,
+   "payment_amount": 0.95,
+   "payment_frequency": 0.95
+  },
+  "missing_fields": [
+   "balloon_amount"
+  ]
+ },
+ "clauses": [
+  {
+   "id": "c008",
+   "text": "Borrower acknowledges that the stated rate of 14.50% is exclusive of the Origination Fee and the other Fees set forth in the Schedule of Fees, and that the total cost of credit to Borrower is accordingly greater than the stated rate would indicate.",
+   "span": {
+    "page": 1,
+    "text": "Borrower acknowledges that the stated rate of 14.50% is exclusive of the Origination Fee and the other Fees set forth in the Schedule of Fees, and that the total cost of credit to Borrower is accordingly greater than the stated rate would indicate.",
+    "bbox": [
+     0.5268894117647058,
+     0.2493577225923683,
+     0.8841499607843138,
+     0.3472300423985463
+    ]
+   },
+   "category": "origination_fee",
+   "risk": "medium",
+   "plain_language": "You are being told that the 14.50% rate does not include an origination fee and other fees, making the true cost higher.",
+   "confidence": 0.95,
+   "dollar_impact": 744.71
+  },
+  {
+   "id": "c021",
+   "text": "An Origination Fee equal to 6.70% of the principal amount ($744.71) is due and payable at closing and shall be deducted from the proceeds disbursed to or on behalf of Borrower.",
+   "span": {
+    "page": 2,
+    "text": "An Origination Fee equal to 6.70% of the principal amount ($744.71) is due and payable at closing and shall be deducted from the proceeds disbursed to or on behalf of Borrower.",
+    "bbox": [
+     0.5268894117647058,
+     0.37625681405208966,
+     0.8841499607843138,
+     0.43927219866747425
+    ]
+   },
+   "category": "origination_fee",
+   "risk": "medium",
+   "plain_language": "You must pay a 6.70% origination fee of $744.71 at closing, which will be deducted from the money you receive.",
+   "confidence": 0.98,
+   "dollar_impact": 744.71
+  },
+  {
+   "id": "c071",
+   "text": "Origination Fee & 6.70% of principal ($744.71) & At closing\\\\",
+   "span": {
+    "page": 7,
+    "text": "Origination Fee & 6.70% of principal ($744.71) & At closing\\\\",
+    "bbox": [
+     0.10280407843137254,
+     0.27540738946093274,
+     0.4826842352941177,
+     0.427611871592974
+    ]
+   },
+   "category": "origination_fee",
+   "risk": "medium",
+   "plain_language": "You will pay an origination fee equal to 6.70% of the principal, which is $744.71, at closing.",
+   "confidence": 0.99,
+   "dollar_impact": 744.71
+  },
+  {
+   "id": "c022",
+   "text": "A Documentation Fee of $75.00 is due at closing to cover the preparation and filing of this Agreement and related documents.",
+   "span": {
+    "page": 2,
+    "text": "A Documentation Fee of $75.00 is due at closing to cover the preparation and filing of this Agreement and related documents.",
+    "bbox": [
+     0.5268894117647058,
+     0.4547779527559055,
+     0.8828574117647059,
+     0.5022875832828589
+    ]
+   },
+   "category": "origination_fee",
+   "risk": "low",
+   "plain_language": "You must pay a $75.00 documentation fee at closing to cover paperwork and filing.",
+   "confidence": 0.97,
+   "dollar_impact": 744.71
+  },
+  {
+   "id": "c019",
+   "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court costs, incurred by Lender in enforcing any of the terms of this Agreement, in protecting or realizing upon the Equipment, or in defending any claim brought by Borrower against Lender that is determined adversely to Borrower.",
+   "span": {
+    "page": 2,
+    "text": "Borrower shall reimburse Lender on demand for all costs and expenses, including reasonable attorneys\u2019 fees and court costs, incurred by Lender in enforcing any of the terms of this Agreement, in protecting or realizing upon the Equipment, or in defending any claim brought by Borrower against Lender that is determined adversely to Borrower.",
+    "bbox": [
+     0.5268894117647058,
+     0.11749678982434886,
+     0.8841499607843138,
+     0.25320314960629925
+    ]
+   },
+   "category": "late_fee",
+   "risk": "medium",
+   "plain_language": "You must reimburse Lender for its costs and attorney fees if you lose in court or they enforce the agreement.",
+   "confidence": 0.95,
+   "dollar_impact": 50.0
+  },
+  {
+   "id": "c023",
+   "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount within ten (10) days after the date due; (b) Borrower fails to perform any other covenant in this Agreement and such failure continues for thirty (30) days after written notice; (c) Borrower becomes insolvent, makes an assignment for the benefit of creditors, or becomes the subject of any bankruptcy or insolvency proceeding; or (d) any representation made by Borrower proves to have been false in any material respect when made.",
+   "span": {
+    "page": 2,
+    "text": "Each of the following shall constitute an Event of Default: (a) Borrower fails to pay any installment or other amount within ten (10) days after the date due; (b) Borrower fails to perform any other covenant in this Agreement and such failure continues for thirty (30) days after written notice; (c) Borrower becomes insolvent, makes an assignment for the benefit of creditors, or becomes the subject of any bankruptcy or insolvency proceeding; or (d) any representation made by Borrower proves to have been false in any material respect when made.",
+    "bbox": [
+     0.5268894117647058,
+     0.5468201090248334,
+     0.8841499607843138,
+     0.7532327074500302
+    ]
+   },
+   "category": "late_fee",
+   "risk": "medium",
+   "plain_language": "If you don't pay within ten days, you must pay a $50 late charge, which doesn't earn interest.",
+   "confidence": 0.95,
+   "dollar_impact": 50.0
+  },
+  {
+   "id": "c025",
+   "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $50.00 to compensate Lender for its administrative costs. Such late charge shall not accrue interest.",
+   "span": {
+    "page": 3,
+    "text": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge of $50.00 to compensate Lender for its administrative costs. Such late charge shall not accrue interest.",
+    "bbox": [
+     0.11534180392156865,
+     0.09132307692307694,
+     0.47130980392156857,
+     0.17368964264082373
+    ]
+   },
+   "category": "late_fee",
+   "risk": "low",
+   "plain_language": "If a payment is more than ten days late, you pay a $50 fee that does not accrue interest.",
+   "confidence": 0.98,
+   "dollar_impact": 50.0
+  },
+  {
+   "id": "c072",
+   "text": "Late Charge & $50.00 & Upon late payment\\\\",
+   "span": {
+    "page": 7,
+    "text": "Late Charge & $50.00 & Upon late payment\\\\",
+    "bbox": [
+     0.10280407843137254,
+     0.27540738946093274,
+     0.4826842352941177,
+     0.427611871592974
+    ]
+   },
+   "category": "late_fee",
+   "risk": "low",
+   "plain_language": "You will pay a $50 late charge when your payment is late.",
+   "confidence": 0.98,
+   "dollar_impact": 50.0
+  },
+  {
+   "id": "c041",
+   "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor.",
+   "span": {
+    "page": 4,
+    "text": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor.",
+    "bbox": [
+     0.5268894117647058,
+     0.2725543307086614,
+     0.8841499607843138,
+     0.39176256814052085
+    ]
+   },
+   "category": "blanket_lien",
+   "risk": "high",
+   "plain_language": "You give Lender a first\u2011priority claim on all your personal property, everywhere, now and in the future, and you let Lender file paperwork to secure that claim.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c011",
+   "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacement value and commercial general liability insurance in amounts reasonably acceptable to Lender, with insurers of Borrower\u2019s choosing rated A- or better. Lender shall be named as loss payee and additional insured, and Borrower shall deliver certificates of insurance upon request.",
+   "span": {
+    "page": 1,
+    "text": "Borrower shall, at Borrower\u2019s expense, maintain physical damage insurance covering the Equipment for its full replacement value and commercial general liability insurance in amounts reasonably acceptable to Lender, with insurers of Borrower\u2019s choosing rated A- or better. Lender shall be named as loss payee and additional insured, and Borrower shall deliver certificates of insurance upon request.",
+    "bbox": [
+     0.5268894117647058,
+     0.6388622652937613,
+     0.8841499607843138,
+     0.7929274379164143
+    ]
+   },
+   "category": "insurance",
+   "risk": "medium",
+   "plain_language": "You must pay for insurance on the equipment and liability at your own cost, and the lender must be named as loss payee and additional insured.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c024",
+   "text": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease, credit facility, or obligation owed to Lender, any affiliate of Lender, or any other creditor, regardless of whether such other creditor has declared a default or accelerated such obligation.",
+   "span": {
+    "page": 2,
+    "text": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease, credit facility, or obligation owed to Lender, any affiliate of Lender, or any other creditor, regardless of whether such other creditor has declared a default or accelerated such obligation.",
+    "bbox": [
+     0.5268894117647058,
+     0.7667537250151423,
+     0.8841499607843138,
+     0.8850936402180497
+    ]
+   },
+   "category": "cross_default",
+   "risk": "medium",
+   "plain_language": "If you or anyone who guarantees the loan defaults on any other loan or obligation to Lender or its affiliates, it is an event of default here.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c028",
+   "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall furnish all parts, mechanisms, and devices required to keep the Equipment in such condition. All replacement parts and additions shall become the property of Lender to the extent of Lender\u2019s interest and shall be subject to this Agreement.",
+   "span": {
+    "page": 3,
+    "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall furnish all parts, mechanisms, and devices required to keep the Equipment in such condition. All replacement parts and additions shall become the property of Lender to the extent of Lender\u2019s interest and shall be subject to this Agreement.",
+    "bbox": [
+     0.11534180392156865,
+     0.5313143549364022,
+     0.47130980392156857,
+     0.6670207147183524
+    ]
+   },
+   "category": "blanket_lien",
+   "risk": "medium",
+   "plain_language": "You must keep the equipment in good condition, and any replacement parts become Lender\u2019s property to the extent of their interest.",
+   "confidence": 0.94,
+   "dollar_impact": null
+  },
+  {
+   "id": "c029",
+   "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Virginia, without regard to its conflict of laws principles. The parties consent to the jurisdiction of the state and federal courts located in the State of Virginia for any action arising out of this Agreement.",
+   "span": {
+    "page": 3,
+    "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Virginia, without regard to its conflict of laws principles. The parties consent to the jurisdiction of the state and federal courts located in the State of Virginia for any action arising out of this Agreement.",
+    "bbox": [
+     0.11534180392156865,
+     0.7115532404603271,
+     0.47130980392156857,
+     0.8297691096305269
+    ]
+   },
+   "category": "venue",
+   "risk": "medium",
+   "plain_language": "This agreement is governed by Virginia law and any lawsuit must be in Virginia state or federal courts.",
+   "confidence": 0.97,
+   "dollar_impact": null
+  },
+  {
+   "id": "c001",
+   "text": "Agreement No. EFA-008-2453",
+   "span": {
+    "page": 1,
+    "text": "Agreement No. EFA-008-2453",
+    "bbox": [
+     0.11534180392156865,
+     0.15818388855239252,
+     0.3136188235294117,
+     0.1688518473652332
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are entering into a financing agreement with Summit Trade Credit Company to purchase equipment.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c002",
+   "text": "This Equipment Financing Agreement (this \"Agreement\") is entered into by and between Summit Trade Credit Company (\"Lender\") and Northside Pressure Washing, a business organized under the laws of the State of Virginia (\"Borrower\"). Borrower desires to finance the acquisition of certain equipment described in Schedule A, and Lender is willing to provide such financing on the terms and subject to the conditions set forth herein.",
+   "span": {
+    "page": 1,
+    "text": "This Equipment Financing Agreement (this \"Agreement\") is entered into by and between Summit Trade Credit Company (\"Lender\") and Northside Pressure Washing, a business organized under the laws of the State of Virginia (\"Borrower\"). Borrower desires to finance the acquisition of certain equipment described in Schedule A, and Lender is willing to provide such financing on the terms and subject to the conditions set forth herein.",
+    "bbox": [
+     0.11534180392156865,
+     0.22405233192004845,
+     0.47130980392156857,
+     0.3937473046638401
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are agreeing to finance equipment with Summit Trade Credit Company under the terms described in this document.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c003",
+   "text": "NOW, THEREFORE, in consideration of the mutual covenants contained herein and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows.",
+   "span": {
+    "page": 1,
+    "text": "NOW, THEREFORE, in consideration of the mutual covenants contained herein and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows.",
+    "bbox": [
+     0.11534180392156865,
+     0.4092530587522713,
+     0.47130980392156857,
+     0.49161962447001817
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are agreeing to the terms and conditions set out in this Equipment Financing Agreement.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c004",
+   "text": "\"Equipment\" means the property described in Schedule A, together with all attachments, accessories, replacements, substitutions, and additions thereto. \"Amount Financed\" means the principal amount stated in the Payment Terms section, together with any Fees expressly stated to be financed. \"Payment Date\" means each date on which an installment is due. \"Fees\" means the amounts set forth in the Schedule of Fees.",
+   "span": {
+    "page": 1,
+    "text": "\"Equipment\" means the property described in Schedule A, together with all attachments, accessories, replacements, substitutions, and additions thereto. \"Amount Financed\" means the principal amount stated in the Payment Terms section, together with any Fees expressly stated to be financed. \"Payment Date\" means each date on which an installment is due. \"Fees\" means the amounts set forth in the Schedule of Fees.",
+    "bbox": [
+     0.11534180392156865,
+     0.5361521502119928,
+     0.47130980392156857,
+     0.6883566323440339
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are defining what equipment and fees are included in the financing agreement.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c005",
+   "text": "\"Event of Default\" has the meaning given in the Default section of this Agreement. \"Obligations\" means all amounts payable by Borrower under this Agreement, whether for principal, interest, Fees, or otherwise. \"Business Day\" means any day other than a Saturday, Sunday, or day on which commercial banks in the State of the Lender\u2019s principal office are authorized to close.",
+   "span": {
+    "page": 1,
+    "text": "\"Event of Default\" has the meaning given in the Default section of this Agreement. \"Obligations\" means all amounts payable by Borrower under this Agreement, whether for principal, interest, Fees, or otherwise. \"Business Day\" means any day other than a Saturday, Sunday, or day on which commercial banks in the State of the Lender\u2019s principal office are authorized to close.",
+    "bbox": [
+     0.11534180392156865,
+     0.7028700181708055,
+     0.47130980392156857,
+     0.839444700181708
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are defining key terms like default, obligations, and business day for the agreement.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c006",
+   "text": "Amount Financed. The principal amount financed under this Agreement is $11,115.00, representing the purchase price of the Equipment of $12,350.00 less Borrower\u2019s down payment of $1,235.00.",
+   "span": {
+    "page": 1,
+    "text": "Amount Financed. The principal amount financed under this Agreement is $11,115.00, representing the purchase price of the Equipment of $12,350.00 less Borrower\u2019s down payment of $1,235.00.",
+    "bbox": [
+     0.5268894117647058,
+     0.09231544518473653,
+     0.8841499607843138,
+     0.17468201090248334
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You are borrowing $11,115.00 to buy equipment that costs $12,350.00 after a $1,235.00 down payment.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c007",
+   "text": "Rate. Interest shall accrue on the outstanding Amount Financed at a fixed Annual Percentage Rate (APR) of 14.50%.",
+   "span": {
+    "page": 1,
+    "text": "Rate. Interest shall accrue on the outstanding Amount Financed at a fixed Annual Percentage Rate (APR) of 14.50%.",
+    "bbox": [
+     0.5268894117647058,
+     0.1882030284675954,
+     0.8841499607843138,
+     0.23472029073288914
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will pay interest at a fixed rate of 14.50% per year on the amount financed.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c009",
+   "text": "Installments. Borrower shall repay the Amount Financed together with interest in 48 consecutive monthly installments of $306.53 each, the first installment being due thirty (30) days after the date of this Agreement and each subsequent installment being due on the same day of each period thereafter.",
+   "span": {
+    "page": 1,
+    "text": "Installments. Borrower shall repay the Amount Financed together with interest in 48 consecutive monthly installments of $306.53 each, the first installment being due thirty (30) days after the date of this Agreement and each subsequent installment being due on the same day of each period thereafter.",
+    "bbox": [
+     0.5268894117647058,
+     0.36273579648697757,
+     0.8841499607843138,
+     0.48095166565717745
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 48 monthly payments of $306.53 each, starting 30 days after the agreement.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c010",
+   "text": "All payments shall be made in lawful money of the United States by automatic debit from the account designated by Borrower, without setoff or deduction. Any payment received after 5:00 p.m. Eastern time shall be credited on the next Business Day.",
+   "span": {
+    "page": 1,
+    "text": "All payments shall be made in lawful money of the United States by automatic debit from the account designated by Borrower, without setoff or deduction. Any payment received after 5:00 p.m. Eastern time shall be credited on the next Business Day.",
+    "bbox": [
+     0.5268894117647058,
+     0.49348031496062994,
+     0.8841499607843138,
+     0.5943297395517868
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You must pay by automatic debit from your bank account, and late payments after 5 p.m. Eastern time are delayed until the next business day.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c012",
+   "text": "Any insurance proceeds received by Lender shall be applied, at Lender\u2019s option, to the repair or replacement of the Equipment or to the Obligations.",
+   "span": {
+    "page": 1,
+    "text": "Any insurance proceeds received by Lender shall be applied, at Lender\u2019s option, to the repair or replacement of the Equipment or to the Obligations.",
+    "bbox": [
+     0.5268894117647058,
+     0.8055801332525742,
+     0.8841499607843138,
+     0.8704562083585705
+    ]
+   },
+   "category": "insurance",
+   "risk": "low",
+   "plain_language": "If you get insurance money, the lender can choose to use it to fix or replace the equipment or pay your debt.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c013",
+   "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever from the date of delivery until all obligations of Borrower under this Agreement have been fully satisfied. No such loss, theft, damage, or destruction shall relieve Borrower of any obligation under this Agreement, including the obligation to make payments when due.",
+   "span": {
+    "page": 2,
+    "text": "Borrower shall bear the entire risk of loss, theft, damage, or destruction of the Equipment from any cause whatsoever from the date of delivery until all obligations of Borrower under this Agreement have been fully satisfied. No such loss, theft, damage, or destruction shall relieve Borrower of any obligation under this Agreement, including the obligation to make payments when due.",
+    "bbox": [
+     0.11417850980392154,
+     0.09132307692307694,
+     0.47130980392156857,
+     0.2445199273167777
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You are responsible for any loss, theft, or damage to the equipment until the loan is fully paid, and it does not cancel your payment obligation.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c014",
+   "text": "If any provision of this Agreement is held to be invalid, illegal, or unenforceable in any respect, such invalidity, illegality, or unenforceability shall not affect any other provision of this Agreement, and this Agreement shall be construed as if such provision had never been contained herein. The headings in this Agreement are for convenience of reference only and shall not affect its interpretation.",
+   "span": {
+    "page": 2,
+    "text": "If any provision of this Agreement is held to be invalid, illegal, or unenforceable in any respect, such invalidity, illegality, or unenforceability shall not affect any other provision of this Agreement, and this Agreement shall be construed as if such provision had never been contained herein. The headings in this Agreement are for convenience of reference only and shall not affect its interpretation.",
+    "bbox": [
+     0.11417850980392154,
+     0.2590333131435494,
+     0.47130980392156857,
+     0.4121061175045427
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "If any part of this agreement is found to be invalid, the rest of the agreement still applies.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c015",
+   "text": "Borrower acknowledges that Borrower has selected the Equipment and the supplier thereof based upon Borrower\u2019s own judgment and expressly disclaims any reliance upon any statements or representations made by Lender. Lender makes no warranty, express or implied, as to the merchantability, fitness for a particular purpose, design, condition, capacity, quality, or durability of the Equipment.",
+   "span": {
+    "page": 2,
+    "text": "Borrower acknowledges that Borrower has selected the Equipment and the supplier thereof based upon Borrower\u2019s own judgment and expressly disclaims any reliance upon any statements or representations made by Lender. Lender makes no warranty, express or implied, as to the merchantability, fitness for a particular purpose, design, condition, capacity, quality, or durability of the Equipment.",
+    "bbox": [
+     0.11417850980392154,
+     0.42562713506965477,
+     0.47130980392156857,
+     0.5788239854633556
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are saying you chose the equipment yourself and the lender makes no promises about its quality or condition.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c016",
+   "text": "The obligations of Borrower under this Agreement are absolute and unconditional and shall not be subject to any abatement, reduction, setoff, defense, counterclaim, or recoupment for any reason whatsoever, including any defect in the Equipment, any failure of the supplier to deliver or perform, or any interruption or cessation in the use or possession of the Equipment by Borrower for any reason.",
+   "span": {
+    "page": 2,
+    "text": "The obligations of Borrower under this Agreement are absolute and unconditional and shall not be subject to any abatement, reduction, setoff, defense, counterclaim, or recoupment for any reason whatsoever, including any defect in the Equipment, any failure of the supplier to deliver or perform, or any interruption or cessation in the use or possession of the Equipment by Borrower for any reason.",
+    "bbox": [
+     0.11417850980392154,
+     0.6233565112053301,
+     0.47130980392156857,
+     0.777421683827983
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You must pay the loan no matter what, and cannot stop or reduce payments even if the equipment is defective or the supplier fails.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c017",
+   "text": "Any provision of this Agreement that by its nature is intended to survive the expiration or termination of this Agreement, including without limitation the indemnification, payment, and confidentiality obligations of Borrower, shall survive such expiration or termination and remain",
+   "span": {
+    "page": 2,
+    "text": "Any provision of this Agreement that by its nature is intended to survive the expiration or termination of this Agreement, including without limitation the indemnification, payment, and confidentiality obligations of Borrower, shall survive such expiration or termination and remain",
+    "bbox": [
+     0.11417850980392154,
+     0.790074379164143,
+     0.47130980392156857,
+     0.8907997577225923
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must continue to follow the indemnification, payment, and confidentiality obligations even after the agreement ends.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c018",
+   "text": "in full force and effect.",
+   "span": {
+    "page": 2,
+    "text": "in full force and effect.",
+    "bbox": [
+     0.5268894117647058,
+     0.09132307692307694,
+     0.6847096470588234,
+     0.10199103573591763
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "The obligations continue in full force and effect after expiration or termination.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c020",
+   "text": "Borrower shall pay the Fees set forth in the Schedule of Fees attached to this Agreement as Schedule B. Fees not stated to be financed are due at closing.",
+   "span": {
+    "page": 2,
+    "text": "Borrower shall pay the Fees set forth in the Schedule of Fees attached to this Agreement as Schedule B. Fees not stated to be financed are due at closing.",
+    "bbox": [
+     0.5268894117647058,
+     0.2977356753482738,
+     0.8828574117647059,
+     0.36273579648697757
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You must pay the fees listed in Schedule B at closing, and fees not included in the schedule are due at closing.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c026",
+   "text": "Borrower may prepay the Obligations in whole or in part at any time without premium or penalty. Any partial prepayment shall be applied to installments in inverse order of maturity and shall not relieve Borrower of the obligation to make the next scheduled installment when due.",
+   "span": {
+    "page": 3,
+    "text": "Borrower may prepay the Obligations in whole or in part at any time without premium or penalty. Any partial prepayment shall be applied to installments in inverse order of maturity and shall not relieve Borrower of the obligation to make the next scheduled installment when due.",
+    "bbox": [
+     0.11534180392156865,
+     0.21921453664445786,
+     0.47130980392156857,
+     0.3180792247122956
+    ]
+   },
+   "category": "prepayment_penalty",
+   "risk": "low",
+   "plain_language": "You can pay early anytime without any penalty or extra charge.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c027",
+   "text": "Borrower shall pay when due all taxes, assessments, fees, and other governmental charges, however designated, that are levied or assessed upon the Equipment, its use, or this Agreement, including sales, use, personal property, and excise taxes, excluding only taxes measured by Lender\u2019s net income. Borrower shall file all required returns and reports with respect to the Equipment.",
+   "span": {
+    "page": 3,
+    "text": "Borrower shall pay when due all taxes, assessments, fees, and other governmental charges, however designated, that are levied or assessed upon the Equipment, its use, or this Agreement, including sales, use, personal property, and excise taxes, excluding only taxes measured by Lender\u2019s net income. Borrower shall file all required returns and reports with respect to the Equipment.",
+    "bbox": [
+     0.11534180392156865,
+     0.36459648697758934,
+     0.47130980392156857,
+     0.5186616596002424
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You must pay all taxes and fees on the equipment, file required reports, and only exclude taxes based on Lender\u2019s net income.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c030",
+   "text": "All notices, requests, demands, and other communications required or permitted under this",
+   "span": {
+    "page": 3,
+    "text": "All notices, requests, demands, and other communications required or permitted under this",
+    "bbox": [
+     0.11534180392156865,
+     0.8752940036341611,
+     0.47130980392156857,
+     0.9044448213204118
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "The agreement requires written notices delivered in specific ways to be considered valid.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c031",
+   "text": "Agreement shall be in writing and shall be deemed to have been duly given when delivered personally, when sent by nationally recognized overnight courier, or three (3) business days after being mailed by certified mail, return receipt requested, postage prepaid, to the addresses set forth on the signature page hereof or to such other address as a party may designate by notice.",
+   "span": {
+    "page": 3,
+    "text": "Agreement shall be in writing and shall be deemed to have been duly given when delivered personally, when sent by nationally recognized overnight courier, or three (3) business days after being mailed by certified mail, return receipt requested, postage prepaid, to the addresses set forth on the signature page hereof or to such other address as a party may designate by notice.",
+    "bbox": [
+     0.5268894117647058,
+     0.09132307692307694,
+     0.8841499607843138,
+     0.24352755905511808
+    ]
+   },
+   "category": "venue",
+   "risk": "low",
+   "plain_language": "Notices are valid if delivered in person, by overnight courier, or mailed with return receipt within three business days.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c032",
+   "text": "Lender and its designees shall have the right, at any reasonable time and upon reasonable notice, to enter upon the premises where the Equipment is located to inspect the Equipment and Borrower\u2019s records relating thereto. Borrower shall furnish to Lender, within one hundred twenty (120) days after the close of each fiscal year, financial statements of Borrower prepared in accordance with generally accepted accounting principles.",
+   "span": {
+    "page": 3,
+    "text": "Lender and its designees shall have the right, at any reasonable time and upon reasonable notice, to enter upon the premises where the Equipment is located to inspect the Equipment and Borrower\u2019s records relating thereto. Borrower shall furnish to Lender, within one hundred twenty (120) days after the close of each fiscal year, financial statements of Borrower prepared in accordance with generally accepted accounting principles.",
+    "bbox": [
+     0.5268894117647058,
+     0.2590333131435494,
+     0.8841499607843138,
+     0.4295966081162932
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "Lender can inspect the equipment and your records anytime, and you must give financial statements within 120 days after each fiscal year.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c033",
+   "text": "Borrower acknowledges that Borrower has selected the Equipment and the supplier thereof based upon Borrower\u2019s own judgment and expressly disclaims any reliance upon any statements or representations made by Lender. Lender makes no warranty, express or implied, as to the merchantability, fitness for a particular purpose, design, condition, capacity, quality, or durability of the Equipment.",
+   "span": {
+    "page": 3,
+    "text": "Borrower acknowledges that Borrower has selected the Equipment and the supplier thereof based upon Borrower\u2019s own judgment and expressly disclaims any reliance upon any statements or representations made by Lender. Lender makes no warranty, express or implied, as to the merchantability, fitness for a particular purpose, design, condition, capacity, quality, or durability of the Equipment.",
+    "bbox": [
+     0.5268894117647058,
+     0.4431176256814052,
+     0.8841499607843138,
+     0.5961904300423986
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You disclaim any reliance on Lender\u2019s statements and Lender makes no warranty about the Equipment\u2019s quality or condition.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c034",
+   "text": "Time is of the essence with respect to the performance of Borrower\u2019s obligations under this Agreement. No delay or omission by Lender in exercising any right or remedy shall impair such right or remedy or be construed as a waiver thereof, and a waiver on one occasion shall not be construed as a waiver of any right or remedy on any future occasion.",
+   "span": {
+    "page": 3,
+    "text": "Time is of the essence with respect to the performance of Borrower\u2019s obligations under this Agreement. No delay or omission by Lender in exercising any right or remedy shall impair such right or remedy or be construed as a waiver thereof, and a waiver on one occasion shall not be construed as a waiver of any right or remedy on any future occasion.",
+    "bbox": [
+     0.5268894117647058,
+     0.609835493640218,
+     0.8841499607843138,
+     0.7455418534221684
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must act quickly and Lender\u2019s delays or waivers don\u2019t count as giving up its rights.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c035",
+   "text": "This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior and contemporaneous agreements, representations, and understandings, whether written or oral. No amendment, modification, or waiver of any provision of this Agreement shall be effective unless in writing and signed by the party against whom enforcement is sought.",
+   "span": {
+    "page": 3,
+    "text": "This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior and contemporaneous agreements, representations, and understandings, whether written or oral. No amendment, modification, or waiver of any provision of this Agreement shall be effective unless in writing and signed by the party against whom enforcement is sought.",
+    "bbox": null
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "This is the only agreement that matters and any changes must be in writing and signed.",
+   "confidence": 0.97,
+   "dollar_impact": null
+  },
+  {
+   "id": "c036",
+   "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Lender, and shall not permit the Equipment to be removed from the location specified in Schedule A without the prior written consent of Lender. Borrower shall affix and maintain on the Equipment any labels, plates, or markings furnished by Lender identifying Lender\u2019s interest.",
+   "span": {
+    "page": 4,
+    "text": "Borrower shall keep the Equipment free and clear of all liens, charges, and encumbrances other than those in favor of Lender, and shall not permit the Equipment to be removed from the location specified in Schedule A without the prior written consent of Lender. Borrower shall affix and maintain on the Equipment any labels, plates, or markings furnished by Lender identifying Lender\u2019s interest.",
+    "bbox": [
+     0.11417850980392154,
+     0.15235372501514233,
+     0.47130980392156857,
+     0.3065429436705027
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must keep the Equipment free of other liens, get Lender\u2019s written consent before moving it, and keep Lender\u2019s labels on it.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c037",
+   "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writing and shall, at Lender\u2019s option, either repair the Equipment to good condition and working order, replace the Equipment with like equipment of equal or greater value acceptable to Lender, or pay to Lender the then outstanding balance of all amounts due under this Agreement.",
+   "span": {
+    "page": 4,
+    "text": "In the event of any loss, theft, damage, or destruction of the Equipment, Borrower shall promptly notify Lender in writing and shall, at Lender\u2019s option, either repair the Equipment to good condition and working order, replace the Equipment with like equipment of equal or greater value acceptable to Lender, or pay to Lender the then outstanding balance of all amounts due under this Agreement.",
+    "bbox": [
+     0.11417850980392154,
+     0.31907159297395515,
+     0.47130980392156857,
+     0.47313676559660817
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "If the Equipment is lost or damaged, you must tell Lender and either fix it, replace it, or pay the full balance.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c038",
+   "text": "Borrower represents and warrants to Lender that Borrower is duly organized, validly existing, and in good standing under the laws of the state of its organization, and that Borrower has full power and authority to execute, deliver, and perform its obligations under this Agreement. The execution and delivery of this Agreement have been duly authorized by all necessary action on the part of Borrower and do not violate any provision of Borrower\u2019s organizational documents or any agreement to which Borrower is a party.",
+   "span": {
+    "page": 4,
+    "text": "Borrower represents and warrants to Lender that Borrower is duly organized, validly existing, and in good standing under the laws of the state of its organization, and that Borrower has full power and authority to execute, deliver, and perform its obligations under this Agreement. The execution and delivery of this Agreement have been duly authorized by all necessary action on the part of Borrower and do not violate any provision of Borrower\u2019s organizational documents or any agreement to which Borrower is a party.",
+    "bbox": [
+     0.11417850980392154,
+     0.48578946093276804,
+     0.47130980392156857,
+     0.675703937007874
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You confirm you\u2019re legally able to sign and carry out this Agreement.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c039",
+   "text": "Borrower shall use the Equipment solely in the ordinary course of Borrower\u2019s business, in a careful and proper manner, and in compliance with all applicable laws, ordinances, regulations, and manufacturer\u2019s instructions. Borrower shall not use or permit the Equipment to be used for any unlawful purpose or in any manner that would void any warranty or insurance coverage applicable to the Equipment.",
+   "span": {
+    "page": 4,
+    "text": "Borrower shall use the Equipment solely in the ordinary course of Borrower\u2019s business, in a careful and proper manner, and in compliance with all applicable laws, ordinances, regulations, and manufacturer\u2019s instructions. Borrower shall not use or permit the Equipment to be used for any unlawful purpose or in any manner that would void any warranty or insurance coverage applicable to the Equipment.",
+    "bbox": [
+     0.11417850980392154,
+     0.7397116898849182,
+     0.47130980392156857,
+     0.8937768625075713
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must use the Equipment in a proper, lawful way and not do anything that would void its warranty or insurance.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c040",
+   "text": "Borrower agrees to execute and deliver such further instruments and documents, and to take such further actions, as Lender may reasonably request in order to carry out the intent and purposes of this Agreement and to perfect and protect the interests of Lender in the Equipment, including without limitation financing statements, landlord waivers, and certificates of title.",
+   "span": {
+    "page": 4,
+    "text": "Borrower agrees to execute and deliver such further instruments and documents, and to take such further actions, as Lender may reasonably request in order to carry out the intent and purposes of this Agreement and to perfect and protect the interests of Lender in the Equipment, including without limitation financing statements, landlord waivers, and certificates of title.",
+    "bbox": [
+     0.5268894117647058,
+     0.09132307692307694,
+     0.8828574117647059,
+     0.2280218049666869
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will sign any extra documents Lender asks for to protect its interest in the Equipment.",
+   "confidence": 0.97,
+   "dollar_impact": null
+  },
+  {
+   "id": "c042",
+   "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or more of the following remedies: declare all Obligations immediately due and payable; take possession of the Equipment wherever located; sell, lease, or otherwise dispose of the Equipment and apply the net proceeds to the Obligations; and exercise any other right or remedy available at law or in equity.",
+   "span": {
+    "page": 4,
+    "text": "Upon the occurrence of an Event of Default, Lender may, at its option and without notice or demand, exercise any one or more of the following remedies: declare all Obligations immediately due and payable; take possession of the Equipment wherever located; sell, lease, or otherwise dispose of the Equipment and apply the net proceeds to the Obligations; and exercise any other right or remedy available at law or in equity.",
+    "bbox": [
+     0.5268894117647058,
+     0.43542677165354327,
+     0.8841499607843138,
+     0.6068583888552392
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "If you default, Lender can immediately demand payment, take the Equipment, sell it, or use any legal remedy without notice.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c043",
+   "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cumulative and may be exercised concurrently or separately.",
+   "span": {
+    "page": 4,
+    "text": "Borrower shall be liable for any deficiency remaining after disposition of the Equipment. The remedies of Lender are cumulative and may be exercised concurrently or separately.",
+    "bbox": [
+     0.5268894117647058,
+     0.6195110841913991,
+     0.8841499607843138,
+     0.6843871592973955
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must pay any remaining balance after the Equipment is sold, and Lender can use any legal actions at the same time.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c044",
+   "text": "This Agreement shall terminate upon Borrower\u2019s payment in full of all Obligations, whereupon Lender shall release its security interest in the Equipment and, upon Borrower\u2019s request, file a termination statement.",
+   "span": {
+    "page": 4,
+    "text": "This Agreement shall terminate upon Borrower\u2019s payment in full of all Obligations, whereupon Lender shall release its security interest in the Equipment and, upon Borrower\u2019s request, file a termination statement.",
+    "bbox": [
+     0.5268894117647058,
+     0.7290437310720775,
+     0.8841499607843138,
+     0.8114102967898243
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "The Agreement ends when you pay everything, and Lender will release its claim on the Equipment.",
+   "confidence": 0.97,
+   "dollar_impact": null
+  },
+  {
+   "id": "c045",
+   "text": "The obligations of Borrower under this Agreement are absolute and unconditional and shall not be subject to any abatement, reduction, setoff, defense, counterclaim, or recoupment for any reason whatsoever, including any defect in the Equipment, any failure of the supplier to deliver or perform, or any interruption or cessation in the use or possession of the Equipment by Borrower for any reason.",
+   "span": {
+    "page": 4,
+    "text": "The obligations of Borrower under this Agreement are absolute and unconditional and shall not be subject to any abatement, reduction, setoff, defense, counterclaim, or recoupment for any reason whatsoever, including any defect in the Equipment, any failure of the supplier to deliver or perform, or any interruption or cessation in the use or possession of the Equipment by Borrower for any reason.",
+    "bbox": null
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You cannot use any defense, setoff, or counterclaim against Lender for any reason, even if the Equipment is defective.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c046",
+   "text": "Borrower represents and warrants to Lender that Borrower is duly organized, validly existing, and in good standing under the laws of the state of its organization, and that Borrower has full power and authority to execute, deliver, and perform its obligations under this Agreement. The execution and delivery of this Agreement have been duly authorized by all necessary action on the part of Borrower and do not violate any provision of Borrower\u2019s organizational documents or any agreement to which Borrower is a party.",
+   "span": {
+    "page": 5,
+    "text": "Borrower represents and warrants to Lender that Borrower is duly organized, validly existing, and in good standing under the laws of the state of its organization, and that Borrower has full power and authority to execute, deliver, and perform its obligations under this Agreement. The execution and delivery of this Agreement have been duly authorized by all necessary action on the part of Borrower and do not violate any provision of Borrower\u2019s organizational documents or any agreement to which Borrower is a party.",
+    "bbox": [
+     0.11417850980392154,
+     0.20569351907934585,
+     0.4726023529411765,
+     0.3946156268927922
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You confirm you\u2019re legally able to sign and carry out this Agreement.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c047",
+   "text": "Time is of the essence with respect to the performance of Borrower\u2019s obligations under this Agreement. No delay or omission by Lender in exercising any right or remedy shall impair such right or remedy or be construed as a waiver thereof, and a waiver on one occasion shall not be construed as a waiver of any right or remedy on any future occasion.",
+   "span": {
+    "page": 5,
+    "text": "Time is of the essence with respect to the performance of Borrower\u2019s obligations under this Agreement. No delay or omission by Lender in exercising any right or remedy shall impair such right or remedy or be construed as a waiver thereof, and a waiver on one occasion shall not be construed as a waiver of any right or remedy on any future occasion.",
+    "bbox": [
+     0.11417850980392154,
+     0.40726832222895215,
+     0.4726023529411765,
+     0.5439670502725621
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must act quickly and Lender\u2019s delays or waivers don\u2019t count as giving up its rights.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c048",
+   "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, and assigns from and against any and all claims, losses, liabilities, damages, costs, and expenses, including reasonable attorneys\u2019 fees, arising out of or relating to the selection, delivery, possession, use, operation, condition, or return of the Equipment, except to the extent caused by the gross negligence or willful misconduct of Lender.",
+   "span": {
+    "page": 5,
+    "text": "Borrower shall indemnify, defend, and hold harmless Lender and its officers, directors, employees, agents, successors, and assigns from and against any and all claims, losses, liabilities, damages, costs, and expenses, including reasonable attorneys\u2019 fees, arising out of or relating to the selection, delivery, possession, use, operation, condition, or return of the Equipment, except to the extent caused by the gross negligence or willful misconduct of Lender.",
+    "bbox": [
+     0.11534180392156865,
+     0.5884995760145367,
+     0.4726023529411765,
+     0.7755609933373713
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must protect Lender from any claims related to the Equipment, except if Lender is grossly negligent or acted willfully.",
+   "confidence": 0.96,
+   "dollar_impact": null
+  },
+  {
+   "id": "c049",
+   "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without notice to or consent of Borrower. Borrower agrees that any assignee of Lender shall have all of the rights but none of the obligations of Lender under this Agreement, and",
+   "span": {
+    "page": 5,
+    "text": "Lender may assign, sell, or otherwise transfer this Agreement and its rights hereunder, in whole or in part, without notice to or consent of Borrower. Borrower agrees that any assignee of Lender shall have all of the rights but none of the obligations of Lender under this Agreement, and",
+    "bbox": [
+     0.11534180392156865,
+     0.790074379164143,
+     0.4726023529411765,
+     0.8907997577225923
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You can't stop the lender from selling this agreement to someone else without telling you, and that new party gets your rights but not your responsibilities.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c050",
+   "text": "Borrower shall not assert against any assignee any defense, counterclaim, or setoff that Borrower may have against Lender.",
+   "span": {
+    "page": 5,
+    "text": "Borrower shall not assert against any assignee any defense, counterclaim, or setoff that Borrower may have against Lender.",
+    "bbox": [
+     0.5268894117647058,
+     0.09132307692307694,
+     0.8828574117647059,
+     0.1398250757116899
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You can't use any defense, claim, or setoff against the lender's new owner that you could use against the original lender.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c051",
+   "text": "Borrower shall pay when due all taxes, assessments, fees, and other governmental charges, however designated, that are levied or assessed upon the Equipment, its use, or this Agreement, including sales, use, personal property, and excise taxes, excluding only taxes measured by Lender\u2019s net income. Borrower shall file all required returns and reports with respect to the Equipment.",
+   "span": {
+    "page": 5,
+    "text": "Borrower shall pay when due all taxes, assessments, fees, and other governmental charges, however designated, that are levied or assessed upon the Equipment, its use, or this Agreement, including sales, use, personal property, and excise taxes, excluding only taxes measured by Lender\u2019s net income. Borrower shall file all required returns and reports with respect to the Equipment.",
+    "bbox": [
+     0.5268894117647058,
+     0.15235372501514233,
+     0.8828574117647059,
+     0.3065429436705027
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must pay all taxes on the equipment or its use and file the required reports, but not taxes based on the lender's income.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c052",
+   "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall furnish all parts, mechanisms, and devices required to keep the Equipment in such condition. All replacement parts and additions shall become the property of Lender to the extent of Lender\u2019s interest and shall be subject to this Agreement.",
+   "span": {
+    "page": 5,
+    "text": "Borrower shall, at Borrower\u2019s sole expense, keep the Equipment in good repair, condition, and working order, and shall furnish all parts, mechanisms, and devices required to keep the Equipment in such condition. All replacement parts and additions shall become the property of Lender to the extent of Lender\u2019s interest and shall be subject to this Agreement.",
+    "bbox": [
+     0.5268894117647058,
+     0.35107546941247725,
+     0.8828574117647059,
+     0.4867818291944276
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must keep the equipment in good condition at your expense and any new parts become the lender's to the extent of their interest.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c053",
+   "text": "Borrower shall furnish to Lender, promptly upon request, such information concerning the financial condition, business, and operations of Borrower and any guarantor as Lender may from time to time reasonably request, and Borrower authorizes Lender to obtain credit reports and other information concerning Borrower from third parties at any time during the term of this Agreement.",
+   "span": {
+    "page": 5,
+    "text": "Borrower shall furnish to Lender, promptly upon request, such information concerning the financial condition, business, and operations of Borrower and any guarantor as Lender may from time to time reasonably request, and Borrower authorizes Lender to obtain credit reports and other information concerning Borrower from third parties at any time during the term of this Agreement.",
+    "bbox": [
+     0.5268894117647058,
+     0.5003028467595396,
+     0.8828574117647059,
+     0.653375651120533
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must give the lender any information they ask for about your finances and let them get credit reports about you whenever they want.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c054",
+   "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the Equipment that would impair its value or that cannot be removed without damage to the Equipment. Any alteration, addition, or improvement made to the Equipment shall be at Borrower\u2019s sole cost and shall become the property of Lender to the extent of Lender\u2019s interest.",
+   "span": {
+    "page": 5,
+    "text": "Borrower shall not, without the prior written consent of Lender, make any alterations, additions, or improvements to the Equipment that would impair its value or that cannot be removed without damage to the Equipment. Any alteration, addition, or improvement made to the Equipment shall be at Borrower\u2019s sole cost and shall become the property of Lender to the extent of Lender\u2019s interest.",
+    "bbox": [
+     0.5268894117647058,
+     0.6670207147183524,
+     0.8828574117647059,
+     0.8181087825560266
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You can't change the equipment without the lender's written permission, and any changes you make become the lender's property to the extent of their interest.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c055",
+   "text": "If any provision of this Agreement is held to be invalid, illegal, or unenforceable in any respect, such invalidity, illegality, or unenforceability shall not affect any other provision of this Agreement, and this Agreement shall be construed as if such provision had never been contained herein. The headings in this Agreement are for convenience of reference only and shall not affect its interpretation.",
+   "span": {
+    "page": 5,
+    "text": "If any provision of this Agreement is held to be invalid, illegal, or unenforceable in any respect, such invalidity, illegality, or unenforceability shall not affect any other provision of this Agreement, and this Agreement shall be construed as if such provision had never been contained herein. The headings in this Agreement are for convenience of reference only and shall not affect its interpretation.",
+    "bbox": null
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "If a part of this agreement is found to be invalid, the rest still works as if that part was never there.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c056",
+   "text": "Borrower shall not assign, transfer, pledge, or otherwise dispose of this Agreement or any interest herein, or sublet or lend the Equipment or permit it to be used by anyone other than Borrower\u2019s employees, without the prior written consent of Lender, which consent may be withheld in Lender\u2019s sole discretion. Any purported assignment in violation of this Section shall be void.",
+   "span": {
+    "page": 6,
+    "text": "Borrower shall not assign, transfer, pledge, or otherwise dispose of this Agreement or any interest herein, or sublet or lend the Equipment or permit it to be used by anyone other than Borrower\u2019s employees, without the prior written consent of Lender, which consent may be withheld in Lender\u2019s sole discretion. Any purported assignment in violation of this Section shall be void.",
+    "bbox": [
+     0.11534180392156865,
+     0.2231840096910963,
+     0.47130980392156857,
+     0.37526444579043006
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You can't give away or sell this agreement or let anyone else use the equipment without the lender's written permission, which they can deny anytime.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c057",
+   "text": "Upon delivery of the Equipment, Borrower shall inspect the Equipment and, unless Borrower gives written notice to Lender within five (5) business days specifying any defect or other objection, Borrower shall be conclusively deemed to have accepted the Equipment as satisfactory in all respects. Borrower shall execute and deliver to Lender a delivery and acceptance certificate in the form provided by Lender.",
+   "span": {
+    "page": 6,
+    "text": "Upon delivery of the Equipment, Borrower shall inspect the Equipment and, unless Borrower gives written notice to Lender within five (5) business days specifying any defect or other objection, Borrower shall be conclusively deemed to have accepted the Equipment as satisfactory in all respects. Borrower shall execute and deliver to Lender a delivery and acceptance certificate in the form provided by Lender.",
+    "bbox": [
+     0.11534180392156865,
+     0.3897778316172017,
+     0.47130980392156857,
+     0.5439670502725621
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You must inspect the equipment within five business days and if you don't notify the lender of any problems, you're considered to have accepted it as is.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c058",
+   "text": "This Agreement may be executed in any number of counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Delivery of an executed counterpart by facsimile or electronic transmission shall be as effective as delivery of a manually executed counterpart. Only the counterpart marked Original by Lender shall constitute chattel paper.",
+   "span": {
+    "page": 6,
+    "text": "This Agreement may be executed in any number of counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Delivery of an executed counterpart by facsimile or electronic transmission shall be as effective as delivery of a manually executed counterpart. Only the counterpart marked Original by Lender shall constitute chattel paper.",
+    "bbox": [
+     0.11534180392156865,
+     0.5564956995760145,
+     0.47130980392156857,
+     0.7105608721986675
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "This agreement can be signed in multiple copies, and any copy sent by fax or email counts as a valid original if the lender marks it as such.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c059",
+   "text": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written below.",
+   "span": {
+    "page": 6,
+    "text": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written below.",
+    "bbox": [
+     0.11534180392156865,
+     0.7464101756511206,
+     0.47130980392156857,
+     0.7920591156874621
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "The parties sign this agreement as of the date written below.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c060",
+   "text": "\\begin{tabular}{cc}",
+   "span": {
+    "page": 6,
+    "text": "\\begin{tabular}{cc}",
+    "bbox": [
+     0.11663435294117647,
+     0.838576377952756,
+     0.5748429803921569,
+     0.8744256814052089
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "This is a table with lines for signatures, not a clause with financial terms.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c061",
+   "text": "By: & By:\\\\",
+   "span": {
+    "page": 6,
+    "text": "By: & By:\\\\",
+    "bbox": [
+     0.11663435294117647,
+     0.838576377952756,
+     0.5748429803921569,
+     0.8744256814052089
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "This line is for the lender's signature.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c062",
+   "text": "Name: & Name:\\\\",
+   "span": {
+    "page": 6,
+    "text": "Name: & Name:\\\\",
+    "bbox": [
+     0.11663435294117647,
+     0.838576377952756,
+     0.5748429803921569,
+     0.8744256814052089
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "This line is for the borrower's signature.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c063",
+   "text": "LENDER: Summit Trade Credit Company: BORROWER: Northside Pressure Washing",
+   "span": {
+    "page": 6,
+    "text": "LENDER: Summit Trade Credit Company: BORROWER: Northside Pressure Washing",
+    "bbox": [
+     0.11663435294117647,
+     0.8094255602665051,
+     0.5862174117647059,
+     0.8210858873410055
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "This line identifies the lender as Summit Trade Credit Company and the borrower as Northside Pressure Washing.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c065",
+   "text": "Date: Date:",
+   "span": {
+    "page": 6,
+    "text": "Date: Date:",
+    "bbox": [
+     0.5281819607843137,
+     0.12332695336159903,
+     0.7490785882352942,
+     0.13201017565112053
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will see the date written on the document.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c066",
+   "text": "Description: one (1) commercial espresso machine and grinder.",
+   "span": {
+    "page": 7,
+    "text": "Description: one (1) commercial espresso machine and grinder.",
+    "bbox": [
+     0.11417850980392154,
+     0.11749678982434886,
+     0.47014650980392164,
+     0.1475159297395518
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You are buying one commercial espresso machine and grinder.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c067",
+   "text": "Purchase price: $12,350.00. Down payment: $1,235.00. Location: Borrower\u2019s principal place of business in the State of Virginia.",
+   "span": {
+    "page": 7,
+    "text": "Purchase price: $12,350.00. Down payment: $1,235.00. Location: Borrower\u2019s principal place of business in the State of Virginia.",
+    "bbox": [
+     0.11417850980392154,
+     0.16116099333737127,
+     0.47130980392156857,
+     0.20854657783161717
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will pay $12,350 total, with $1,235 down and the rest financed in equal payments.",
+   "confidence": 0.97,
+   "dollar_impact": null
+  },
+  {
+   "id": "c068",
+   "text": "\\begin{tabular}{ccc}",
+   "span": {
+    "page": 7,
+    "text": "\\begin{tabular}{ccc}",
+    "bbox": [
+     0.10280407843137254,
+     0.27540738946093274,
+     0.4826842352941177,
+     0.427611871592974
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will see a table with columns for numbers and installment amounts.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c069",
+   "text": "**Fee** & **Amount** & **When Payable**\\\\",
+   "span": {
+    "page": 7,
+    "text": "**Fee** & **Amount** & **When Payable**\\\\",
+    "bbox": [
+     0.10280407843137254,
+     0.27540738946093274,
+     0.4826842352941177,
+     0.427611871592974
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will see a table header for fee, amount, and when it is due.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c070",
+   "text": "Documentatio n Fee & $75.00 & At closing\\\\",
+   "span": {
+    "page": 7,
+    "text": "Documentatio n Fee & $75.00 & At closing\\\\",
+    "bbox": [
+     0.10280407843137254,
+     0.27540738946093274,
+     0.4826842352941177,
+     0.427611871592974
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will pay a $75 documentation fee at closing.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c073",
+   "text": "\\begin{tabular}{cccccc}",
+   "span": {
+    "page": 8,
+    "text": "\\begin{tabular}{cccccc}",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will see another table with column headers for numbers and installment amounts.",
+   "confidence": 0.95,
+   "dollar_impact": null
+  },
+  {
+   "id": "c074",
+   "text": "**No.** & **Installment** & **No.** & **Installment** & **No.** & **Installment**\\\\",
+   "span": {
+    "page": 8,
+    "text": "**No.** & **Installment** & **No.** & **Installment** & **No.** & **Installment**\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You will see a table header for numbers and installments.",
+   "confidence": 0.98,
+   "dollar_impact": null
+  },
+  {
+   "id": "c075",
+   "text": "1 & $306.53 & 17 & $306.53 & 33 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "1 & $306.53 & 17 & $306.53 & 33 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 33 payments of $306.53 each.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c076",
+   "text": "2 & $306.53 & 18 & $306.53 & 34 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "2 & $306.53 & 18 & $306.53 & 34 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 34 payments of $306.53 each.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c077",
+   "text": "3 & $306.53 & 19 & $306.53 & 35 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "3 & $306.53 & 19 & $306.53 & 35 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 35 payments of $306.53 each.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c078",
+   "text": "4 & $306.53 & 20 & $306.53 & 36 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "4 & $306.53 & 20 & $306.53 & 36 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 36 payments of $306.53 each.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c079",
+   "text": "5 & $306.53 & 21 & $306.53 & 37 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "5 & $306.53 & 21 & $306.53 & 37 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 37 payments of $306.53 each.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c080",
+   "text": "6 & $306.53 & 22 & $306.53 & 38 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "6 & $306.53 & 22 & $306.53 & 38 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "payment_terms",
+   "risk": "low",
+   "plain_language": "You will make 38 payments of $306.53 each.",
+   "confidence": 0.99,
+   "dollar_impact": null
+  },
+  {
+   "id": "c081",
+   "text": "7 & $306.53 & 23 & $306.53 & 39 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "7 & $306.53 & 23 & $306.53 & 39 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 39 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c082",
+   "text": "8 & $306.53 & 24 & $306.53 & 40 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "8 & $306.53 & 24 & $306.53 & 40 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 40 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c083",
+   "text": "9 & $306.53 & 25 & $306.53 & 41 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "9 & $306.53 & 25 & $306.53 & 41 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 41 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c084",
+   "text": "10 & $306.53 & 26 & $306.53 & 42 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "10 & $306.53 & 26 & $306.53 & 42 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 42 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c085",
+   "text": "11 & $306.53 & 27 & $306.53 & 43 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "11 & $306.53 & 27 & $306.53 & 43 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 43 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c086",
+   "text": "12 & $306.53 & 28 & $306.53 & 44 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "12 & $306.53 & 28 & $306.53 & 44 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 44 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c087",
+   "text": "13 & $306.53 & 29 & $306.53 & 45 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "13 & $306.53 & 29 & $306.53 & 45 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 45 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c088",
+   "text": "14 & $306.53 & 30 & $306.53 & 46 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "14 & $306.53 & 30 & $306.53 & 46 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 46 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c089",
+   "text": "15 & $306.53 & 31 & $306.53 & 47 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "15 & $306.53 & 31 & $306.53 & 47 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 47 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c090",
+   "text": "16 & $306.53 & 32 & $306.53 & 48 & $306.53\\\\",
+   "span": {
+    "page": 8,
+    "text": "16 & $306.53 & 32 & $306.53 & 48 & $306.53\\\\",
+    "bbox": [
+     0.10784501960784315,
+     0.11464373107207752,
+     0.477643294117647,
+     0.45093252574197457
+    ]
+   },
+   "category": "standard",
+   "risk": "low",
+   "plain_language": "You pay $306.53 each month for 48 months.",
+   "confidence": 1.0,
+   "dollar_impact": null
+  },
+  {
+   "id": "c064",
+   "text": ": :",
+   "span": {
+    "page": 6,
+    "text": ": :",
+    "bbox": [
+     0.5281819607843137,
+     0.09616087219866747,
+     0.7464934901960784,
+     0.10484409448818897
+    ]
+   },
+   "category": null,
+   "risk": null,
+   "plain_language": null,
+   "confidence": null,
+   "dollar_impact": null
+  }
+ ],
+ "total_cost": 14788.44,
+ "effective_apr": 0.14871,
+ "cost_above_stated": 75.0,
+ "grade": "D",
+ "incomplete": false,
+ "warnings": [
+  "stated installment 306.53 does not match the stated rate (expected ~327.07); there may be undisclosed financed charges"
+ ],
+ "questions_to_ask": [
+  "Can the origination fee be waived, reduced, or paid up front instead of financed?",
+  "Can the late charge be a flat amount, with no rate increase after a late payment?",
+  "Will you limit the security interest to the equipment itself, not all of my business assets?",
+  "Can I use my own insurer? What does your insurance program actually cost per month?",
+  "Can the cross-default clause be limited to obligations owed to you, not to any creditor?",
+  "Can disputes be handled in my home state instead of the venue named here?"
+ ],
+ "timings": {
+  "parse": 0.008,
+  "segment": 0.004,
+  "classify": 122.078,
+  "extract": 10.969,
+  "compute": 0.002,
+  "total": 133.061
+ }
+}
