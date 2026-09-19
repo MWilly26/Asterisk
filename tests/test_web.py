@@ -108,3 +108,11 @@ def test_served_at_root_by_api():
     with TestClient(app) as tc:
         r = tc.get("/")
     assert r.status_code == 200 and r.text.startswith("<!doctype html>")
+
+
+def test_default_clause_list_flags_only_high_and_medium(script):
+    """Nano labels most boilerplate `low` (1,380 of 1,930 corpus clauses) where Opus
+    said `standard`; the default view must use the eval's high/medium rule, not
+    `!= standard`, or a clean document opens with dozens of "flagged" rows."""
+    assert 'c.risk === "high" || c.risk === "medium"' in script
+    assert 'c.risk !== "standard"' not in script

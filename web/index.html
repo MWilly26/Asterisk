@@ -320,13 +320,15 @@
 
   function renderClauses() {
     const a = current;
-    const flagged = a.clauses.filter(c => c.risk && c.risk !== "standard");
+    // "Flagged" = high or medium, the same rule the eval and the grade use; low-risk,
+    // standard, and unrated clauses stay behind the toggle.
+    const flagged = a.clauses.filter(c => c.risk === "high" || c.risk === "medium");
     const list = showAll ? a.clauses : flagged;
     const hidden = a.clauses.length - flagged.length;
-    $("#toggle-all").textContent = showAll ? `Hide ${hidden} standard clauses` : `Show all ${a.clauses.length} clauses`;
+    $("#toggle-all").textContent = showAll ? `Hide ${hidden} low-risk and standard clauses` : `Show all ${a.clauses.length} clauses`;
     const box = $("#clauses"); box.innerHTML = "";
     if (!list.length) {
-      box.innerHTML = `<p style="color: var(--muted)">No clauses were flagged. ${hidden} standard clauses were read.</p>`;
+      box.innerHTML = `<p style="color: var(--muted)">No clauses were flagged. ${hidden} low-risk or standard clauses were read.</p>`;
       return;
     }
     for (const c of list) {

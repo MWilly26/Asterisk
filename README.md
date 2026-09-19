@@ -221,6 +221,7 @@ The FastAPI service has no authentication and is intended for a local hackathon 
 - Two biweekly documents omit a literal month term; totals are withheld instead of deriving months from payment count.
 - The Opus benchmark has one high and ten medium false positives on clean documents.
 - The adversarial comparison is incomplete at 4/5 attack documents because provider credit expired.
+- `nemotron-parse` sometimes emits a fee table as LaTeX (`\begin{tabular}` … `\end{tabular}`) rather than markdown rows; the fragments pass through as low-value clauses (72 across the 23 Nano analyses). Deferred so the demo cache stays valid.
 - Bounding-box coordinates differ by parser; source quotes and page links work universally, while precise geometric overlays are not attempted.
 
 ## Repository guide

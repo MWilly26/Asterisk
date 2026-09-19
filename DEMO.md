@@ -76,6 +76,8 @@ cent.
 4. Further down: the blanket UCC lien on all business assets (no dollar figure
    on purpose — we don't invent a number for a non-monetary clause).
 
+The list shows only high/medium rows by default; "Show all 73 clauses" reveals the low-risk and standard boilerplate plus three unrated ones.
+
 Note the imperfection honestly if it comes up: the "Lender's costs and
 attorneys' fees" clause is also tagged `origination_fee` — a known
 over-flag; it's in the eval as an off-trap false positive.
