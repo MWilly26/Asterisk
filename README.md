@@ -153,7 +153,7 @@ set -a && . ./.env && set +a
 .venv/bin/uvicorn api.main:app --reload
 ```
 
-Open <http://127.0.0.1:8000>. “Try the sample agreement” works without a model call; analyzing a new PDF uses the configured provider. The app accepts digital PDFs up to 25 MB and stores uploads only in a temporary directory for the duration of a request.
+Open <http://127.0.0.1:8000>. “Try the sample agreement” renders the committed Nemotron Nano analysis of `eq_012` without a model call; analyzing a new PDF uses the configured provider. The rehearsed 3-minute walkthrough, the offline pre-flight check, and the fallbacks are in [`DEMO.md`](DEMO.md). The app accepts digital PDFs up to 25 MB and stores uploads only in a temporary directory for the duration of a request.
 
 CLI usage:
 
@@ -234,4 +234,4 @@ evals/        scoring, parser comparison, cost table, adversarial benchmark
 tests/        offline unit and integration tests
 ```
 
-The implementation plan and decision trail live in [`PLAN.md`](PLAN.md), [`STATUS.md`](STATUS.md), and [`DECISIONS.md`](DECISIONS.md).
+The implementation plan and decision trail live in [`PLAN.md`](PLAN.md), [`STATUS.md`](STATUS.md), and [`DECISIONS.md`](DECISIONS.md); the demo script is [`DEMO.md`](DEMO.md).

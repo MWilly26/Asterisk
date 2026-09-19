@@ -25,7 +25,7 @@ CHANGE BEFORE STARTING WORK. This is how parallel agents avoid collisions.
 | T18 | Cost/latency table     | DONE        | codex       | Nano full 23/23 on hosted endpoint: recall 56/58, totals wrong 15/23 (fee typing), median 207s/doc; eval_nano.*; no Nano $ (no hosted price), per-call table stays Opus-only |
 | T19 | Adversarial docs       | BLOCKED     | codex       | 5 pairs generated; control 10/10, attack 8/8 on 4/5; adv_005 blocked by exhausted Anthropic credit |
 | T20 | README                 | DONE        | codex       | run/setup, architecture, evidence links, honest negative/blocked results; example keys blanked |
-| T21 | Demo script            | IN_PROGRESS | claude-code | eq_007 on NVIDIA path; offline replay to be proven with network disabled |
+| T21 | Demo script            | DONE        | claude-code | DEMO.md; eq_012 on NVIDIA path proven offline (unshare -rn: CLI 0.2s, API upload 0.09s, identical to committed); web sample = Nano eq_012; screen recording is a rehearsal step, not committed |
 | T22 | Submission blurbs      | TODO        |             |       |
 
 Statuses: TODO | IN_PROGRESS | DONE | BLOCKED (say what on)
