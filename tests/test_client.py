@@ -190,3 +190,41 @@ def test_nvidia_urls_and_model_come_from_env(tmp_path):
            "NVIDIA_NANO_MODEL": "local/nano"}
     out = subprocess.run([sys.executable, "-c", code], env=env, capture_output=True, text=True, check=True).stdout.split()
     assert out == ["http://brev.example:8000/v1", config.NVIDIA_HOSTED_URL, "local/nano"]
+
+
+def test_nvidia_transport_errors_and_503_are_retryable():
+    import httpx
+    from clause.client import NvidiaClient
+
+    class Boom:
+        def post(self, *a, **k):
+            raise httpx.ReadTimeout("The read operation timed out")
+
+    with pytest.raises(RetryableError, match="transport"):
+        NvidiaClient._post(Boom(), {})
+
+    class Busy:
+        status_code = 503
+        text = '{"error":{"message":"ResourceExhausted: Worker local total request limit reached (16/16)"}}'
+
+    class Http:
+        def post(self, *a, **k):
+            return Busy()
+
+    with pytest.raises(RetryableError) as ei:
+        NvidiaClient._post(Http(), {})
+    assert ei.value.retry_after_s == 30.0
+
+    class Bad:
+        status_code = 400
+        text = "bad request"
+
+        def raise_for_status(self):
+            raise httpx.HTTPStatusError("400", request=None, response=None)
+
+    class Http400:
+        def post(self, *a, **k):
+            return Bad()
+
+    with pytest.raises(httpx.HTTPStatusError):  # not retried
+        NvidiaClient._post(Http400(), {})

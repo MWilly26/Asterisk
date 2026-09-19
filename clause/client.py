@@ -268,18 +268,29 @@ class NvidiaClient(ModelClient):
             return {"chat_template_kwargs": {"enable_thinking": False}}
         return {}
 
+    @staticmethod
+    def _post(http, body: dict) -> dict:
+        """POST /chat/completions; 429/5xx and transport failures (timeouts,
+        dropped connections) become RetryableError so the shared retry loop
+        handles them. Anything else raises."""
+        import httpx
+        try:
+            r = http.post("/chat/completions", json=body)
+        except httpx.TransportError as e:  # ReadTimeout, ConnectError, RemoteProtocolError...
+            raise RetryableError(f"transport: {e!r}") from e
+        if r.status_code == 429 or r.status_code >= 500:
+            delay = 30.0 if r.status_code == 503 and "ResourceExhausted" in r.text else None
+            raise RetryableError(f"{r.status_code}: {r.text[:200]}", retry_after_s=delay)
+        r.raise_for_status()
+        return r.json()
+
     def _complete_raw(self, *, model, messages, json_schema, max_tokens):
         body: dict[str, Any] = {"model": model, "messages": messages, "max_tokens": max_tokens}
         body.update(self.complete_options(model))
         if json_schema is not None:
             body["response_format"] = {"type": "json_schema",
                                        "json_schema": {"name": "out", "schema": json_schema}}
-        r = self._http.post("/chat/completions", json=body)
-        if r.status_code == 429 or r.status_code >= 500:
-            delay = 30.0 if r.status_code == 503 and "ResourceExhausted" in r.text else None
-            raise RetryableError(f"{r.status_code}: {r.text[:200]}", retry_after_s=delay)
-        r.raise_for_status()
-        d = r.json()
+        d = self._post(self._http, body)
         usage = d.get("usage") or {}
         return (d["choices"][0]["message"]["content"],
                 usage.get("prompt_tokens"), usage.get("completion_tokens"))
@@ -304,12 +315,7 @@ class NvidiaClient(ModelClient):
             }
 
             def call(body=body):
-                r = self._parse_http.post("/chat/completions", json=body)
-                if r.status_code == 429 or r.status_code >= 500:
-                    delay = 30.0 if r.status_code == 503 and "ResourceExhausted" in r.text else None
-                    raise RetryableError(f"{r.status_code}: {r.text[:200]}", retry_after_s=delay)
-                r.raise_for_status()
-                d = r.json()
+                d = self._post(self._parse_http, body)
                 msg = d["choices"][0]["message"]
                 if msg.get("tool_calls"):
                     raw = msg["tool_calls"][0]["function"]["arguments"]
