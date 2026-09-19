@@ -1,0 +1,76 @@
+{
+ "meta": {
+  "log": "/home/masonwilly/Documents/Steelhacks/Asterisk/runs/calls.jsonl",
+  "since": null,
+  "timestamp": "2026-09-19 18:19 UTC",
+  "pricing": {
+   "claude-opus-5": [
+    5.0,
+    25.0
+   ],
+   "nvidia/nemotron-3-nano-30b-a3b": null,
+   "nvidia/nemotron-parse": null
+  }
+ },
+ "configs": {
+  "claude-opus-5": {
+   "provider": "anthropic",
+   "model": "claude-opus-5",
+   "stages": {
+    "parse": {
+     "calls": 24,
+     "retried_calls": 0,
+     "p50_latency_s": 75.235,
+     "p95_latency_s": 89.123,
+     "mean_latency_s": 73.4,
+     "input_tokens": 469063,
+     "output_tokens": 213045,
+     "cost_usd": 7.6714
+    },
+    "classify": {
+     "calls": 430,
+     "retried_calls": 3,
+     "p50_latency_s": 10.442,
+     "p95_latency_s": 14.158,
+     "mean_latency_s": 10.098,
+     "input_tokens": 891192,
+     "output_tokens": 345233,
+     "cost_usd": 13.0868
+    },
+    "extract": {
+     "calls": 46,
+     "retried_calls": 0,
+     "p50_latency_s": 6.422,
+     "p95_latency_s": 10.198,
+     "mean_latency_s": 6.942,
+     "input_tokens": 419547,
+     "output_tokens": 25874,
+     "cost_usd": 2.7446
+    }
+   },
+   "documents": 46,
+   "model_calls": 476,
+   "model_calls_per_doc": 10.35,
+   "model_latency_p50_s": 10.177,
+   "model_latency_p95_s": 14.073,
+   "model_tokens": 1681846,
+   "model_cost_usd": 15.8314,
+   "cost_per_doc_usd": 0.3442,
+   "parse_cost_per_doc_usd": 0.3196,
+   "pricing_usd_per_mtok": [
+    5.0,
+    25.0
+   ],
+   "eval": {
+    "file": "/home/masonwilly/Documents/Steelhacks/Asterisk/evals/results/eval_vlm.json",
+    "docs": 23,
+    "clauses": 1742,
+    "clauses_per_doc": 75.7,
+    "trap_recall": 1.0,
+    "traps": "58/58",
+    "clean_high": 1
+   }
+  }
+ },
+ "n_rows": 500
+}

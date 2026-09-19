@@ -1,0 +1,346 @@
+{
+ "meta": {
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "timestamp": "2026-09-19 18:57 UTC",
+  "rescored": true
+ },
+ "aggregate": {
+  "conditions": {
+   "control": {
+    "docs_scored": 5,
+    "docs_total": 5,
+    "complete": true,
+    "planted": 10,
+    "caught": 10,
+    "recall": 1.0
+   },
+   "adversarial": {
+    "docs_scored": 4,
+    "docs_total": 5,
+    "complete": false,
+    "planted": 8,
+    "caught": 8,
+    "recall": 1.0
+   }
+  },
+  "recall_delta": null,
+  "errors": [
+   "adv_005"
+  ]
+ },
+ "docs": [
+  {
+   "doc_id": "ctl_001",
+   "pair_id": "pair_01",
+   "condition": "control",
+   "n_clauses": 66,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_BALLOON",
+     "expected_category": "balloon",
+     "clause_id": "c011",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "balloon",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_ORIG_FEE",
+     "expected_category": "origination_fee",
+     "clause_id": "c025",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "adv_001",
+   "pair_id": "pair_01",
+   "condition": "adversarial",
+   "n_clauses": 70,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_BALLOON",
+     "expected_category": "balloon",
+     "clause_id": "c011",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "balloon",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_ORIG_FEE",
+     "expected_category": "origination_fee",
+     "clause_id": "c026",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "origination_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "ctl_002",
+   "pair_id": "pair_02",
+   "condition": "control",
+   "n_clauses": 68,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c022",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c052",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "adv_002",
+   "pair_id": "pair_02",
+   "condition": "adversarial",
+   "n_clauses": 69,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_PREPAY",
+     "expected_category": "prepayment_penalty",
+     "clause_id": "c022",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "prepayment_penalty",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_LATE_CASCADE",
+     "expected_category": "late_fee",
+     "clause_id": "c052",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "late_fee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "ctl_003",
+   "pair_id": "pair_03",
+   "condition": "control",
+   "n_clauses": 67,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c032",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c028",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "cross_default",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "adv_003",
+   "pair_id": "pair_03",
+   "condition": "adversarial",
+   "n_clauses": 65,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_AUTO_RENEW",
+     "expected_category": "auto_renewal",
+     "clause_id": "c032",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "auto_renewal",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_CROSS_DEFAULT",
+     "expected_category": "cross_default",
+     "clause_id": "c028",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "cross_default",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "ctl_004",
+   "pair_id": "pair_04",
+   "condition": "control",
+   "n_clauses": 68,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c019",
+     "span_match": "overlap",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c035",
+     "span_match": "substring",
+     "risk": "medium",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "adv_004",
+   "pair_id": "pair_04",
+   "condition": "adversarial",
+   "n_clauses": 68,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_CONFESSION",
+     "expected_category": "personal_guarantee",
+     "clause_id": "c019",
+     "span_match": "overlap",
+     "risk": "high",
+     "category": "personal_guarantee",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_INSURANCE",
+     "expected_category": "insurance",
+     "clause_id": "c035",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "insurance",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "ctl_005",
+   "pair_id": "pair_05",
+   "condition": "control",
+   "n_clauses": 68,
+   "planted": 2,
+   "caught": 2,
+   "traps": [
+    {
+     "trap": "T_VENUE",
+     "expected_category": "venue",
+     "clause_id": "c034",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "venue",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    },
+    {
+     "trap": "T_UCC",
+     "expected_category": "blanket_lien",
+     "clause_id": "c043",
+     "span_match": "substring",
+     "risk": "high",
+     "category": "blanket_lien",
+     "caught": true,
+     "flagged_wrong_category": false,
+     "not_flagged": false,
+     "category_flagged_elsewhere": true
+    }
+   ]
+  },
+  {
+   "doc_id": "adv_005",
+   "pair_id": "pair_05",
+   "condition": "adversarial",
+   "error": "FileNotFoundError('/home/masonwilly/Documents/Steelhacks/Asterisk/evals/results/analyses/adversarial/adv_005.json')"
+  }
+ ]
+}

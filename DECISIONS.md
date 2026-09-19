@@ -1,0 +1,160 @@
+# Decisions
+
+Append-only log of ambiguity calls. Newest at the bottom.
+
+## 2026-09-19 — T01
+- Package layout: `clause/` is the only installable package (`api/`, `data/`, `evals/`, `tests/` are run as scripts, not installed).
+- Added `python-multipart` to dependencies — FastAPI requires it for multipart uploads (T12).
+- Cache dir `.cache/` and call log `runs/` are gitignored.
+
+## 2026-09-19 — Provider switch (pre-T03)
+- Development runs against the Anthropic API; NVIDIA/Nemotron is swapped in once the pipeline works. Selected by `CLAUSE_PROVIDER` env var (`anthropic` | `nvidia`), read in `config.py`.
+- `client.py` (T03) must keep one `ModelClient` interface with two backends: `AnthropicClient` (official `anthropic` SDK, model `claude-opus-5`) and `NvidiaClient` (OpenAI-compatible `httpx` calls to `integrate.api.nvidia.com`). Nothing downstream imports a provider directly.
+- `parse_document()` on the Anthropic backend sends the PDF as a native `document` content block and asks for page-tagged text blocks; on the NVIDIA backend it calls `nemotron-parse`. Same `list[TextBlock]` return either way.
+- Cache keys include the provider + model ID so a cached Anthropic response is never served to an NVIDIA run.
+- Added `anthropic` to dependencies.
+
+## 2026-09-19 — T02
+- `TextBlock` was referenced in §3.2 but not defined in §3.1; added it with `page`, `text`, `bbox`, `kind` and put it in PLAN §3.1.
+- All types get `to_dict/from_dict/to_json/from_json` via a shared mixin. `from_dict` is recursive, restores `bbox` as a tuple, and ignores unknown keys so old fixtures don't break.
+- Fields after the required ones default to `None` / empty so a partial object (e.g. `Clause` before classify, `LoanTerms()` before extract) constructs without boilerplate.
+
+## 2026-09-19 — T03
+- Retry loop lives in `ModelClient`, not the SDK (`max_retries=0` on the Anthropic client) so every attempt is visible in `calls.jsonl`. Backends raise `RetryableError` for 429/5xx/connection errors; anything else propagates.
+- Cache hits are logged too, with `cached: true`, `latency_s: 0`, null tokens. The §6.4 cost table must filter `cached == false`.
+- `parse_document` on the Anthropic backend sends the PDF as a document block with a JSON schema for `{page, text, kind}` blocks. No bbox — Claude can't return coordinates, so `bbox` is `None` on this backend. `NvidiaClient._parse_raw` is a stub until T06.
+- System messages in the OpenAI-style `messages` list are lifted into Anthropic's top-level `system` param, so callers write one message format for both providers.
+- `MockClient` defaults to `use_cache=False` and logs to `runs/calls_mock.jsonl` so test runs never pollute the real call log.
+
+## 2026-09-19 — T04
+- **Formulas golden.json is built from (compute.py must match):**
+  - `n = round(term_months * periods_per_year / 12)`, periodic rate `i = stated_apr / periods_per_year`.
+  - Scheduled payment: level annuity on the amount financed leaving the balloon as residual: `p = (L - B/(1+i)^n) * i / (1 - (1+i)^-n)`.
+  - Amount financed `L = principal + origination fee` if the fee is financed, else `principal`.
+  - Upfront fees = doc fee + origination fee when *not* financed. Net proceeds = principal - upfront fees.
+  - `total_cost = n*p + balloon + upfront_fees` (contingent fees — late, prepayment — excluded).
+  - `effective_apr` = nominal annual rate (periodic IRR × periods/year) that discounts payments + balloon to net proceeds. Bisection to 200 iterations.
+- Golden `terms.fees[]` carries an extra `financed: bool` beyond §5.3 so compute.py knows whether an origination fee raises the balance or is deducted from proceeds. Golden `computed` also includes `amount_financed`, `n_payments`, `upfront_fees` for debugging.
+- T_APR_GAP = origination fee (percent, paid at closing) sized by the generator until effective − stated ≥ 4 points. T_ORIG_FEE = origination fee financed into the balance. A doc can have at most one origination fee, so the two traps never co-occur.
+- T_BALLOON docs never get the Schedule C payment table so the balloon is stated exactly once (in the small-print footnote). Tests assert the figure never appears in ≥9pt text.
+- "Footnotes" are rendered as small-type notes directly under the Payment Terms section, not at the page foot — platypus has no native footnotes. 7pt normally, 5pt for the `tiny_footnotes` ugly variant.
+- Payment frequency is monthly (80%) or biweekly (20%). Weekly is in `PERIODS_PER_YEAR` but not generated.
+- Page counts land at 7–9 (spec: 6–14). Running footer text `CONFIDENTIAL - SYNTHETIC DOCUMENT FOR EVALUATION USE ONLY` is on every page; the segmenter (T08) should drop it.
+- Regenerating with the default seed (42) is byte-for-byte deterministic apart from PDF metadata timestamps. `data/docs/*.pdf` is gitignored; run `python data/generate.py` after clone.
+
+## 2026-09-19 — T05
+- Added `Fee.financed: bool` to §3.1 — compute must know whether an origination fee raises the balance (already inside the payment) or is deducted at closing (upfront cost, raises the APR).
+- Clause category vocabulary lives in `config.CATEGORIES` (balloon, origination_fee, prepayment_penalty, late_fee, auto_renewal, cross_default, personal_guarantee, insurance, venue, blanket_lien, payment_terms, standard). classify.txt (T09) must emit exactly these.
+- Required terms: `total_cost` needs payment_amount + term_months + payment_frequency; `effective_apr` additionally needs principal. Anything missing → `incomplete=True`, figure stays `None`, warning added. A percent-of-principal fee with unknown principal also blocks the total.
+- `balloon_amount=None` is treated as "no balloon" (0), since most loans genuinely have none. The extractor should set it only when found.
+- Contingent fees (late, prepayment) are excluded from `total_cost`; they show as per-clause dollar impact instead (one instance of the fee). `auto_renewal` impact = one full extra term of payments. Non-monetary clauses (venue, lien, cross-default, guarantee, insurance) get `dollar_impact=None` and rank by risk below priced ones.
+- `cost_above_stated` = total_cost − (n × honest payment + balloon), where honest payment amortizes the raw principal at the stated APR with no fees.
+- Cross-check warning: if the stated installment differs >2% from what stated rate + known financed fees imply, warn about undisclosed financed charges.
+- Grade: points = APR gap in percentage points + 1.5 per high-risk clause + 0.5 per medium. A <1, B <3, C <6, D <10, else F.
+- Five hand-checked APR cases in the test were verified with an independent Newton-method solver; all 23 golden docs reproduce to 4 decimals.
+
+## 2026-09-19 — T07
+- Baseline merges pdfplumber text lines into blocks at lines ending `.`/`:`/`;` and at heading-looking lines (numbered, `Section N.`, `ARTICLE`, `SCHEDULE`). It returns real bboxes (pdfplumber top-origin coords). It does **not** drop running footers or detect tables/footnotes — that's the handicap the §6.3 comparison is meant to measure, so don't tune it further.
+- Tests share one generated corpus via a session-scoped `corpus` fixture in `tests/conftest.py` (~6s once per run) instead of every test module regenerating.
+
+## 2026-09-19 — T08
+- Headings are dropped, not attached to clauses, so `clause.text == span.text` is always an exact document substring (the frontend's "show me the source" guarantee). If T09 wants section context it can pass the nearest preceding heading in the prompt without changing the Clause type.
+- Footer detection is generic: any block ≤20 words whose digit-wildcarded text appears on ≥3 pages. The string is also stripped from *inside* blocks because pdfplumber glues the footer onto a paragraph that crosses the page break.
+- Page-split paragraphs are re-joined only when the previous block has no terminal punctuation AND the next starts lowercase; the joined span keeps the first page and `bbox=None`.
+- Paragraphs ≤90 words are one clause; longer ones are packed into ≤70-word chunks at sentence boundaries. A chunk's `bbox` is `None` (we don't have sub-block coordinates).
+- On the corpus via the baseline parser: 58–81 clauses per doc, and every trap span sits inside exactly one clause. Two-column docs are excluded from that assertion because pdfplumber interleaves the columns — that's the baseline's failure mode, not the segmenter's.
+
+## 2026-09-19 — T06
+- nemotron-parse contract verified against the NIM VLM docs: `POST /chat/completions`, model `nvidia/nemotron-parse`, `tools=[{"type":"function","function":{"name":"markdown_bbox"}}]`, one `image_url` data-URL per page, response in `choices[0].message.tool_calls[0].function.arguments` as a JSON array of `{bbox:{xmin,ymin,xmax,ymax}, text, type}` (bbox normalized 0–1, origin top-left). Text/PDF input is not supported, so pages are rasterized with pypdfium2 at 150 dpi. **Still unverified live** — no NVIDIA key yet; re-check the exact model ID on build.nvidia.com when swapping.
+- nemotron `type` → `kind`: Section-header/Title → heading, Table → one `table_row` block per markdown row (separator rows dropped, cells joined with ` | `), Footnote → footnote, everything else paragraph. Page-header/footer elements are kept; the segmenter strips them.
+- bbox conventions differ by backend: Anthropic → `None`, nemotron → normalized 0–1, pdfplumber → PDF points. Anything consuming bbox (T14 highlighting) must branch on that; the type is `tuple | None` either way.
+- `parse_pdf` takes an optional `client` (updated §3.2) so the eval harness and tests can inject one.
+- Per-page retry on the NVIDIA backend happens inside `_parse_raw` (a 429 on page 7 doesn't redo pages 1–6); the cache entry is still per-document.
+- Live acceptance (Anthropic backend, 2026-09-19): all 23 docs parsed, pages ordered, fee-table rows distinct (8–30 per doc), ~75s per doc. 57/58 trap spans found in raw block text; 58/58 in exactly one clause after segmentation (the one miss was the page-break-split sentence in eq_006). Rotated tables and two-column pages were read correctly. Responses cached in `.cache/`; rerunning the corpus is free.
+- Claude labels the running footer as `footnote` on every page. The segmenter's repeat-detection drops it, so real footnotes (which appear once) are unaffected.
+
+## 2026-09-19 — T09
+- Classification uses structured JSON output (`json_schema`) with the category and risk enums generated from `config.CATEGORIES` / `RISK_LEVELS`, so the prompt, schema, and compute vocabulary can't drift apart.
+- Retry on unparseable output appends a corrective user message rather than re-sending the identical request — an identical request would just hit the response cache and return the same bad output.
+- Degradation is per-clause: a result with a missing/unknown id, or an out-of-vocabulary category/risk, becomes `None` for that clause only. Confidence is clamped to [0, 1].
+- The prompt tells the model to treat any in-clause text addressed to "reviewers/systems/software" as a red flag, not an instruction — groundwork for the §6.5 adversarial check.
+- Live check (Anthropic, eq_012): all 4 planted traps in the batch labelled high with the right category and sensible plain-language glosses; 4 boilerplate clauses labelled standard. Every number in the glosses appears verbatim in the clause.
+- `pyproject.toml` now ships `clause/prompts/*.txt` as package data.
+
+## 2026-09-19 — T10
+- Validation tiers follow §2.4, not the T10 acceptance wording: a number that isn't literally in the source keeps its value but gets confidence 0.3 (`UNVERIFIED_CONFIDENCE`) and is **not** added to `missing_fields` — "found but unverified" and "not found" are different outcomes and the UI treats them differently. A verified number whose quote can't be located is capped at 0.5.
+- Number matching tries the contract spellings (`$9,400.00`, `9,400.00`, `9400`; `7.90%`, `7.9%`; `48`). Percent fields returned as whole numbers (7.9) are normalized to fractions before matching.
+- `balloon_amount=null` → field in `missing_fields`, value None; compute treats that as no balloon. The prompt tells the model to look in footnotes and fine print.
+- Anthropic structured outputs reject `enum` on a `["string","null"]` union; use `anyOf` with a nullable branch.
+- `payment_frequency` is verified by the word ("monthly"/"biweekly"/"weekly") appearing in the text.
+- Live check (Anthropic): eq_012 (balloon + financed origination), eq_009 (APR gap + percent late fee), eq_004 (clean) — every field and fee exact, all confidences ≥ 0.94, and `compute` reproduced golden `total_cost` and `effective_apr` exactly on all three.
+
+## 2026-09-19 — T11
+- `analyze(path, client=None, *, parser=None, progress=None)` (§3.2 updated). `client` defaults to `get_client()` like `parse_pdf` does; `parser` lets T17 swap in pdfplumber without touching the rest of the pipeline (`--baseline` on the CLI wraps `parse_pdf_baseline`, which takes no client); `progress(stage, "start"|"done", secs)` is what T12 will turn into SSE events.
+- Classify batches are independent, so the pipeline runs them on a thread pool (`config.CLASSIFY_WORKERS = 4`) via `classify_parallel`. `classify.py` is untouched — its FIFO `MockClient` tests would be nondeterministic under threads. Sequential on Opus was 111s for 11 batches (eq_007); parallel is ~26s. The client's cache writes are per-key files and the log is open-append-close per call, so no locking was needed. A 429 from the burst is absorbed by the existing retry.
+- Timings: `Analysis.timings` has one key per stage plus `total`. The `parse` timing is ~0.01s whenever the PDF is cached; the honest uncached figure on the Anthropic backend is ~75s (T06). So T11's "under 40s" holds only with a warm parse cache on this provider (eq_015: 35.6s). Not optimizing this — it's the dev backend, and the demo runs pre-warmed (§3.3).
+- Observed on eq_007: clauses about the $125 documentation fee are classified `origination_fee` (no `doc_fee` category exists), so compute stamps them with the origination fee's $2,088.80 impact. Left for T16 to quantify; the fix is either a `doc_fee` category or having compute match the clause text before assigning a fee amount.
+
+## 2026-09-19 — T12
+- Progress is SSE, not polling: `POST /analyze/stream` takes the same multipart upload as `POST /analyze` and emits `stage` events (`{stage, event: "start"|"done", seconds}`) from the pipeline's progress callback, then one `result` event carrying the full Analysis (or `error` with `detail`). No job store, no job ids — one upload is one request, which is all the frontend needs and matches §1.4 (no persistence). SSE is hand-rolled on `StreamingResponse` (no `sse-starlette` dependency).
+- Upload validation: filename must end in `.pdf` **and** bytes must start with `%PDF`; otherwise 400 before the model is touched. Cap of 25 MB (`MAX_UPLOAD_BYTES`). A missing `file` field is FastAPI's usual 422.
+- The pipeline runs in a worker thread (`run_in_threadpool` / a daemon thread feeding a queue for SSE) so the event loop stays responsive while a 30–120s analysis runs.
+- The model client is created lazily on first request and stored on `app.state`, so importing the app needs no API key; tests override the `model_client` dependency with a mock.
+- `GET /` serves `web/index.html` so the demo is one process (`uvicorn api.main:app`). `api/` stays a script dir (no `__init__.py`); tests import it as a namespace package with the repo root on `sys.path` (conftest).
+
+## 2026-09-19 — T13
+- One file, no build, no frameworks: `web/index.html` with inline CSS/JS. `GET /` on the API serves it; opened from `file://` it talks to `http://localhost:8000` instead (so the page works without the API for layout work — "try the sample agreement" or `#demo` in the URL renders an embedded Analysis).
+- The stub is the real eq_007 pipeline output (grade F, T_APR_GAP + T_CROSS_DEFAULT + T_VENUE, 85 clauses) inlined as `<script type="application/json">`, ~70 KB. Real output rather than a hand-written one so the page is exercised by exactly the shape compute emits; regenerate with `python -m clause.pipeline data/docs/eq_007.pdf` and re-splice if the Analysis type changes. `</` is escaped as `<\/` inside the block.
+- Rows default to flagged clauses only (risk ≠ standard) with a "Show all N clauses" toggle; a doc with nothing flagged says how many standard clauses were read, so a clean document doesn't look like an empty result.
+- Each row already exposes its source quote + page on click (§1.3 step 4 needs the original text). T14 will refine this (bbox-based highlight where the backend provides one); T15 owns the confidence < 0.5 marker — the verdict card only does the §2.4 "missing" tier now (`total_cost == null` → "Not enough stated terms", never a number; missing terms render as "not stated").
+- The frontend never computes anything: every figure comes from `Analysis` as-is, formatted only.
+- No headless browser in the venv, so `tests/test_web.py` is structural: the embedded sample round-trips through `Analysis`, every id the script queries exists, every pipeline stage has a progress slot, the SSE handler covers all three event types, and the inline JS passes `node --check` (skipped when node is absent).
+
+## 2026-09-19 — T16
+- **"Caught" is strict:** the clause that contains the golden `trap_spans` text must be flagged (risk high *or* medium) **and** carry the category the trap maps to (`TRAP_CATEGORY` in `evals/run_eval.py`: T_APR_GAP and T_ORIG_FEE both → `origination_fee`, T_CONFESSION → `personal_guarantee`, T_UCC → `blanket_lien`, etc.). "Flagged, wrong category", "not flagged", and "span not found in any clause" are broken out per trap type so a miss is attributable to the classifier vs. the segmenter/parser. `category_flagged_elsewhere` is recorded per trap as a diagnostic but does not count.
+- Medium counts as flagged because the frontend's default view shows every non-standard row; the question §6.1 asks is "did it surface in the ranked list."
+- Span → clause matching normalizes whitespace/quotes/dashes and requires a substring; if that fails it falls back to a token-overlap ≥ 0.6 (`"overlap"` in the results) because the VLM parse occasionally re-flows a hyphenated line. A miss on this fallback is `span_not_found`.
+- False positives are two numbers: on the 3 clean docs, raw high and medium counts (§6.1 says count, not rate); on trap docs, `off_trap` = flagged clauses whose category matches no planted trap. The latter catches the known over-flagging (the generic "pay the Fees set forth in the Schedule" clause is flagged high `origination_fee` even on a clean doc; doc-fee rows get `origination_fee`).
+- Field outcomes: `correct | wrong | missing | spurious | correct_absent`. `wrong` is split into `wrong_confident` / `wrong_flagged` by whether `terms.confidences[field] < config.LOW_CONFIDENCE` — that is the §2.4 evidence. Tolerances: dollars ±0.005, rates ±5e-5, ints/strings exact. `balloon_amount` is the only field where `correct_absent`/`spurious` occur in practice (19/23 docs have no balloon).
+- Fees are matched greedily by kind (golden has ≤1 fee per kind per doc); a match is `value_correct` only if basis matches too. Extracted `other` fees count against precision.
+- Computed `total_cost`/`effective_apr` get the same outcome vocabulary, where `missing` = withheld (`incomplete=True`) — reported as a good outcome relative to `wrong`.
+- Raw `Analysis` JSON for every doc is saved under `evals/results/analyses/<vlm|baseline>/` and committed (~70 KB each), so `--rescore` re-scores without model calls and T17/T18 can reuse the run. `run_corpus` catches per-doc exceptions and records them as errors instead of aborting a 10-minute run.
+- `run_eval.py` is importable (`score`, `render_markdown`, `run_corpus`, `load_analyses`) so `parse_compare.py` (T17) scores the pdfplumber run with identical rules. `tests/conftest.py` already puts `evals/` on `sys.path`.
+- **Results (VLM parse, Opus classifier/extractor, 23 docs):** trap recall 58/58 = 100% on every type; clean docs 1 high + 10 medium false positives (the one high is the generic "pay the Fees set forth in the Schedule" clause → `origination_fee`); 35 off-trap flags across the 20 trap docs (mostly medium `standard` boilerplate: "obligations absolute and unconditional", assignment, risk of loss). Fields 100% except `term_months` missing on the 2 biweekly docs (eq_005, eq_017): those documents state "52 consecutive biweekly installments" and never give a term in months, so the extractor reports it missing rather than computing 52/26×12, and compute withholds `total_cost`/`effective_apr` (2 withheld, 0 wrong). Fees 56/56 with 1 spurious `other`. A deterministic fix — let extract return `n_payments` and have compute derive the term — is an interface change deferred until after T17/T18 measure the baseline.
+
+## 2026-09-19 — T17
+- `parse_compare.py` reuses `run_eval.py` end to end: it runs the pdfplumber column through `run_corpus` (`parser=baseline_parser`), reuses the saved VLM column from T16 unless `--run-vlm`, scores both with `run_eval.score`, and writes `eval_baseline.*` plus the side-by-side `parse_compare.json/.md`. `--rescore` rebuilds everything from `evals/results/analyses/` with no pipeline runs.
+- Added parse-level evidence the §6.1/§6.2 numbers alone can't give: per parser, block kinds recovered (`table_row`, `footnote`), and whether each golden trap span survives as a literal substring of one segmented clause. "Lost" means not in the parsed text and not in any clause; "split" means present in the text but broken across clauses; "duplicated" means in more than one clause. The rows sum to the planted count.
+- **Result (Opus downstream): a negative result, reported as such.** Trap recall is 58/58 for *both* parsers; fields, fees, and computed totals are identical (2 `term_months` missing on the biweekly docs either way). The parse layer does differ — pdfplumber returns zero `table_row`/`footnote` blocks (436 / 225 for the VLM) and destroys 5/58 trap spans by interleaving the two-column docs (eq_008 ×3, eq_023 ×2) — but Opus still flags the interleaved clause with the right category, so the damage doesn't reach the user. The honest framing for the README: with a frontier classifier the VLM parse buys structure, not recall; whether it buys recall with Nemotron Nano is exactly what the T18 swap measures. pdfplumber has slightly fewer clean-doc mediums (7 vs 10) and more off-trap flags (44 vs 35).
+- Two baseline docs (eq_005, eq_016) failed mid-run with Anthropic `400 invalid_request_error: "Invalid request data"` from inside the 4-wide classify burst. The identical requests succeeded when re-sent (sequentially, then via the pipeline), so it's a transient the client doesn't retry — `_with_retry` only retries 429/5xx. Not changed here; if it recurs, add that specific 400 message to `RetryableError` in `client.py`. `run_corpus` recorded the failures and finished the run, so the fix was two `python -m clause.pipeline --baseline --out` reruns plus `--rescore`.
+
+## 2026-09-19 — T18
+- `calls.jsonl` had no stage or document tag, so "clauses classified" and "cost per document" weren't attributable. Added `stage` to `ModelClient.complete()` (§3.3 updated) and to `CallRecord`; classify/extract pass it. It is deliberately **not** in the cache key, so the pre-existing `.cache/` stays valid. Rows logged before this commit are split by input size in `evals/cost_table.py` (`≥ 5000` input tokens = extract, else classify — the log is cleanly bimodal: 1–2.5k vs 7.5–10k).
+- Cost per document = (classify + extract cost) / number of extract calls; one extract call per analyzed document. Parse cost is its own row because the parse model is priced separately and the demo runs parse pre-warmed. The Opus column therefore averages over 46 documents (23 docs × VLM and pdfplumber columns), which is the honest per-doc cost for this classifier regardless of parser.
+- Pricing lives in `config.PRICING` (USD per MTok in/out). Opus 5 = $5 / $25 from the Anthropic price list. The Nemotron rows are `None` and render "n/a (set config.PRICING)" — I'm not guessing a price for the hosted NIM endpoint.
+- Recall and clause counts per column come from that model's `run_eval.py` output (`--eval MODEL=FILE`, defaulting to `eval_vlm.json` for Opus and `eval_nano.json` for Nano).
+- **Opus 5 column (476 uncached model calls over 46 doc-runs):** 10.35 calls/doc, p50 10.2s / p95 14.1s per call, 1.68M tokens, **$0.34 per document** for classify+extract ($0.32 more for the VLM parse), 58/58 recall. Classify is 83% of model cost; p50 of a classify batch is 10.4s, which is why the pipeline runs them 4-wide. 3 of 430 classify calls needed a retry.
+- **Nemotron Nano column is BLOCKED on an NVIDIA API key.** The tool renders one column per model in the log, so the moment a Nano run exists (`CLAUSE_PROVIDER=nvidia python evals/run_eval.py --name nano` then `python evals/cost_table.py`) the second column and its recall row appear with no code change. §6.4's "Nano within X points at 1/Nth the cost" claim can't be made until then.
+
+## 2026-09-19 — T14
+- Source evidence stays browser-only: clicking a clause expands its exact `SourceSpan.text` inside a visible `<mark>`, labels the 1-indexed page, and offers a page-targeted link to the uploaded PDF. The browser retains the selected file with an object URL and revokes it when the document changes; the server still stores nothing.
+- The embedded demo has no corresponding PDF asset, so it intentionally shows the highlighted exact quote and page without an inactive PDF link. PDF viewers that honor the standard `page`/`search` fragment also select the opening words; viewers that ignore `search` still open the correct page.
+- Clause rows use button semantics, `aria-expanded`, and Enter/Space handling so source disclosure is not mouse-only. No backend or §3 interface changed.
+
+## 2026-09-19 — T15
+- The UI uses the §2.4 threshold literally: a present term, fee, or clause classification with confidence `< 0.5` stays visible but gets an amber `Verify · N%` badge. Missing/undefined confidence is not itself treated as low confidence, because it is not evidence that a present value failed validation.
+- Missing fields render as an em dash plus `Not stated`, never as zero. A null `total_cost` remains text-only (`Not enough stated terms`) with an explicit note that the total was withheld; the frontend does not infer defaults or perform arithmetic.
+- Confidence presentation is frontend-only and uses existing `LoanTerms.confidences`, `Fee.confidence`, and `Clause.confidence`; no §3 interface changed.
+
+## 2026-09-19 — T19
+- The adversarial corpus is five paired cases: each ordinary control and manipulated copy has identical terms, layout seed, traps, and exact trap spans. The five pairs cover 10 distinct trap types (all except the redundant APR-gap/origination-fee category pairing). Attack text is prefixed inside each planted trap clause and tests assert it remains in that exact clause after pdfplumber + segmentation.
+- The §6.5 runner deliberately executes only pdfplumber parsing, deterministic segmentation, and Opus classification. Extraction and computation are excluded so the comparison isolates whether document-borne instructions change classification. It reuses T16's strict caught rule: planted span + high/medium risk + matching category.
+- Classified clauses are saved per document and the CLI supports `--docs` for targeted recovery, then scores all saved files. This recovered `ctl_003` after the known transient Anthropic 400 without rerunning completed calls.
+- **Partial live result:** controls caught 10/10 traps across 5/5 documents; adversarial copies caught 8/8 across 4/5. The fifth adversarial file (`adv_005`, venue + blanket lien) is unscored because the Anthropic account returned “credit balance is too low”; both trap-containing batches are absent from cache, so no result is imputed from its control. The report suppresses recall delta until both columns are complete.
+- `data.generate.render` gained an optional keyword-only `doc_type` hook so focused synthetic evals can alter document content while reusing the established renderer. This is an internal data-generation extension, not a PLAN §3 application interface change.
+
+## 2026-09-19 — T20
+- The README leads with the current product and arithmetic boundary, then labels the NVIDIA path as implemented but unverified. It makes no Nano recall/cost claim while T18 is blocked.
+- §6.3 is reported as a negative downstream result: both parsers reached 58/58 with Opus. The Nemotron-specific evidence is limited to what the saved comparison proves—436 vs. 0 table-row blocks, 225 vs. 0 footnote blocks, and five pdfplumber-lost spans—not the expected fee-recall story.
+- The partial adversarial result is included as 10/10 controls (5/5 docs) and 8/8 attacks (4/5 docs), explicitly without a recall delta. The unscored fifth attack is a limitation, not counted as a miss or success.
+- Blank both key values in `.env.example` before publication. Added the missing `pypdfium2` runtime dependency required by the NVIDIA PDF-to-image path so fresh installs include what that implementation imports.

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clause"
+version = "0.1.0"
+description = "Plain-language explainer for financial documents"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "httpx",
+    "anthropic",
+    "reportlab",
+    "pdfplumber",
+    "python-multipart",
+    "pypdfium2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["clause*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+clause = ["prompts/*.txt"]

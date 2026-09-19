@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime artifacts
+.cache/
+runs/
+.env
+*.log
+
+# Generated data (PDFs can get large; golden.json stays tracked)
+data/docs/*.pdf
+data/adversarial_docs/*.pdf
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store

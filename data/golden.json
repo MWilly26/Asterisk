@@ -1,0 +1,1046 @@
+[
+  {
+    "doc_id": "eq_001",
+    "pdf": "data/docs/eq_001.pdf",
+    "ugly": "rotated_table",
+    "terms": {
+      "principal": 52065.0,
+      "stated_apr": 0.116,
+      "term_months": 36,
+      "payment_amount": 1719.37,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.059,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 35.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 52065.0,
+      "n_payments": 36,
+      "upfront_fees": 3071.84,
+      "total_cost": 64969.16,
+      "effective_apr": 0.158724
+    },
+    "traps": [
+      "T_CROSS_DEFAULT",
+      "T_APR_GAP"
+    ],
+    "trap_spans": {
+      "T_APR_GAP": "The Annual Percentage Rate of 11.60% stated in this Agreement reflects the contract interest rate only and does not include the Origination Fee or any other Fees, which are payable in addition to interest.",
+      "T_CROSS_DEFAULT": "Any default by Borrower under any other agreement for borrowed money or the lease of equipment, with Lender or with any third party, shall at Lender's option constitute an Event of Default under this Agreement, whether or not such default is cured or waived by the other creditor."
+    }
+  },
+  {
+    "doc_id": "eq_002",
+    "pdf": "data/docs/eq_002.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 8502.5,
+      "stated_apr": 0.12,
+      "term_months": 60,
+      "payment_amount": 189.13,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 150.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 50.0,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "flat",
+          "value": 500.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 8502.5,
+      "n_payments": 60,
+      "upfront_fees": 150.0,
+      "total_cost": 11497.8,
+      "effective_apr": 0.127857
+    },
+    "traps": [
+      "T_INSURANCE",
+      "T_PREPAY",
+      "T_CONFESSION"
+    ],
+    "trap_spans": {
+      "T_PREPAY": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days' prior written notice, provided that Borrower shall pay, together with such prepayment, a Prepayment Premium equal to $500.00.",
+      "T_CONFESSION": "The undersigned principal of Borrower hereby personally, absolutely, and unconditionally guarantees the full and punctual payment of all Obligations, and agrees that Lender may proceed directly against the guarantor and the guarantor's personal assets, including any residence, without first proceeding against Borrower or the Equipment.",
+      "T_INSURANCE": "Borrower shall obtain physical damage and liability insurance on the Equipment through the insurance program administered by Lender or its designated agent, the premiums for which shall be determined by Lender and added to each installment, and Borrower shall not substitute coverage from any other carrier without Lender's written consent."
+    }
+  },
+  {
+    "doc_id": "eq_003",
+    "pdf": "data/docs/eq_003.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 53650.0,
+      "stated_apr": 0.095,
+      "term_months": 60,
+      "payment_amount": 1168.44,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 75.0,
+          "financed": false
+        },
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.037,
+          "financed": true
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 55635.05,
+      "n_payments": 60,
+      "upfront_fees": 75.0,
+      "total_cost": 70181.4,
+      "effective_apr": 0.111342
+    },
+    "traps": [
+      "T_VENUE",
+      "T_UCC",
+      "T_ORIG_FEE"
+    ],
+    "trap_spans": {
+      "T_ORIG_FEE": "Borrower shall pay an Origination Fee of 3.70% of the principal amount, which the parties agree shall be capitalized into the Amount Financed rather than paid at closing, such that the total Amount Financed is $55,635.05.",
+      "T_UCC": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor.",
+      "T_VENUE": "This Agreement shall be governed by the laws of the State of Nevada. Borrower irrevocably submits to the exclusive jurisdiction of the state and federal courts located in Clark County, Nevada, waives any objection to venue in such courts, and agrees that any dispute shall be resolved by binding arbitration in Clark County, Nevada, at Borrower's expense."
+    }
+  },
+  {
+    "doc_id": "eq_004",
+    "pdf": "data/docs/eq_004.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 12730.0,
+      "stated_apr": 0.069,
+      "term_months": 48,
+      "payment_amount": 304.25,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 12730.0,
+      "n_payments": 48,
+      "upfront_fees": 0.0,
+      "total_cost": 14604.0,
+      "effective_apr": 0.069008
+    },
+    "traps": [],
+    "trap_spans": {}
+  },
+  {
+    "doc_id": "eq_005",
+    "pdf": "data/docs/eq_005.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 17450.0,
+      "stated_apr": 0.103,
+      "term_months": 24,
+      "payment_amount": 371.99,
+      "payment_frequency": "biweekly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 195.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 17450.0,
+      "n_payments": 52,
+      "upfront_fees": 195.0,
+      "total_cost": 19538.48,
+      "effective_apr": 0.114481
+    },
+    "traps": [
+      "T_INSURANCE",
+      "T_CONFESSION"
+    ],
+    "trap_spans": {
+      "T_CONFESSION": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFESS JUDGMENT AGAINST BORROWER, WITHOUT PRIOR NOTICE OR HEARING, FOR ALL OBLIGATIONS THEN DUE TOGETHER WITH COSTS AND ATTORNEYS' FEES OF FIFTEEN PERCENT (15%) OF THE AMOUNT DUE, AND BORROWER WAIVES ANY RIGHT TO NOTICE OR HEARING PRIOR TO THE ENTRY OF SUCH JUDGMENT.",
+      "T_INSURANCE": "Borrower shall obtain physical damage and liability insurance on the Equipment through the insurance program administered by Lender or its designated agent, the premiums for which shall be determined by Lender and added to each installment, and Borrower shall not substitute coverage from any other carrier without Lender's written consent."
+    }
+  },
+  {
+    "doc_id": "eq_006",
+    "pdf": "data/docs/eq_006.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 26300.0,
+      "stated_apr": 0.063,
+      "term_months": 24,
+      "payment_amount": 1169.19,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 125.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 35.0,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "percent_of_principal",
+          "value": 0.05,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 26300.0,
+      "n_payments": 24,
+      "upfront_fees": 125.0,
+      "total_cost": 28185.56,
+      "effective_apr": 0.067696
+    },
+    "traps": [
+      "T_VENUE",
+      "T_PREPAY",
+      "T_CONFESSION"
+    ],
+    "trap_spans": {
+      "T_PREPAY": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days' prior written notice, provided that Borrower shall pay, together with such prepayment, a Prepayment Premium equal to 5.00% of the then outstanding principal balance.",
+      "T_CONFESSION": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFESS JUDGMENT AGAINST BORROWER, WITHOUT PRIOR NOTICE OR HEARING, FOR ALL OBLIGATIONS THEN DUE TOGETHER WITH COSTS AND ATTORNEYS' FEES OF FIFTEEN PERCENT (15%) OF THE AMOUNT DUE, AND BORROWER WAIVES ANY RIGHT TO NOTICE OR HEARING PRIOR TO THE ENTRY OF SUCH JUDGMENT.",
+      "T_VENUE": "Any claim or controversy arising out of this Agreement shall be resolved exclusively by binding arbitration administered in Salt Lake County, Utah, before a single arbitrator selected by Lender, and Borrower waives any right to a jury trial or to participate in any class action. The laws of the State of Utah shall govern."
+    }
+  },
+  {
+    "doc_id": "eq_007",
+    "pdf": "data/docs/eq_007.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 37300.0,
+      "stated_apr": 0.126,
+      "term_months": 36,
+      "payment_amount": 1249.61,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 125.0,
+          "financed": false
+        },
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.056,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 50.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 37300.0,
+      "n_payments": 36,
+      "upfront_fees": 2213.8,
+      "total_cost": 47199.76,
+      "effective_apr": 0.16925
+    },
+    "traps": [
+      "T_CROSS_DEFAULT",
+      "T_APR_GAP",
+      "T_VENUE"
+    ],
+    "trap_spans": {
+      "T_APR_GAP": "Borrower acknowledges that the stated rate of 12.60% is exclusive of the Origination Fee and the other Fees set forth in the Schedule of Fees, and that the total cost of credit to Borrower is accordingly greater than the stated rate would indicate.",
+      "T_CROSS_DEFAULT": "Any default by Borrower under any other agreement for borrowed money or the lease of equipment, with Lender or with any third party, shall at Lender's option constitute an Event of Default under this Agreement, whether or not such default is cured or waived by the other creditor.",
+      "T_VENUE": "This Agreement shall be governed by the laws of the State of Arizona. Borrower irrevocably submits to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, waives any objection to venue in such courts, and agrees that any dispute shall be resolved by binding arbitration in Maricopa County, Arizona, at Borrower's expense."
+    }
+  },
+  {
+    "doc_id": "eq_008",
+    "pdf": "data/docs/eq_008.pdf",
+    "ugly": "two_column",
+    "terms": {
+      "principal": 11115.0,
+      "stated_apr": 0.145,
+      "term_months": 48,
+      "payment_amount": 306.53,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 75.0,
+          "financed": false
+        },
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.067,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 50.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 11115.0,
+      "n_payments": 48,
+      "upfront_fees": 819.71,
+      "total_cost": 15533.15,
+      "effective_apr": 0.187604
+    },
+    "traps": [
+      "T_UCC",
+      "T_APR_GAP",
+      "T_CROSS_DEFAULT"
+    ],
+    "trap_spans": {
+      "T_APR_GAP": "Borrower acknowledges that the stated rate of 14.50% is exclusive of the Origination Fee and the other Fees set forth in the Schedule of Fees, and that the total cost of credit to Borrower is accordingly greater than the stated rate would indicate.",
+      "T_CROSS_DEFAULT": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease, credit facility, or obligation owed to Lender, any affiliate of Lender, or any other creditor, regardless of whether such other creditor has declared a default or accelerated such obligation.",
+      "T_UCC": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor."
+    }
+  },
+  {
+    "doc_id": "eq_009",
+    "pdf": "data/docs/eq_009.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 23162.5,
+      "stated_apr": 0.074,
+      "term_months": 48,
+      "payment_amount": 558.96,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 75.0,
+          "financed": false
+        },
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.075,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "percent_of_payment",
+          "value": 0.05,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 23162.5,
+      "n_payments": 48,
+      "upfront_fees": 1812.19,
+      "total_cost": 28642.27,
+      "effective_apr": 0.11687
+    },
+    "traps": [
+      "T_APR_GAP",
+      "T_CROSS_DEFAULT",
+      "T_LATE_CASCADE"
+    ],
+    "trap_spans": {
+      "T_APR_GAP": "The Annual Percentage Rate of 7.40% stated in this Agreement reflects the contract interest rate only and does not include the Origination Fee or any other Fees, which are payable in addition to interest.",
+      "T_CROSS_DEFAULT": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease, credit facility, or obligation owed to Lender, any affiliate of Lender, or any other creditor, regardless of whether such other creditor has declared a default or accelerated such obligation.",
+      "T_LATE_CASCADE": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 5.00% of the overdue installment, and the interest rate applicable to the entire outstanding balance shall thereafter be increased by six (6) percentage points for the remainder of the term."
+    }
+  },
+  {
+    "doc_id": "eq_010",
+    "pdf": "data/docs/eq_010.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 55052.5,
+      "stated_apr": 0.122,
+      "term_months": 48,
+      "payment_amount": 1455.16,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 150.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 50.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 55052.5,
+      "n_payments": 48,
+      "upfront_fees": 150.0,
+      "total_cost": 69997.68,
+      "effective_apr": 0.123468
+    },
+    "traps": [],
+    "trap_spans": {}
+  },
+  {
+    "doc_id": "eq_011",
+    "pdf": "data/docs/eq_011.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 7125.0,
+      "stated_apr": 0.117,
+      "term_months": 48,
+      "payment_amount": 186.58,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 195.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "percent_of_principal",
+          "value": 0.02,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 7125.0,
+      "n_payments": 48,
+      "upfront_fees": 195.0,
+      "total_cost": 9150.84,
+      "effective_apr": 0.131933
+    },
+    "traps": [
+      "T_INSURANCE",
+      "T_PREPAY",
+      "T_UCC"
+    ],
+    "trap_spans": {
+      "T_PREPAY": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days' prior written notice, provided that Borrower shall pay, together with such prepayment, a Prepayment Premium equal to 2.00% of the then outstanding principal balance.",
+      "T_INSURANCE": "Borrower shall obtain physical damage and liability insurance on the Equipment through the insurance program administered by Lender or its designated agent, the premiums for which shall be determined by Lender and added to each installment, and Borrower shall not substitute coverage from any other carrier without Lender's written consent.",
+      "T_UCC": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor."
+    }
+  },
+  {
+    "doc_id": "eq_012",
+    "pdf": "data/docs/eq_012.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 11602.5,
+      "stated_apr": 0.069,
+      "term_months": 60,
+      "payment_amount": 207.92,
+      "payment_frequency": "monthly",
+      "balloon_amount": 2288.84,
+      "fees": [
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.047,
+          "financed": true
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 12147.82,
+      "n_payments": 60,
+      "upfront_fees": 0.0,
+      "total_cost": 14764.04,
+      "effective_apr": 0.085974
+    },
+    "traps": [
+      "T_UCC",
+      "T_ORIG_FEE",
+      "T_BALLOON",
+      "T_AUTO_RENEW"
+    ],
+    "trap_spans": {
+      "T_BALLOON": "In addition to the final regular installment, Borrower shall pay a balloon payment in the amount of $2,288.84 on the final Payment Date, representing the remaining balance of the Amount Financed.",
+      "T_ORIG_FEE": "An Origination Fee equal to 4.70% of the principal amount ($545.32) shall be charged and shall be added to and financed as part of the Amount Financed, and interest shall accrue on such fee at the rate stated herein.",
+      "T_UCC": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor.",
+      "T_AUTO_RENEW": "Unless Borrower delivers written notice of termination to Lender not less than ninety (90) nor more than one hundred twenty (120) days prior to the final Payment Date, this Agreement shall automatically renew for an additional term of 60 months on the same terms, and installments shall continue to be due in the same amount for the renewal term."
+    }
+  },
+  {
+    "doc_id": "eq_013",
+    "pdf": "data/docs/eq_013.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 20900.0,
+      "stated_apr": 0.076,
+      "term_months": 48,
+      "payment_amount": 506.31,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "late",
+          "basis": "percent_of_payment",
+          "value": 0.1,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 20900.0,
+      "n_payments": 48,
+      "upfront_fees": 0.0,
+      "total_cost": 24302.88,
+      "effective_apr": 0.075995
+    },
+    "traps": [
+      "T_AUTO_RENEW",
+      "T_VENUE",
+      "T_LATE_CASCADE"
+    ],
+    "trap_spans": {
+      "T_LATE_CASCADE": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 10.00% of the overdue installment, and the interest rate applicable to the entire outstanding balance shall thereafter be increased by six (6) percentage points for the remainder of the term.",
+      "T_AUTO_RENEW": "Unless Borrower delivers written notice of termination to Lender not less than ninety (90) nor more than one hundred twenty (120) days prior to the final Payment Date, this Agreement shall automatically renew for an additional term of 48 months on the same terms, and installments shall continue to be due in the same amount for the renewal term.",
+      "T_VENUE": "This Agreement shall be governed by the laws of the State of Florida. Borrower irrevocably submits to the exclusive jurisdiction of the state and federal courts located in Miami-Dade County, Florida, waives any objection to venue in such courts, and agrees that any dispute shall be resolved by binding arbitration in Miami-Dade County, Florida, at Borrower's expense."
+    }
+  },
+  {
+    "doc_id": "eq_014",
+    "pdf": "data/docs/eq_014.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 5185.0,
+      "stated_apr": 0.06,
+      "term_months": 60,
+      "payment_amount": 87.73,
+      "payment_frequency": "monthly",
+      "balloon_amount": 872.86,
+      "fees": [
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 35.0,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "percent_of_principal",
+          "value": 0.02,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 5185.0,
+      "n_payments": 60,
+      "upfront_fees": 0.0,
+      "total_cost": 6136.66,
+      "effective_apr": 0.06
+    },
+    "traps": [
+      "T_PREPAY",
+      "T_BALLOON"
+    ],
+    "trap_spans": {
+      "T_BALLOON": "A final balloon payment of $872.86, in addition to the regular installment, shall be due and payable together with the final installment.",
+      "T_PREPAY": "In the event Borrower elects to pay the Amount Financed prior to the final Payment Date for any reason, including refinancing or sale of the Equipment, Borrower shall pay a Prepayment Premium of 2.00% of the then outstanding principal balance in addition to all accrued interest and other amounts then due."
+    }
+  },
+  {
+    "doc_id": "eq_015",
+    "pdf": "data/docs/eq_015.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 5822.5,
+      "stated_apr": 0.111,
+      "term_months": 36,
+      "payment_amount": 190.9,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 250.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 35.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 5822.5,
+      "n_payments": 36,
+      "upfront_fees": 250.0,
+      "total_cost": 7122.4,
+      "effective_apr": 0.141644
+    },
+    "traps": [
+      "T_CONFESSION",
+      "T_INSURANCE",
+      "T_CROSS_DEFAULT"
+    ],
+    "trap_spans": {
+      "T_CROSS_DEFAULT": "Any default by Borrower under any other agreement for borrowed money or the lease of equipment, with Lender or with any third party, shall at Lender's option constitute an Event of Default under this Agreement, whether or not such default is cured or waived by the other creditor.",
+      "T_CONFESSION": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFESS JUDGMENT AGAINST BORROWER, WITHOUT PRIOR NOTICE OR HEARING, FOR ALL OBLIGATIONS THEN DUE TOGETHER WITH COSTS AND ATTORNEYS' FEES OF FIFTEEN PERCENT (15%) OF THE AMOUNT DUE, AND BORROWER WAIVES ANY RIGHT TO NOTICE OR HEARING PRIOR TO THE ENTRY OF SUCH JUDGMENT.",
+      "T_INSURANCE": "Lender shall procure insurance covering the Equipment on Borrower's behalf and shall bill Borrower for the cost of such coverage, together with an administrative charge, at rates established from time to time by Lender in its sole discretion. Borrower waives any right to select its own insurer."
+    }
+  },
+  {
+    "doc_id": "eq_016",
+    "pdf": "data/docs/eq_016.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 10752.5,
+      "stated_apr": 0.065,
+      "term_months": 60,
+      "payment_amount": 210.39,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 75.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 50.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 10752.5,
+      "n_payments": 60,
+      "upfront_fees": 75.0,
+      "total_cost": 12698.4,
+      "effective_apr": 0.067938
+    },
+    "traps": [],
+    "trap_spans": {}
+  },
+  {
+    "doc_id": "eq_017",
+    "pdf": "data/docs/eq_017.pdf",
+    "ugly": "tiny_footnotes",
+    "terms": {
+      "principal": 7742.5,
+      "stated_apr": 0.128,
+      "term_months": 48,
+      "payment_amount": 98.45,
+      "payment_frequency": "biweekly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 75.0,
+          "financed": false
+        },
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.033,
+          "financed": true
+        },
+        {
+          "kind": "late",
+          "basis": "percent_of_payment",
+          "value": 0.08,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "flat",
+          "value": 750.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 7998.0,
+      "n_payments": 104,
+      "upfront_fees": 75.0,
+      "total_cost": 10313.8,
+      "effective_apr": 0.151132
+    },
+    "traps": [
+      "T_PREPAY",
+      "T_LATE_CASCADE",
+      "T_ORIG_FEE"
+    ],
+    "trap_spans": {
+      "T_ORIG_FEE": "An Origination Fee equal to 3.30% of the principal amount ($255.50) shall be charged and shall be added to and financed as part of the Amount Financed, and interest shall accrue on such fee at the rate stated herein.",
+      "T_PREPAY": "In the event Borrower elects to pay the Amount Financed prior to the final Payment Date for any reason, including refinancing or sale of the Equipment, Borrower shall pay a Prepayment Premium of $750.00 in addition to all accrued interest and other amounts then due.",
+      "T_LATE_CASCADE": "Borrower shall pay a late charge of 8.00% of any installment not paid when due, which late charge shall be added to the outstanding balance and shall itself bear interest, and upon any second late payment the rate applicable to all Obligations shall increase to the stated rate plus six (6) percentage points."
+    }
+  },
+  {
+    "doc_id": "eq_018",
+    "pdf": "data/docs/eq_018.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 9225.0,
+      "stated_apr": 0.142,
+      "term_months": 48,
+      "payment_amount": 253.01,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.073,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "percent_of_payment",
+          "value": 0.05,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 9225.0,
+      "n_payments": 48,
+      "upfront_fees": 673.42,
+      "total_cost": 12817.9,
+      "effective_apr": 0.184037
+    },
+    "traps": [
+      "T_UCC",
+      "T_LATE_CASCADE",
+      "T_APR_GAP"
+    ],
+    "trap_spans": {
+      "T_APR_GAP": "The Annual Percentage Rate of 14.20% stated in this Agreement reflects the contract interest rate only and does not include the Origination Fee or any other Fees, which are payable in addition to interest.",
+      "T_LATE_CASCADE": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 5.00% of the overdue installment, and the interest rate applicable to the entire outstanding balance shall thereafter be increased by six (6) percentage points for the remainder of the term.",
+      "T_UCC": "As security for the Obligations, Borrower hereby grants to Lender a continuing security interest in the Equipment and in all of Borrower's other assets, whether now owned or hereafter acquired, including all accounts, inventory, equipment, general intangibles, deposit accounts, and proceeds thereof, and authorizes Lender to file a UCC-1 financing statement describing the collateral as all assets of Borrower."
+    }
+  },
+  {
+    "doc_id": "eq_019",
+    "pdf": "data/docs/eq_019.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 9150.0,
+      "stated_apr": 0.092,
+      "term_months": 36,
+      "payment_amount": 291.82,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 250.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "percent_of_payment",
+          "value": 0.1,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "percent_of_principal",
+          "value": 0.05,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 9150.0,
+      "n_payments": 36,
+      "upfront_fees": 250.0,
+      "total_cost": 10755.52,
+      "effective_apr": 0.111056
+    },
+    "traps": [
+      "T_LATE_CASCADE",
+      "T_AUTO_RENEW",
+      "T_PREPAY"
+    ],
+    "trap_spans": {
+      "T_PREPAY": "In the event Borrower elects to pay the Amount Financed prior to the final Payment Date for any reason, including refinancing or sale of the Equipment, Borrower shall pay a Prepayment Premium of 5.00% of the then outstanding principal balance in addition to all accrued interest and other amounts then due.",
+      "T_LATE_CASCADE": "If any installment is not received within ten (10) days of its due date, Borrower shall pay a late charge equal to 10.00% of the overdue installment, and the interest rate applicable to the entire outstanding balance shall thereafter be increased by six (6) percentage points for the remainder of the term.",
+      "T_AUTO_RENEW": "This Agreement shall renew automatically for successive terms of 36 months each unless either party gives written notice of non-renewal within the thirty (30) day window beginning one hundred fifty (150) days before the end of the then current term; installments during any renewal term shall equal the installments due during the initial term."
+    }
+  },
+  {
+    "doc_id": "eq_020",
+    "pdf": "data/docs/eq_020.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 11162.5,
+      "stated_apr": 0.102,
+      "term_months": 48,
+      "payment_amount": 284.18,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 95.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        },
+        {
+          "kind": "prepayment",
+          "basis": "percent_of_principal",
+          "value": 0.05,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 11162.5,
+      "n_payments": 48,
+      "upfront_fees": 95.0,
+      "total_cost": 13735.64,
+      "effective_apr": 0.106523
+    },
+    "traps": [
+      "T_VENUE",
+      "T_PREPAY",
+      "T_CONFESSION",
+      "T_AUTO_RENEW"
+    ],
+    "trap_spans": {
+      "T_PREPAY": "Borrower may prepay the Obligations in full, but not in part, upon thirty (30) days' prior written notice, provided that Borrower shall pay, together with such prepayment, a Prepayment Premium equal to 5.00% of the then outstanding principal balance.",
+      "T_CONFESSION": "BORROWER HEREBY IRREVOCABLY AUTHORIZES AND EMPOWERS ANY ATTORNEY OF ANY COURT OF RECORD TO APPEAR FOR BORROWER AND CONFESS JUDGMENT AGAINST BORROWER, WITHOUT PRIOR NOTICE OR HEARING, FOR ALL OBLIGATIONS THEN DUE TOGETHER WITH COSTS AND ATTORNEYS' FEES OF FIFTEEN PERCENT (15%) OF THE AMOUNT DUE, AND BORROWER WAIVES ANY RIGHT TO NOTICE OR HEARING PRIOR TO THE ENTRY OF SUCH JUDGMENT.",
+      "T_AUTO_RENEW": "This Agreement shall renew automatically for successive terms of 48 months each unless either party gives written notice of non-renewal within the thirty (30) day window beginning one hundred fifty (150) days before the end of the then current term; installments during any renewal term shall equal the installments due during the initial term.",
+      "T_VENUE": "Any claim or controversy arising out of this Agreement shall be resolved exclusively by binding arbitration administered in Miami-Dade County, Florida, before a single arbitrator selected by Lender, and Borrower waives any right to a jury trial or to participate in any class action. The laws of the State of Florida shall govern."
+    }
+  },
+  {
+    "doc_id": "eq_021",
+    "pdf": "data/docs/eq_021.pdf",
+    "ugly": null,
+    "terms": {
+      "principal": 6900.0,
+      "stated_apr": 0.133,
+      "term_months": 36,
+      "payment_amount": 181.4,
+      "payment_frequency": "monthly",
+      "balloon_amount": 2678.94,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 125.0,
+          "financed": false
+        },
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.038,
+          "financed": true
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 7162.2,
+      "n_payments": 36,
+      "upfront_fees": 125.0,
+      "total_cost": 9334.34,
+      "effective_apr": 0.163935
+    },
+    "traps": [
+      "T_ORIG_FEE",
+      "T_CROSS_DEFAULT",
+      "T_BALLOON"
+    ],
+    "trap_spans": {
+      "T_BALLOON": "A final balloon payment of $2,678.94, in addition to the regular installment, shall be due and payable together with the final installment.",
+      "T_ORIG_FEE": "Borrower shall pay an Origination Fee of 3.80% of the principal amount, which the parties agree shall be capitalized into the Amount Financed rather than paid at closing, such that the total Amount Financed is $7,162.20.",
+      "T_CROSS_DEFAULT": "It shall also constitute an Event of Default hereunder if Borrower or any guarantor defaults under any other loan, lease, credit facility, or obligation owed to Lender, any affiliate of Lender, or any other creditor, regardless of whether such other creditor has declared a default or accelerated such obligation."
+    }
+  },
+  {
+    "doc_id": "eq_022",
+    "pdf": "data/docs/eq_022.pdf",
+    "ugly": "rotated_table",
+    "terms": {
+      "principal": 42457.5,
+      "stated_apr": 0.089,
+      "term_months": 24,
+      "payment_amount": 1451.71,
+      "payment_frequency": "monthly",
+      "balloon_amount": 12715.24,
+      "fees": [
+        {
+          "kind": "doc",
+          "basis": "flat",
+          "value": 125.0,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 42457.5,
+      "n_payments": 24,
+      "upfront_fees": 125.0,
+      "total_cost": 47681.28,
+      "effective_apr": 0.09136
+    },
+    "traps": [
+      "T_BALLOON",
+      "T_UCC",
+      "T_INSURANCE"
+    ],
+    "trap_spans": {
+      "T_BALLOON": "In addition to the final regular installment, Borrower shall pay a balloon payment in the amount of $12,715.24 on the final Payment Date, representing the remaining balance of the Amount Financed.",
+      "T_INSURANCE": "Lender shall procure insurance covering the Equipment on Borrower's behalf and shall bill Borrower for the cost of such coverage, together with an administrative charge, at rates established from time to time by Lender in its sole discretion. Borrower waives any right to select its own insurer.",
+      "T_UCC": "Borrower grants Lender a first-priority security interest in all personal property of Borrower of every kind and description, wherever located and whether now existing or hereafter arising, and not merely the Equipment, and Borrower authorizes Lender to file financing statements in any jurisdiction covering all assets of the debtor."
+    }
+  },
+  {
+    "doc_id": "eq_023",
+    "pdf": "data/docs/eq_023.pdf",
+    "ugly": "two_column",
+    "terms": {
+      "principal": 7830.0,
+      "stated_apr": 0.12,
+      "term_months": 60,
+      "payment_amount": 174.17,
+      "payment_frequency": "monthly",
+      "balloon_amount": null,
+      "fees": [
+        {
+          "kind": "origination",
+          "basis": "percent_of_principal",
+          "value": 0.089,
+          "financed": false
+        },
+        {
+          "kind": "late",
+          "basis": "flat",
+          "value": 25.0,
+          "financed": false
+        }
+      ]
+    },
+    "computed": {
+      "amount_financed": 7830.0,
+      "n_payments": 60,
+      "upfront_fees": 696.87,
+      "total_cost": 11147.07,
+      "effective_apr": 0.161861
+    },
+    "traps": [
+      "T_AUTO_RENEW",
+      "T_APR_GAP"
+    ],
+    "trap_spans": {
+      "T_APR_GAP": "The Annual Percentage Rate of 12.00% stated in this Agreement reflects the contract interest rate only and does not include the Origination Fee or any other Fees, which are payable in addition to interest.",
+      "T_AUTO_RENEW": "Unless Borrower delivers written notice of termination to Lender not less than ninety (90) nor more than one hundred twenty (120) days prior to the final Payment Date, this Agreement shall automatically renew for an additional term of 60 months on the same terms, and installments shall continue to be due in the same amount for the renewal term."
+    }
+  }
+]
